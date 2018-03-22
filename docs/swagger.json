@@ -1,1216 +1,1681 @@
 {
-  "swagger" : "2.0",
-  "info" : {
-    "description" : "<p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>",
-    "version" : "0.5.0",
-    "title" : "govinfo Link Service",
-    "contact" : { },
-    "license" : {
-      "name" : "Apache 2.0"
+  "swagger": "2.0",
+  "info": {
+    "description":
+      "<p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>",
+    "version": "0.5.0",
+    "title": "govinfo-link-service-client-js",
+    "contact": {},
+    "license": {
+      "name": "Apache 2.0"
     }
   },
-  "host" : "www.govinfo.gov",
-  "basePath" : "/link",
-  "tags" : [ {
-    "name" : "crpt.summary",
-    "description" : "Crpt Controller"
-  }, {
-    "name" : "bills.summary",
-    "description" : "Bills Controller"
-  }, {
-    "name" : "cpd.summary",
-    "description" : "Cpd Controller"
-  }, {
-    "name" : "ccal.summary",
-    "description" : "Ccal Controller"
-  }, {
-    "name" : "cfr.summary",
-    "description" : "Cfr Controller"
-  }, {
-    "name" : "chrg.summary",
-    "description" : "Chrg Controller"
-  }, {
-    "name" : "cdoc.summary",
-    "description" : "Cdoc Controller"
-  }, {
-    "name" : "plaw.summary",
-    "description" : "Plaw Controller"
-  }, {
-    "name" : "uscode.summary",
-    "description" : "Uscode Controller"
-  }, {
-    "name" : "fr.summary",
-    "description" : "Fr Controller"
-  }, {
-    "name" : "statute.summary",
-    "description" : "Statute Controller"
-  }, {
-    "name" : "crec.summary",
-    "description" : "Crec Controller"
-  }, {
-    "name" : "cprt.summary",
-    "description" : "Cprt Controller"
-  } ],
-  "paths" : {
-    "/bills/{congress}/{billtype}/{billnum}" : {
-      "get" : {
-        "tags" : [ "Congressional Bills (BILLS)" ],
-        "summary" : "Query: bill number, bill type, congress, bill version OR most recent",
-        "operationId" : "billsFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "billtype",
-          "in" : "path",
-          "description" : "Values are hr, s, hjres, sjres, hconres, sconres, hres, sres.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "hr", "s", "hjres", "sjres", "hconres", "sconres", "hres", "sres" ]
-        }, {
-          "name" : "billnum",
-          "in" : "path",
-          "description" : "This is the numerical bill number. Sample value is 1027.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "billversion",
-          "in" : "query",
-          "description" : "If bill version is not provided, the most recent version of a bill is returned. Values are as, ash, ath, ats, cdh, cds, cph, cps, eah, eas, eh, enr, eph, es, fah, fph, fps, hdh, hds, ih, iph, ips, is, lth, lts, nat, oph, ops, pap, pav, pch, pcs, pp, pwah, rah, ras, rch, rcs, rdh, rds, re, reah, renr, res, rfh, rfs, rft, rh, rhuc, rih, ris, rs, rth, rts, s_p, sas, sc, mostrecent.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "as", "ash", "ath", "ats", "cdh", "cds", "cph", "cps", "eah", "eas", "eh", "enr", "eph", "es", "fah", "fph", "fps", "hdh", "hds", "ih", "iph", "ips", "is", "lth", "lts", "nat", "oph", "ops", "pap", "pav", "pch", "pcs", "pp", "pwah", "rah", "ras", "rch", "rcs", "rdh", "rds", "re", "reah", "renr", "res", "rfh", "rfs", "rft", "rh", "rhuc", "rih", "ris", "rs", "rth", "rts", "s_p", "sas", "sc", "mostrecent" ]
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "xml", "html", "mods", "premis", "details", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+  "host": "www.govinfo.gov",
+  "basePath": "/link",
+  "tags": [
+    {
+      "name": "crpt.summary",
+      "description": "Crpt Controller"
+    },
+    {
+      "name": "bills.summary",
+      "description": "Bills Controller"
+    },
+    {
+      "name": "cpd.summary",
+      "description": "Cpd Controller"
+    },
+    {
+      "name": "ccal.summary",
+      "description": "Ccal Controller"
+    },
+    {
+      "name": "cfr.summary",
+      "description": "Cfr Controller"
+    },
+    {
+      "name": "chrg.summary",
+      "description": "Chrg Controller"
+    },
+    {
+      "name": "cdoc.summary",
+      "description": "Cdoc Controller"
+    },
+    {
+      "name": "plaw.summary",
+      "description": "Plaw Controller"
+    },
+    {
+      "name": "uscode.summary",
+      "description": "Uscode Controller"
+    },
+    {
+      "name": "fr.summary",
+      "description": "Fr Controller"
+    },
+    {
+      "name": "statute.summary",
+      "description": "Statute Controller"
+    },
+    {
+      "name": "crec.summary",
+      "description": "Crec Controller"
+    },
+    {
+      "name": "cprt.summary",
+      "description": "Cprt Controller"
+    }
+  ],
+  "paths": {
+    "/bills/{congress}/{billtype}/{billnum}": {
+      "get": {
+        "tags": ["Congressional Bills (BILLS)"],
+        "summary":
+          "Query: bill number, bill type, congress, bill version OR most recent",
+        "operationId": "billsFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "billtype",
+            "in": "path",
+            "description":
+              "Values are hr, s, hjres, sjres, hconres, sconres, hres, sres.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "hr",
+              "s",
+              "hjres",
+              "sjres",
+              "hconres",
+              "sconres",
+              "hres",
+              "sres"
+            ]
+          },
+          {
+            "name": "billnum",
+            "in": "path",
+            "description":
+              "This is the numerical bill number. Sample value is 1027.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "billversion",
+            "in": "query",
+            "description":
+              "If bill version is not provided, the most recent version of a bill is returned. Values are as, ash, ath, ats, cdh, cds, cph, cps, eah, eas, eh, enr, eph, es, fah, fph, fps, hdh, hds, ih, iph, ips, is, lth, lts, nat, oph, ops, pap, pav, pch, pcs, pp, pwah, rah, ras, rch, rcs, rdh, rds, re, reah, renr, res, rfh, rfs, rft, rh, rhuc, rih, ris, rs, rth, rts, s_p, sas, sc, mostrecent.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "as",
+              "ash",
+              "ath",
+              "ats",
+              "cdh",
+              "cds",
+              "cph",
+              "cps",
+              "eah",
+              "eas",
+              "eh",
+              "enr",
+              "eph",
+              "es",
+              "fah",
+              "fph",
+              "fps",
+              "hdh",
+              "hds",
+              "ih",
+              "iph",
+              "ips",
+              "is",
+              "lth",
+              "lts",
+              "nat",
+              "oph",
+              "ops",
+              "pap",
+              "pav",
+              "pch",
+              "pcs",
+              "pp",
+              "pwah",
+              "rah",
+              "ras",
+              "rch",
+              "rcs",
+              "rdh",
+              "rds",
+              "re",
+              "reah",
+              "renr",
+              "res",
+              "rfh",
+              "rfs",
+              "rft",
+              "rh",
+              "rhuc",
+              "rih",
+              "ris",
+              "rs",
+              "rth",
+              "rts",
+              "s_p",
+              "sas",
+              "sc",
+              "mostrecent"
+            ]
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "xml",
+              "html",
+              "mods",
+              "premis",
+              "details",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/ccal/{chamber}/{section}" : {
-      "get" : {
-        "tags" : [ "Congressional Calendars (CCAL)" ],
-        "summary" : "Query: chamber, section, publish date OR most recent",
-        "operationId" : "ccalFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "chamber",
-          "in" : "path",
-          "description" : "This is the chamber of Congress. Values are house, senate.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "house", "senate" ]
-        }, {
-          "name" : "section",
-          "in" : "path",
-          "description" : "This is the name of the calendar section. Recommend encoding special characters and spaces (%20). Common sample values include Unanimous Consent Agreements, Cover and Special Orders, Subjects on the Table, Union Calendar, Bills in Conference, Special Legislative Days.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "publishdate",
-          "in" : "query",
-          "description" : "If date is not provided, the most recent version of the calendar is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/ccal/{chamber}/{section}": {
+      "get": {
+        "tags": ["Congressional Calendars (CCAL)"],
+        "summary": "Query: chamber, section, publish date OR most recent",
+        "operationId": "ccalFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "chamber",
+            "in": "path",
+            "description":
+              "This is the chamber of Congress. Values are house, senate.",
+            "required": true,
+            "type": "string",
+            "enum": ["house", "senate"]
+          },
+          {
+            "name": "section",
+            "in": "path",
+            "description":
+              "This is the name of the calendar section. Recommend encoding special characters and spaces (%20). Common sample values include Unanimous Consent Agreements, Cover and Special Orders, Subjects on the Table, Union Calendar, Bills in Conference, Special Legislative Days.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "publishdate",
+            "in": "query",
+            "description":
+              "If date is not provided, the most recent version of the calendar is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cdoc/{congress}/{doctype}/{docnum}" : {
-      "get" : {
-        "tags" : [ "Congressional Documents (CDOC)" ],
-        "summary" : "Query: congress, document type, document number",
-        "operationId" : "cdocFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numberical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "doctype",
-          "in" : "path",
-          "description" : "This is the congressional document type. Congressional documents can either be house documents, senate documents, or treaty documents. Values are hdoc, sdoc, tdoc.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "hdoc", "sdoc", "tdoc" ]
-        }, {
-          "name" : "docnum",
-          "in" : "path",
-          "description" : "This is the numerical document number. Congressional documents are numbered consecutively within a Congress for each document type. Sample value is 15. Note: congressional documents that have been processed through the GPO collection are currently not available through the FDsys API.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cdoc/{congress}/{doctype}/{docnum}": {
+      "get": {
+        "tags": ["Congressional Documents (CDOC)"],
+        "summary": "Query: congress, document type, document number",
+        "operationId": "cdocFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numberical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "doctype",
+            "in": "path",
+            "description":
+              "This is the congressional document type. Congressional documents can either be house documents, senate documents, or treaty documents. Values are hdoc, sdoc, tdoc.",
+            "required": true,
+            "type": "string",
+            "enum": ["hdoc", "sdoc", "tdoc"]
+          },
+          {
+            "name": "docnum",
+            "in": "path",
+            "description":
+              "This is the numerical document number. Congressional documents are numbered consecutively within a Congress for each document type. Sample value is 15. Note: congressional documents that have been processed through the GPO collection are currently not available through the FDsys API.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cdoc/{congress}/{jacketid}" : {
-      "get" : {
-        "tags" : [ "Congressional Documents (CDOC)" ],
-        "summary" : "Query: congress, jacket number",
-        "operationId" : "cdocJacketFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numberical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "jacketid",
-          "in" : "path",
-          "description" : "This is the GPO jacket number. The jacket number is typically listed on the first page in the lower left corner. Jacket number is unique within a Congress. Sample value is 66-208.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cdoc/{congress}/{jacketid}": {
+      "get": {
+        "tags": ["Congressional Documents (CDOC)"],
+        "summary": "Query: congress, jacket number",
+        "operationId": "cdocJacketFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numberical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "jacketid",
+            "in": "path",
+            "description":
+              "This is the GPO jacket number. The jacket number is typically listed on the first page in the lower left corner. Jacket number is unique within a Congress. Sample value is 66-208.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cfr/{titlenum}/{partnum}" : {
-      "get" : {
-        "tags" : [ "Code of Federal Regulations (CFR)" ],
-        "summary" : "Query: title number, part number, section number, year OR most recent",
-        "operationId" : "cfrFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "titlenum",
-          "in" : "path",
-          "description" : "Title number. Sample value is 3.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "partnum",
-          "in" : "path",
-          "description" : "Part number. Sample value is 100",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "sectionnum",
-          "in" : "query",
-          "description" : "This is the section number. Sample value is 1. If section number is not provided the entire part will be returned.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "year",
-          "in" : "query",
-          "description" : "This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the CFR section or part is returned. Default is most recent. Sample value is 2011.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "xml", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cfr/{titlenum}/{partnum}": {
+      "get": {
+        "tags": ["Code of Federal Regulations (CFR)"],
+        "summary":
+          "Query: title number, part number, section number, year OR most recent",
+        "operationId": "cfrFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "titlenum",
+            "in": "path",
+            "description": "Title number. Sample value is 3.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "partnum",
+            "in": "path",
+            "description": "Part number. Sample value is 100",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sectionnum",
+            "in": "query",
+            "description":
+              "This is the section number. Sample value is 1. If section number is not provided the entire part will be returned.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description":
+              "This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the CFR section or part is returned. Default is most recent. Sample value is 2011.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "xml",
+              "mods",
+              "premis",
+              "details",
+              "context",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/chrg/{congress}/house/{committee}/{serialnumber}" : {
-      "get" : {
-        "tags" : [ "Congressional Hearings (CHRG)" ],
-        "summary" : "Query: congress, chamber, committee, house serial number",
-        "operationId" : "chrgHouseFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 109.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "committee",
-          "in" : "path",
-          "description" : "This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is energy.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "serialnumber",
-          "in" : "path",
-          "description" : "This is the numerical house committee serial number. House hearings are not numbered consecutively across committees within a Congress. For example, 109-138 could exist for both the Energy Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 138.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/chrg/{congress}/house/{committee}/{serialnumber}": {
+      "get": {
+        "tags": ["Congressional Hearings (CHRG)"],
+        "summary": "Query: congress, chamber, committee, house serial number",
+        "operationId": "chrgHouseFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 109.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "committee",
+            "in": "path",
+            "description":
+              "This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is energy.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "serialnumber",
+            "in": "path",
+            "description":
+              "This is the numerical house committee serial number. House hearings are not numbered consecutively across committees within a Congress. For example, 109-138 could exist for both the Energy Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 138.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/chrg/{congress}/senate/{hearingnumber}" : {
-      "get" : {
-        "tags" : [ "Congressional Hearings (CHRG)" ],
-        "summary" : "Query: congress, chamber, senate hearing number",
-        "operationId" : "chrgSenateFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "hearingnumber",
-          "in" : "path",
-          "description" : "This is the numerical Senate hearing number. Senate hearings are numbered consecutively across committees within a Congress. Sample value is 122.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/chrg/{congress}/senate/{hearingnumber}": {
+      "get": {
+        "tags": ["Congressional Hearings (CHRG)"],
+        "summary": "Query: congress, chamber, senate hearing number",
+        "operationId": "chrgSenateFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "hearingnumber",
+            "in": "path",
+            "description":
+              "This is the numerical Senate hearing number. Senate hearings are numbered consecutively across committees within a Congress. Sample value is 122.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/chrg/{congress}/{jacketid}" : {
-      "get" : {
-        "tags" : [ "Congressional Hearings (CHRG)" ],
-        "summary" : "Query: congress, jacket number",
-        "operationId" : "chrgJacketFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 105.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "jacketid",
-          "in" : "path",
-          "description" : "This is the GPO jacket number. The jacket number is typically listed on the first page in the lower left corner. Jacket number is unique within a Congress. Sample value is 48-707.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/chrg/{congress}/{jacketid}": {
+      "get": {
+        "tags": ["Congressional Hearings (CHRG)"],
+        "summary": "Query: congress, jacket number",
+        "operationId": "chrgJacketFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 105.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "jacketid",
+            "in": "path",
+            "description":
+              "This is the GPO jacket number. The jacket number is typically listed on the first page in the lower left corner. Jacket number is unique within a Congress. Sample value is 48-707.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cpd/{doctype}/{docnum}" : {
-      "get" : {
-        "tags" : [ "Compilation of Presidential Documents (CPD)" ],
-        "summary" : "Query: document type, document number",
-        "operationId" : "cpdFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "doctype",
-          "in" : "path",
-          "description" : "Values are executiveorder, proclamation, determination.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "executiveorder", "proclamation", "determination" ]
-        }, {
-          "name" : "docnum",
-          "in" : "path",
-          "description" : "This is the numerical document number. Sample value is 13514.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cpd/{doctype}/{docnum}": {
+      "get": {
+        "tags": ["Compilation of Presidential Documents (CPD)"],
+        "summary": "Query: document type, document number",
+        "operationId": "cpdFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "doctype",
+            "in": "path",
+            "description":
+              "Values are executiveorder, proclamation, determination.",
+            "required": true,
+            "type": "string",
+            "enum": ["executiveorder", "proclamation", "determination"]
+          },
+          {
+            "name": "docnum",
+            "in": "path",
+            "description":
+              "This is the numerical document number. Sample value is 13514.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "related"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cpd/{year}" : {
-      "get" : {
-        "tags" : [ "Compilation of Presidential Documents (CPD)" ],
-        "summary" : "Query: dcpd type OR dcpd number",
-        "description" : "Query: dcpd type OR dcpd number",
-        "operationId" : "cpdDcpdFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "year",
-          "in" : "path",
-          "description" : "This is the four digit numerical year. The first Daily Compilation of Presidential Documents (dcpd) document was published on 1/20/2009. Sample value is 2010.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "dcpdnumber",
-          "in" : "query",
-          "description" : "This is the five digit numerical identifier on a dcpd document. It does not include the four digit year. Document are numbered sequentially within each year. Leading zeros can be supplied but are not required. Sample value is 00123. Either dcpdnumber or dcpdtype is required. If a document contains both a dcpdnumber and a dcpdtype, we recommend providing dcpdtype instead of dcpdnumber. If both are provided, precedence is given to dcpdnumber.",
-          "required" : false,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "dcpdtype",
-          "in" : "query",
-          "description" : "This is the type of dcpd document. Values are digest, nominations, checklist, actsapproved. Either dcpdnumber or dcpdtype is required. If a document contains both a dcpdnumber and a dcpdtype, we recommend providing dcpdtype instead of dcpdnumber. If both are provided, precedence is given to dcpdnumber.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "digest", "nominations", "checklist", "actsapproved" ]
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cpd/{year}": {
+      "get": {
+        "tags": ["Compilation of Presidential Documents (CPD)"],
+        "summary": "Query: dcpd type OR dcpd number",
+        "description": "Query: dcpd type OR dcpd number",
+        "operationId": "cpdDcpdFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "description":
+              "This is the four digit numerical year. The first Daily Compilation of Presidential Documents (dcpd) document was published on 1/20/2009. Sample value is 2010.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "dcpdnumber",
+            "in": "query",
+            "description":
+              "This is the five digit numerical identifier on a dcpd document. It does not include the four digit year. Document are numbered sequentially within each year. Leading zeros can be supplied but are not required. Sample value is 00123. Either dcpdnumber or dcpdtype is required. If a document contains both a dcpdnumber and a dcpdtype, we recommend providing dcpdtype instead of dcpdnumber. If both are provided, precedence is given to dcpdnumber.",
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "dcpdtype",
+            "in": "query",
+            "description":
+              "This is the type of dcpd document. Values are digest, nominations, checklist, actsapproved. Either dcpdnumber or dcpdtype is required. If a document contains both a dcpdnumber and a dcpdtype, we recommend providing dcpdtype instead of dcpdnumber. If both are provided, precedence is given to dcpdnumber.",
+            "required": false,
+            "type": "string",
+            "enum": ["digest", "nominations", "checklist", "actsapproved"]
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "related"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cprt/{congress}/house/{printnum}/{committee}" : {
-      "get" : {
-        "tags" : [ "Congressional Committee Prints (CPRT)" ],
-        "summary" : "Query: congress, chamber, house print number, committee",
-        "operationId" : "cprtHouseFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 109.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "printnum",
-          "in" : "path",
-          "description" : "This is the numerical House committee print number. House prints are not numbered consecutively across committees within a Congress. For example, 109-2 could exist for both the Ways and Means Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 2.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "committee",
-          "in" : "path",
-          "description" : "This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is Ways and Means.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cprt/{congress}/house/{printnum}/{committee}": {
+      "get": {
+        "tags": ["Congressional Committee Prints (CPRT)"],
+        "summary": "Query: congress, chamber, house print number, committee",
+        "operationId": "cprtHouseFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 109.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "printnum",
+            "in": "path",
+            "description":
+              "This is the numerical House committee print number. House prints are not numbered consecutively across committees within a Congress. For example, 109-2 could exist for both the Ways and Means Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 2.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "committee",
+            "in": "path",
+            "description":
+              "This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is Ways and Means.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cprt/{congress}/senate/{printnum}" : {
-      "get" : {
-        "tags" : [ "Congressional Committee Prints (CPRT)" ],
-        "summary" : "Query: congress, chamber, senate print number",
-        "operationId" : "cprtSenateFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "printnum",
-          "in" : "path",
-          "description" : "This is the numerical Senate print number. Senate prints are numbered consecutively across committees within a Congress. Sample value is 4.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cprt/{congress}/senate/{printnum}": {
+      "get": {
+        "tags": ["Congressional Committee Prints (CPRT)"],
+        "summary": "Query: congress, chamber, senate print number",
+        "operationId": "cprtSenateFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "printnum",
+            "in": "path",
+            "description":
+              "This is the numerical Senate print number. Senate prints are numbered consecutively across committees within a Congress. Sample value is 4.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/cprt/{congress}/{jacketid}" : {
-      "get" : {
-        "tags" : [ "Congressional Committee Prints (CPRT)" ],
-        "summary" : "Query: congress, jacket number",
-        "operationId" : "cprtJacketFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "jacketid",
-          "in" : "path",
-          "description" : "This is the GPO jacket number. The jacket number is typically listed on the first page in the lower left corner. Jacket number is unique within a Congress. Sample value is 74-558.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/cprt/{congress}/{jacketid}": {
+      "get": {
+        "tags": ["Congressional Committee Prints (CPRT)"],
+        "summary": "Query: congress, jacket number",
+        "operationId": "cprtJacketFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "jacketid",
+            "in": "path",
+            "description":
+              "This is the GPO jacket number. The jacket number is typically listed on the first page in the lower left corner. Jacket number is unique within a Congress. Sample value is 74-558.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/crec/cas/{congress}/{billtype}/{billnum}" : {
-      "get" : {
-        "tags" : [ "Congressional Record - Daily (CREC)" ],
-        "summary" : "Query: congress, bill number, bill type",
-        "operationId" : "crecTypeFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 115.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "billtype",
-          "in" : "path",
-          "description" : "Values are hr, s, hjres, sjres, hconres, sconres, hres, sres.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "hr", "s", "hjres", "sjres", "hconres", "sconres", "hres", "sres" ]
-        }, {
-          "name" : "billnum",
-          "in" : "path",
-          "description" : "This is the numerical bill number. Sample value is 997.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is html. Other values are pdf, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/crec/cas/{congress}/{billtype}/{billnum}": {
+      "get": {
+        "tags": ["Congressional Record - Daily (CREC)"],
+        "summary": "Query: congress, bill number, bill type",
+        "operationId": "crecTypeFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 115.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "billtype",
+            "in": "path",
+            "description":
+              "Values are hr, s, hjres, sjres, hconres, sconres, hres, sres.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "hr",
+              "s",
+              "hjres",
+              "sjres",
+              "hconres",
+              "sconres",
+              "hres",
+              "sres"
+            ]
+          },
+          {
+            "name": "billnum",
+            "in": "path",
+            "description":
+              "This is the numerical bill number. Sample value is 997.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is html. Other values are pdf, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "details", "context", "related"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/crec/section/{section}" : {
-      "get" : {
-        "tags" : [ "Congressional Record - Daily (CREC)" ],
-        "summary" : "Query: section, publish date OR most recent",
-        "operationId" : "crecSectionFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "section",
-          "in" : "path",
-          "description" : "This is the Congressional Record section. Values are dailydigest, senate, house, extensions.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "dailydigest", "senate", "house", "extensions" ]
-        }, {
-          "name" : "publishdate",
-          "in" : "query",
-          "description" : "If date is not provided, the most recent version of the Congressional Record section is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are mods, premis, details, context, related. Note: mods, premis, and details are returned at the package level because they are not available for section level granules.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/crec/section/{section}": {
+      "get": {
+        "tags": ["Congressional Record - Daily (CREC)"],
+        "summary": "Query: section, publish date OR most recent",
+        "operationId": "crecSectionFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "section",
+            "in": "path",
+            "description":
+              "This is the Congressional Record section. Values are dailydigest, senate, house, extensions.",
+            "required": true,
+            "type": "string",
+            "enum": ["dailydigest", "senate", "house", "extensions"]
+          },
+          {
+            "name": "publishdate",
+            "in": "query",
+            "description":
+              "If date is not provided, the most recent version of the Congressional Record section is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are mods, premis, details, context, related. Note: mods, premis, and details are returned at the package level because they are not available for section level granules.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "mods", "premis", "details", "context", "related"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/crec/type/{type}" : {
-      "get" : {
-        "tags" : [ "Congressional Record - Daily (CREC)" ],
-        "summary" : "Query: document type, publish date OR most recent",
-        "operationId" : "crecTypeFetchUsingGET_1",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "type",
-          "in" : "path",
-          "description" : "This is the type of Congressional Record document within each section. Please see tables below for values.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "ddallother", "ddschamber", "ddscmeetings", "ddhchamber", "ddhcmeetings", "ddnewpublaws", "ddahead", "ddcommitteemeetings", "ddresumeongoing", "ddresumefinal", "ddendmatter", "allother", "prayer", "pledge", "adjournment", "executivecomm", "jointmeetings", "enrolledsigned", "enrolledpresented", "msgpresident", "technicalcorrections", "personalexplain", "recognizing", "honoring", "commemorating", "celebrating", "commending", "passingof", "tributeto", "congratulations", "retirement", "designating", "inmemoryof", "hdesignation", "hjournal", "hmessage", "hclerk", "hannouncement", "hmorningdebate", "hreporton", "hconfreporton", "hsenatebillreferred", "hlegprogram", "htimelimit", "hexpenditure", "hcorrections", "hpetitions", "hamendments", "hearmarks", "senateallother", "sappointment", "sorder", "sschedule", "ssschedule", "smeasuredcal", "smbusiness", "sconbusiness", "srecess", "sadditional", "smsghouse", "scommreport", "sexecreport", "spetandmem", "sreferred", "sreadfirst", "sdischarged", "sdichargeref", "smsgexec", "sintrobills", "ssubmission", "scosponsors", "sstatements", "ssubmitted", "sresolution", "samendmentssub", "samendmenttext", "snotice", "sauthority", "sprivileges", "sprogram", "scalendar", "sconsentagree", "sconsentrequest", "sorderfor", "sexecsession", "sexeccal", "slegislative", "snominations", "swithdrawal", "sconfirmations", "scloture", "esenatecommittee", "eintroductionof" ]
-        }, {
-          "name" : "publishdate",
-          "in" : "query",
-          "description" : "If date is not provided, the most recent version of the Congressional Record document is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/crec/type/{type}": {
+      "get": {
+        "tags": ["Congressional Record - Daily (CREC)"],
+        "summary": "Query: document type, publish date OR most recent",
+        "operationId": "crecTypeFetchUsingGET_1",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "type",
+            "in": "path",
+            "description":
+              "This is the type of Congressional Record document within each section. Please see tables below for values.",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "ddallother",
+              "ddschamber",
+              "ddscmeetings",
+              "ddhchamber",
+              "ddhcmeetings",
+              "ddnewpublaws",
+              "ddahead",
+              "ddcommitteemeetings",
+              "ddresumeongoing",
+              "ddresumefinal",
+              "ddendmatter",
+              "allother",
+              "prayer",
+              "pledge",
+              "adjournment",
+              "executivecomm",
+              "jointmeetings",
+              "enrolledsigned",
+              "enrolledpresented",
+              "msgpresident",
+              "technicalcorrections",
+              "personalexplain",
+              "recognizing",
+              "honoring",
+              "commemorating",
+              "celebrating",
+              "commending",
+              "passingof",
+              "tributeto",
+              "congratulations",
+              "retirement",
+              "designating",
+              "inmemoryof",
+              "hdesignation",
+              "hjournal",
+              "hmessage",
+              "hclerk",
+              "hannouncement",
+              "hmorningdebate",
+              "hreporton",
+              "hconfreporton",
+              "hsenatebillreferred",
+              "hlegprogram",
+              "htimelimit",
+              "hexpenditure",
+              "hcorrections",
+              "hpetitions",
+              "hamendments",
+              "hearmarks",
+              "senateallother",
+              "sappointment",
+              "sorder",
+              "sschedule",
+              "ssschedule",
+              "smeasuredcal",
+              "smbusiness",
+              "sconbusiness",
+              "srecess",
+              "sadditional",
+              "smsghouse",
+              "scommreport",
+              "sexecreport",
+              "spetandmem",
+              "sreferred",
+              "sreadfirst",
+              "sdischarged",
+              "sdichargeref",
+              "smsgexec",
+              "sintrobills",
+              "ssubmission",
+              "scosponsors",
+              "sstatements",
+              "ssubmitted",
+              "sresolution",
+              "samendmentssub",
+              "samendmenttext",
+              "snotice",
+              "sauthority",
+              "sprivileges",
+              "sprogram",
+              "scalendar",
+              "sconsentagree",
+              "sconsentrequest",
+              "sorderfor",
+              "sexecsession",
+              "sexeccal",
+              "slegislative",
+              "snominations",
+              "swithdrawal",
+              "sconfirmations",
+              "scloture",
+              "esenatecommittee",
+              "eintroductionof"
+            ]
+          },
+          {
+            "name": "publishdate",
+            "in": "query",
+            "description":
+              "If date is not provided, the most recent version of the Congressional Record document is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "html",
+              "mods",
+              "premis",
+              "details",
+              "context",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/crec/{volume}/{pageprefix}/{page}" : {
-      "get" : {
-        "tags" : [ "Congressional Record - Daily (CREC)" ],
-        "summary" : "Query: volume, page prefix, page number",
-        "operationId" : "crecVolumeFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "volume",
-          "in" : "path",
-          "description" : "This is the numerical volume number. Sample value is 158.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "pageprefix",
-          "in" : "path",
-          "description" : "This is the page prefix that corresponds to the Congressional Record section. Sections are Daily Digest, House, Senate, and Extensions of Remarks. Values are d, h, s, e.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "d", "h", "s", "e" ]
-        }, {
-          "name" : "page",
-          "in" : "path",
-          "description" : "This is the numerical page number. Congressional record pages are numbered consecutively in a section within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 234.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/crec/{volume}/{pageprefix}/{page}": {
+      "get": {
+        "tags": ["Congressional Record - Daily (CREC)"],
+        "summary": "Query: volume, page prefix, page number",
+        "operationId": "crecVolumeFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "volume",
+            "in": "path",
+            "description":
+              "This is the numerical volume number. Sample value is 158.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "pageprefix",
+            "in": "path",
+            "description":
+              "This is the page prefix that corresponds to the Congressional Record section. Sections are Daily Digest, House, Senate, and Extensions of Remarks. Values are d, h, s, e.",
+            "required": true,
+            "type": "string",
+            "enum": ["d", "h", "s", "e"]
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "description":
+              "This is the numerical page number. Congressional record pages are numbered consecutively in a section within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 234.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "html",
+              "mods",
+              "premis",
+              "details",
+              "context",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/crpt/{congress}/{associatedbillnum}" : {
-      "get" : {
-        "tags" : [ "Congressional Reports (CRPT)" ],
-        "summary" : "Query: associated bill, congress",
-        "operationId" : "crptBillFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "associatedbillnum",
-          "in" : "path",
-          "description" : "Congressional reports often accompany a specific bill. Note: some associated bill numbers may produce multiple results. This will occur when two different reports are issues to accompany a single bill within a single Congress. In this case, the desired report may not be returned. When enabled, the API List Service will return a reference to both reports. Sample value is h.r.2297.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/crpt/{congress}/{associatedbillnum}": {
+      "get": {
+        "tags": ["Congressional Reports (CRPT)"],
+        "summary": "Query: associated bill, congress",
+        "operationId": "crptBillFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "associatedbillnum",
+            "in": "path",
+            "description":
+              "Congressional reports often accompany a specific bill. Note: some associated bill numbers may produce multiple results. This will occur when two different reports are issues to accompany a single bill within a single Congress. In this case, the desired report may not be returned. When enabled, the API List Service will return a reference to both reports. Sample value is h.r.2297.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "html",
+              "mods",
+              "premis",
+              "details",
+              "context",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/crpt/{congress}/{doctype}/{reportnum}" : {
-      "get" : {
-        "tags" : [ "Congressional Reports (CRPT)" ],
-        "summary" : "Query: congress, report type, report number",
-        "operationId" : "crptReportFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 112.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "doctype",
-          "in" : "path",
-          "description" : "This is the congressional report type. Congressional reports can either be house reports, senate reports, or senate executive reports. Values are hrpt, srpt, erpt.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "hrpt", "srpt", "erpt" ]
-        }, {
-          "name" : "reportnum",
-          "in" : "path",
-          "description" : "This is the numerical report number. Congressional reports are numbered consecutively within a Congress for each report type. Sample value is 154.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/crpt/{congress}/{doctype}/{reportnum}": {
+      "get": {
+        "tags": ["Congressional Reports (CRPT)"],
+        "summary": "Query: congress, report type, report number",
+        "operationId": "crptReportFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 112.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "doctype",
+            "in": "path",
+            "description":
+              "This is the congressional report type. Congressional reports can either be house reports, senate reports, or senate executive reports. Values are hrpt, srpt, erpt.",
+            "required": true,
+            "type": "string",
+            "enum": ["hrpt", "srpt", "erpt"]
+          },
+          {
+            "name": "reportnum",
+            "in": "path",
+            "description":
+              "This is the numerical report number. Congressional reports are numbered consecutively within a Congress for each report type. Sample value is 154.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "html",
+              "mods",
+              "premis",
+              "details",
+              "context",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/fr/{frdocnum}" : {
-      "get" : {
-        "tags" : [ "Federal Register (FR)" ],
-        "summary" : "Query: Federal Register document number",
-        "operationId" : "frDocFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "frdocnum",
-          "in" : "path",
-          "description" : "Required - The is the FR doc number that is listed at the end of each Federal Register document. Sample value is 2010-32535.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/fr/{frdocnum}": {
+      "get": {
+        "tags": ["Federal Register (FR)"],
+        "summary": "Query: Federal Register document number",
+        "operationId": "frDocFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "frdocnum",
+            "in": "path",
+            "description":
+              "Required - The is the FR doc number that is listed at the end of each Federal Register document. Sample value is 2010-32535.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "html",
+              "mods",
+              "premis",
+              "details",
+              "context",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/fr/{volume}/{page}" : {
-      "get" : {
-        "tags" : [ "Federal Register (FR)" ],
-        "summary" : "Query: volume, page number",
-        "operationId" : "frVolumeFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "volume",
-          "in" : "path",
-          "description" : "This is the numerical volume number. Sample value is 76.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page",
-          "in" : "path",
-          "description" : "This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/fr/{volume}/{page}": {
+      "get": {
+        "tags": ["Federal Register (FR)"],
+        "summary": "Query: volume, page number",
+        "operationId": "frVolumeFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "volume",
+            "in": "path",
+            "description":
+              "This is the numerical volume number. Sample value is 76.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "description":
+              "This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "pdf",
+              "html",
+              "mods",
+              "premis",
+              "details",
+              "context",
+              "related"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/plaw/{congress}/{associatedbillnum}" : {
-      "get" : {
-        "tags" : [ "Public and Private Laws (PLAW)" ],
-        "summary" : "Query: associated bill number, congress",
-        "operationId" : "plawBillFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 111.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "associatedbillnum",
-          "in" : "path",
-          "description" : "Public and private laws are associated with a primary bill number. The primary bill number is listed at the beginning of the law. Sample value is S. 3397.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/plaw/{congress}/{associatedbillnum}": {
+      "get": {
+        "tags": ["Public and Private Laws (PLAW)"],
+        "summary": "Query: associated bill number, congress",
+        "operationId": "plawBillFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 111.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "associatedbillnum",
+            "in": "path",
+            "description":
+              "Public and private laws are associated with a primary bill number. The primary bill number is listed at the beginning of the law. Sample value is S. 3397.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "related"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/plaw/{congress}/{lawtype}/{lawnum}" : {
-      "get" : {
-        "tags" : [ "Public and Private Laws (PLAW)" ],
-        "summary" : "Query: congress, law type, law number",
-        "operationId" : "plawTypeFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 111.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "lawtype",
-          "in" : "path",
-          "description" : "This is the law type. Laws can either be public laws or private laws. Values are public, private.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "public", "private" ]
-        }, {
-          "name" : "lawnum",
-          "in" : "path",
-          "description" : "This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 78.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/plaw/{congress}/{lawtype}/{lawnum}": {
+      "get": {
+        "tags": ["Public and Private Laws (PLAW)"],
+        "summary": "Query: congress, law type, law number",
+        "operationId": "plawTypeFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 111.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "lawtype",
+            "in": "path",
+            "description":
+              "This is the law type. Laws can either be public laws or private laws. Values are public, private.",
+            "required": true,
+            "type": "string",
+            "enum": ["public", "private"]
+          },
+          {
+            "name": "lawnum",
+            "in": "path",
+            "description":
+              "This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 78.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "related"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/plaw/{statutecitation}" : {
-      "get" : {
-        "tags" : [ "Public and Private Laws (PLAW)" ],
-        "summary" : "Query: Statutes at Large citation",
-        "operationId" : "plawStatuteFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "statutecitation",
-          "in" : "path",
-          "description" : "A Statutes at Large citation is listed at the top of each page of a law. Use a + (plus sign) in place of spaces in the citation. Sample value is 124+stat+2859.",
-          "required" : true,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "related" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/plaw/{statutecitation}": {
+      "get": {
+        "tags": ["Public and Private Laws (PLAW)"],
+        "summary": "Query: Statutes at Large citation",
+        "operationId": "plawStatuteFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "statutecitation",
+            "in": "path",
+            "description":
+              "A Statutes at Large citation is listed at the top of each page of a law. Use a + (plus sign) in place of spaces in the citation. Sample value is 124+stat+2859.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, related.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "related"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/statute/{congress}/{lawtype}/{lawnum}" : {
-      "get" : {
-        "tags" : [ "Statutes at Large (STATUTE)" ],
-        "summary" : "Query: congress, law type, law number",
-        "operationId" : "statuteTypeFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "congress",
-          "in" : "path",
-          "description" : "This is the numerical Congress number. Sample value is 108.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "lawtype",
-          "in" : "path",
-          "description" : "This is the law type. Laws can either be public laws or private laws. Values are public, private.",
-          "required" : true,
-          "type" : "string",
-          "enum" : [ "public", "private" ]
-        }, {
-          "name" : "lawnum",
-          "in" : "path",
-          "description" : "This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 481.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/statute/{congress}/{lawtype}/{lawnum}": {
+      "get": {
+        "tags": ["Statutes at Large (STATUTE)"],
+        "summary": "Query: congress, law type, law number",
+        "operationId": "statuteTypeFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "congress",
+            "in": "path",
+            "description":
+              "This is the numerical Congress number. Sample value is 108.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "lawtype",
+            "in": "path",
+            "description":
+              "This is the law type. Laws can either be public laws or private laws. Values are public, private.",
+            "required": true,
+            "type": "string",
+            "enum": ["public", "private"]
+          },
+          {
+            "name": "lawnum",
+            "in": "path",
+            "description":
+              "This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 481.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/statute/{volume}/{page}" : {
-      "get" : {
-        "tags" : [ "Statutes at Large (STATUTE)" ],
-        "summary" : "Query: volume, page number",
-        "operationId" : "statuteVolumeFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "volume",
-          "in" : "path",
-          "description" : "This is the numerical volume number. Sample value is 118.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "page",
-          "in" : "path",
-          "description" : "This is the numerical page number. Statutes at Large pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 3910.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/statute/{volume}/{page}": {
+      "get": {
+        "tags": ["Statutes at Large (STATUTE)"],
+        "summary": "Query: volume, page number",
+        "operationId": "statuteVolumeFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "volume",
+            "in": "path",
+            "description":
+              "This is the numerical volume number. Sample value is 118.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "page",
+            "in": "path",
+            "description":
+              "This is the numerical page number. Statutes at Large pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 3910.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     },
-    "/uscode/{title}/{section}" : {
-      "get" : {
-        "tags" : [ "United States Code (USCODE)" ],
-        "summary" : "Query: title number, type, section, year OR most recent",
-        "operationId" : "uscodeFetchUsingGET",
-        "consumes" : [ "application/json" ],
-        "produces" : [ "*/*" ],
-        "parameters" : [ {
-          "name" : "title",
-          "in" : "path",
-          "description" : "This is the title number. Sample value is 5.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "section",
-          "in" : "path",
-          "description" : "This is the section number. Sample value is 104.",
-          "required" : true,
-          "type" : "integer",
-          "format" : "int32"
-        }, {
-          "name" : "type",
-          "in" : "query",
-          "description" : "This is the U.S. Code section type. Values are usc, uscappendix. Default value is usc.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "usc", "uscappendix" ]
-        }, {
-          "name" : "year",
-          "in" : "query",
-          "description" : "This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the U.S. Code section is returned. Default is most recent. Sample value is 2010.",
-          "required" : false,
-          "type" : "string"
-        }, {
-          "name" : "link-type",
-          "in" : "query",
-          "description" : "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
-          "required" : false,
-          "type" : "string",
-          "enum" : [ "pdf", "html", "mods", "premis", "details", "context" ]
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "OK",
-            "schema" : {
-              "type" : "object",
-              "properties" : { }
+    "/uscode/{title}/{section}": {
+      "get": {
+        "tags": ["United States Code (USCODE)"],
+        "summary": "Query: title number, type, section, year OR most recent",
+        "operationId": "uscodeFetchUsingGET",
+        "consumes": ["application/json"],
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "title",
+            "in": "path",
+            "description": "This is the title number. Sample value is 5.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "section",
+            "in": "path",
+            "description": "This is the section number. Sample value is 104.",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description":
+              "This is the U.S. Code section type. Values are usc, uscappendix. Default value is usc.",
+            "required": false,
+            "type": "string",
+            "enum": ["usc", "uscappendix"]
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description":
+              "This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the U.S. Code section is returned. Default is most recent. Sample value is 2010.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "link-type",
+            "in": "query",
+            "description":
+              "This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.",
+            "required": false,
+            "type": "string",
+            "enum": ["pdf", "html", "mods", "premis", "details", "context"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "object",
+              "properties": {}
             }
           }
         }
       }
     }
   },
-  "definitions" : { }
+  "definitions": {}
 }
