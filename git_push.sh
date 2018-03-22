@@ -35,11 +35,11 @@ git commit -m "$release_note"
 git_remote=`git remote`
 if [ "$git_remote" = "" ]; then # git remote not defined
 
-    if [ "$GIT_TOKEN" = "" ]; then
-        echo "[INFO] \$GIT_TOKEN (environment variable) is not set. Using the Git credential in your environment."
+    if [ "$GITHUB_ACCESS_TOKEN" = "" ]; then
+        echo "[INFO] \$GITHUB_ACCESS_TOKEN (environment variable) is not set. Using the Git credential in your environment."
         git remote add origin https://github.com/${git_user_id}/${git_repo_id}.git
     else
-        git remote add origin https://${git_user_id}:${GIT_TOKEN}@github.com/${git_user_id}/${git_repo_id}.git
+        git remote add origin https://${git_user_id}:${GITHUB_ACCESS_TOKEN}@github.com/${git_user_id}/${git_repo_id}.git
     fi
 
 fi

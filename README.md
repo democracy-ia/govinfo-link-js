@@ -186,19 +186,19 @@ All URIs are relative to *https://www.govinfo.gov/link*
 
 ### Models
 
-1. [CodeOfFederalRegulations](./docs/CodeOfFederalRegulationsCFRApi.md)
-1. [CompilationOfPresidentialDocuments](./docs/CompilationOfPresidentialDocumentsCPDApi.md)
-1. [CongressionalBills](./docs/CongressionalBillsBILLSApi.md)
-1. [CongressionalCalendars](./docs/CongressionalCalendarsCCALApi.md)
-1. [CongressionalCommitteePrints](./docs/CongressionalCommitteePrintsCPRTApi.md)
-1. [CongressionalDocuments](./docs/CongressionalDocumentsCDOCApi.md)
-1. [CongressionalHearings](./docs/CongressionalHearingsCHRGApi.md)
-1. [CongressionalRecordDaily](./docs/CongressionalRecordDailyCRECApi.md)
-1. [CongressionalReports](./docs/CongressionalReportsCRPTApi.md)
-1. [FederalRegister](./docs/FederalRegisterFRApi.md)
-1. [PublicAndPrivateLaws](./docs/PublicAndPrivateLawsPLAWApi.md)
-1. [StatutesAtLarge](./docs/StatutesAtLargeSTATUTEApi.md)
-1. [UnitedStatesCode](./docs/UnitedStatesCodeUSCODEApi.md)
+1. [CodeOfFederalRegulations](./docs/CodeOfFederalRegulations.md)
+1. [CompilationOfPresidentialDocuments](./docs/CompilationOfPresidentialDocuments.md)
+1. [CongressionalBills](./docs/CongressionalBills.md)
+1. [CongressionalCalendars](./docs/CongressionalCalendars.md)
+1. [CongressionalCommitteePrints](./docs/CongressionalCommitteePrints.md)
+1. [CongressionalDocuments](./docs/CongressionalDocuments.md)
+1. [CongressionalHearings](./docs/CongressionalHearings.md)
+1. [CongressionalRecordDaily](./docs/CongressionalRecordDaily.md)
+1. [CongressionalReports](./docs/CongressionalReports.md)
+1. [FederalRegister](./docs/FederalRegister.md)
+1. [PublicAndPrivateLaws](./docs/PublicAndPrivateLaws.md)
+1. [StatutesAtLarge](./docs/StatutesAtLarge.md)
+1. [UnitedStatesCode](./docs/UnitedStatesCode.md)
 
 ### Open API (Swagger) specifications
 
