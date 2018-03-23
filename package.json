@@ -157,7 +157,7 @@
     "lint:md": "prettier ./**/*.md -prose-wrap always --write",
     "posttest": "npm run security",
     "posttest:ci:coverage:codacy":
-      "cat ./lib/__tests__/coverage/lcov.info | codacy-coverage",
+      "cat ./test/coverage/lcov.info | codacy-coverage",
     "precommit": "lint-staged",
     "prepare": "npm run lint && npm run security",
     "prepublishOnly": "npm run prepare",
