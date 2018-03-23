@@ -26,7 +26,7 @@ Query: congress, document type, document number
 ### Example
 
 ```javascript
-const { CongressionalDocuments } = require('govinfo-link-service-client-js')
+const { CongressionalDocuments } = require('govinfo-link-js')
 
 const api = new CongressionalDocuments()
 
@@ -83,7 +83,7 @@ Query: congress, jacket number
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CongressionalDocuments()
 

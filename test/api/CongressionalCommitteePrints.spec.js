@@ -1,5 +1,5 @@
 /**
- * Govinfo-link-service-client-js
+ * govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -34,7 +34,7 @@
   let instance
 
   beforeEach(() => {
-    instance = new govinfoLinkService.UnitedStatesCode()
+    instance = new govinfoLinkService.CongressionalCommitteePrints()
   })
 
   const getProperty = function (object, getter, property) {
@@ -51,12 +51,38 @@
     else { object[property] = value }
   }
 
-  describe('UnitedStatesCode', () => {
-    describe('uscodeFetchUsingGET', () => {
-      it('should call uscodeFetchUsingGET successfully', (done) => {
+  describe('CongressionalCommitteePrints', () => {
+    describe('cprtHouseFetchUsingGET', () => {
+      it('should call cprtHouseFetchUsingGET successfully', (done) => {
         /*
-         *Uncomment below and update the code to test uscodeFetchUsingGET
-         *instance.uscodeFetchUsingGET(function(error) {
+         *Uncomment below and update the code to test cprtHouseFetchUsingGET
+         *instance.cprtHouseFetchUsingGET(function(error) {
+         *  if (error) throw error;
+         *expect().to.be();
+         *});
+         */
+
+        done()
+      })
+    })
+    describe('cprtJacketFetchUsingGET', () => {
+      it('should call cprtJacketFetchUsingGET successfully', (done) => {
+        /*
+         *Uncomment below and update the code to test cprtJacketFetchUsingGET
+         *instance.cprtJacketFetchUsingGET(function(error) {
+         *  if (error) throw error;
+         *expect().to.be();
+         *});
+         */
+
+        done()
+      })
+    })
+    describe('cprtSenateFetchUsingGET', () => {
+      it('should call cprtSenateFetchUsingGET successfully', (done) => {
+        /*
+         *Uncomment below and update the code to test cprtSenateFetchUsingGET
+         *instance.cprtSenateFetchUsingGET(function(error) {
          *  if (error) throw error;
          *expect().to.be();
          *});

@@ -23,7 +23,7 @@ Query: title number, type, section, year OR most recent
 ### Example
 
 ```javascript
-const { UnitedStatesCode } = require('govinfo-link-service-client-js')
+const { UnitedStatesCode } = require('govinfo-link-js')
 
 const api = new UnitedStatesCode()
 

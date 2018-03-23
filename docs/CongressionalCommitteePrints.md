@@ -23,9 +23,7 @@ Query: congress, chamber, house print number, committee
 ### Example
 
 ```javascript
-const {
-  CongressionalCommitteePrints
-} = require('govinfo-link-service-client-js')
+const { CongressionalCommitteePrints } = require('govinfo-link-js')
 
 const api = new CongressionalCommitteePrints()
 
@@ -82,7 +80,7 @@ Query: congress, jacket number
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CongressionalCommitteePrints()
 
@@ -136,7 +134,7 @@ Query: congress, chamber, senate print number
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CongressionalCommitteePrints()
 

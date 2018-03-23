@@ -28,7 +28,7 @@ Query: dcpd type OR dcpd number
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CompilationOfPresidentialDocuments()
 
@@ -83,7 +83,7 @@ Query: document type, document number
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CompilationOfPresidentialDocuments()
 

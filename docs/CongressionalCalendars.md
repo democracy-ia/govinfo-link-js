@@ -19,7 +19,7 @@ Query: chamber, section, publish date OR most recent
 ### Example
 
 ```javascript
-const { CongressionalCalendars } = require('govinfo-link-service-client-js')
+const { CongressionalCalendars } = require('govinfo-link-js')
 
 const api = new CongressionalCalendars()
 

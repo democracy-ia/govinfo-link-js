@@ -44,7 +44,7 @@ Query: congress, chamber, committee, house serial number
 ### Example
 
 ```javascript
-const { CongressionalHearings } = require('govinfo-link-service-client-js')
+const { CongressionalHearings } = require('govinfo-link-js')
 
 const api = new CongressionalHearings()
 
@@ -103,7 +103,7 @@ Query: congress, jacket number
 ### Example
 
 ```javascript
-const { CongressionalHearings } = require('govinfo-link-service-client-js')
+const { CongressionalHearings } = require('govinfo-link-js')
 
 const api = new CongressionalHearings()
 
@@ -157,7 +157,7 @@ Query: congress, chamber, senate hearing number
 ### Example
 
 ```javascript
-const { CongressionalHearings } = require('govinfo-link-service-client-js')
+const { CongressionalHearings } = require('govinfo-link-js')
 
 const api = new CongressionalHearings()
 

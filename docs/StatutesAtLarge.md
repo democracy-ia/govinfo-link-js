@@ -20,7 +20,7 @@ Query: congress, law type, law number
 ### Example
 
 ```javascript
-const { StatutesAtLarge } = require('govinfo-link-service-client-js')
+const { StatutesAtLarge } = require('govinfo-link-js')
 
 const api = new StatutesAtLarge()
 
@@ -77,7 +77,7 @@ Query: volume, page number
 ### Example
 
 ```javascript
-const { StatutesAtLarge } = require('govinfo-link-service-client-js')
+const { StatutesAtLarge } = require('govinfo-link-js')
 
 const api = new StatutesAtLarge()
 

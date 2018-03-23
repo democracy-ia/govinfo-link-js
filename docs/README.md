@@ -1,6 +1,6 @@
 # API references
 
-## ![JavaScript logo][logo-js-image] govinfo-link-service-client-js
+## ![JavaScript logo][logo-js-image] govinfo-link-js
 
 ## Models
 

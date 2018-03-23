@@ -44,7 +44,7 @@ Query: bill number, bill type, congress, bill version OR most recent
 ### Example
 
 ```javascript
-const { CongressionalBills } = require('govinfo-link-service-client-js')
+const { CongressionalBills } = require('govinfo-link-js')
 
 const api = new CongressionalBills()
 

@@ -42,7 +42,7 @@ Query: associated bill number, congress
 ### Example
 
 ```javascript
-const { PublicAndPrivateLaws } = require('govinfo-link-service-client-js')
+const { PublicAndPrivateLaws } = require('govinfo-link-js')
 
 const api = new PublicAndPrivateLaws()
 
@@ -96,7 +96,7 @@ Query: Statutes at Large citation
 ### Example
 
 ```javascript
-const { PublicAndPrivateLaws } = require('govinfo-link-service-client-js')
+const { PublicAndPrivateLaws } = require('govinfo-link-js')
 
 const api = new PublicAndPrivateLaws()
 
@@ -147,7 +147,7 @@ Query: congress, law type, law number
 ### Example
 
 ```javascript
-const { PublicAndPrivateLaws } = require('govinfo-link-service-client-js')
+const { PublicAndPrivateLaws } = require('govinfo-link-js')
 
 const api = new PublicAndPrivateLaws()
 

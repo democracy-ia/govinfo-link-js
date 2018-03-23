@@ -1,5 +1,5 @@
 /**
- * Govinfo-link-service-client-js
+ * govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -34,7 +34,7 @@
   let instance
 
   beforeEach(() => {
-    instance = new govinfoLinkService.CongressionalBills()
+    instance = new govinfoLinkService.CongressionalRecordDaily()
   })
 
   const getProperty = function (object, getter, property) {
@@ -51,12 +51,51 @@
     else { object[property] = value }
   }
 
-  describe('CongressionalBills', () => {
-    describe('billsFetchUsingGET', () => {
-      it('should call billsFetchUsingGET successfully', (done) => {
+  describe('CongressionalRecordDaily', () => {
+    describe('crecSectionFetchUsingGET', () => {
+      it('should call crecSectionFetchUsingGET successfully', (done) => {
         /*
-         *Uncomment below and update the code to test billsFetchUsingGET
-         *instance.billsFetchUsingGET(function(error) {
+         *Uncomment below and update the code to test crecSectionFetchUsingGET
+         *instance.crecSectionFetchUsingGET(function(error) {
+         *  if (error) throw error;
+         *expect().to.be();
+         *});
+         */
+
+        done()
+      })
+    })
+    describe('crecTypeFetchUsingGET', () => {
+      it('should call crecTypeFetchUsingGET successfully', (done) => {
+        /*
+         *Uncomment below and update the code to test crecTypeFetchUsingGET
+         *instance.crecTypeFetchUsingGET(function(error) {
+         *  if (error) throw error;
+         *expect().to.be();
+         *});
+         */
+
+        done()
+      })
+    })
+    describe('crecTypeFetchUsingGET1', () => {
+      it('should call crecTypeFetchUsingGET1 successfully', (done) => {
+        /*
+         *Uncomment below and update the code to test crecTypeFetchUsingGET1
+         *instance.crecTypeFetchUsingGET1(function(error) {
+         *  if (error) throw error;
+         *expect().to.be();
+         *});
+         */
+
+        done()
+      })
+    })
+    describe('crecVolumeFetchUsingGET', () => {
+      it('should call crecVolumeFetchUsingGET successfully', (done) => {
+        /*
+         *Uncomment below and update the code to test crecVolumeFetchUsingGET
+         *instance.crecVolumeFetchUsingGET(function(error) {
          *  if (error) throw error;
          *expect().to.be();
          *});

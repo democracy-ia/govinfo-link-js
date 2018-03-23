@@ -25,7 +25,7 @@ Query: title number, part number, section number, year OR most recent
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CodeOfFederalRegulations()
 

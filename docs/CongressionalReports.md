@@ -30,7 +30,7 @@ Query: associated bill, congress
 ### Example
 
 ```javascript
-const { CongressionalReports } = require('govinfo-link-service-client-js')
+const { CongressionalReports } = require('govinfo-link-js')
 
 const api = new CongressionalReports()
 
@@ -86,7 +86,7 @@ Query: congress, report type, report number
 ### Example
 
 ```javascript
-const { CongressionalReports } = require('govinfo-link-service-client-js')
+const { CongressionalReports } = require('govinfo-link-js')
 
 const api = new CongressionalReports()
 

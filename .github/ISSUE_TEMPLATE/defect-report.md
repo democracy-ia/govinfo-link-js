@@ -39,7 +39,7 @@ In order to {achieve value}.
 * > ⌦ Include as many relevant details about the environment
   > ⌦ in which the defect occured.
 
-- Version of `govinfo-link-service-client-js`:
+- Version of `govinfo-link-js`:
 - Environment name and version (e.g. Chrome 39, node.js 5.4):
 - Operating System and version (desktop or mobile):
 - Link to your project:

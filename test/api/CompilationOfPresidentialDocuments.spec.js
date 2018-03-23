@@ -1,5 +1,5 @@
 /**
- * Govinfo-link-service-client-js
+ * govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -34,7 +34,7 @@
   let instance
 
   beforeEach(() => {
-    instance = new govinfoLinkService.FederalRegister()
+    instance = new govinfoLinkService.CompilationOfPresidentialDocuments()
   })
 
   const getProperty = function (object, getter, property) {
@@ -51,12 +51,12 @@
     else { object[property] = value }
   }
 
-  describe('FederalRegister', () => {
-    describe('frDocFetchUsingGET', () => {
-      it('should call frDocFetchUsingGET successfully', (done) => {
+  describe('CompilationOfPresidentialDocuments', () => {
+    describe('cpdDcpdFetchUsingGET', () => {
+      it('should call cpdDcpdFetchUsingGET successfully', (done) => {
         /*
-         *Uncomment below and update the code to test frDocFetchUsingGET
-         *instance.frDocFetchUsingGET(function(error) {
+         *Uncomment below and update the code to test cpdDcpdFetchUsingGET
+         *instance.cpdDcpdFetchUsingGET(function(error) {
          *  if (error) throw error;
          *expect().to.be();
          *});
@@ -65,11 +65,11 @@
         done()
       })
     })
-    describe('frVolumeFetchUsingGET', () => {
-      it('should call frVolumeFetchUsingGET successfully', (done) => {
+    describe('cpdFetchUsingGET', () => {
+      it('should call cpdFetchUsingGET successfully', (done) => {
         /*
-         *Uncomment below and update the code to test frVolumeFetchUsingGET
-         *instance.frVolumeFetchUsingGET(function(error) {
+         *Uncomment below and update the code to test cpdFetchUsingGET
+         *instance.cpdFetchUsingGET(function(error) {
          *  if (error) throw error;
          *expect().to.be();
          *});

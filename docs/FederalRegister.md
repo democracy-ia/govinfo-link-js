@@ -15,7 +15,7 @@
 
 <a name="frDocFetchUsingGET"></a>
 
-## **`frDocFetchUsingGETGET`**
+## **`frDocFetchUsingGET`**
 
 > Object frDocFetchUsingGET(frdocnum, opts)
 
@@ -24,7 +24,7 @@ Query: Federal Register document number
 ### Example
 
 ```javascript
-const { FederalRegister } = require('govinfo-link-service-client-js')
+const { FederalRegister } = require('govinfo-link-js')
 
 const api = new FederalRegister()
 
@@ -75,7 +75,7 @@ Query: volume, page number
 ### Example
 
 ```javascript
-const { FederalRegister } = require('govinfo-link-service-client-js')
+const { FederalRegister } = require('govinfo-link-js')
 
 const api = new FederalRegister()
 
@@ -118,4 +118,5 @@ No authorization required.
 * **Content-Type**: `application/json`
 * **Accept**: _/_
 
+[icon-octicon-info]: https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/info.svg
 [icon-octicon-link-external]: https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/link-external.svg

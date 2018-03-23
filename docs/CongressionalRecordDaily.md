@@ -28,7 +28,7 @@ Query: section, publish date OR most recent
 ### Example
 
 ```javascript
-const { CongressionalRecordDaily } = require('govinfo-link-service-client-js')
+const { CongressionalRecordDaily } = require('govinfo-link-js')
 
 const api = new CongressionalRecordDaily()
 
@@ -83,7 +83,7 @@ Query: congress, bill number, bill type
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CongressionalRecordDaily()
 
@@ -142,7 +142,7 @@ Query: document type, publish date OR most recent
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CongressionalRecordDaily()
 
@@ -197,7 +197,7 @@ Query: volume, page prefix, page number
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-service-client-js')
+const govinfoLinkService = require('govinfo-link-js')
 
 const api = new CongressionalRecordDaily()
 
