@@ -26,4 +26,4 @@ test_script:
   - node --version
   - npm --version
   - cd %APPVEYOR_BUILD_FOLDER%
-  - npm test
+  - npm run test:windows

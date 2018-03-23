@@ -169,6 +169,7 @@
     "security:nsp:download": "nsp gather --ignore-server-errors",
     "security:nsp:scan": "nsp check --ignore-server-errors",
     "semantic-release": "semantic-release",
-    "test": "nyc mocha 'test/api/*.spec.js'"
+    "test": "nyc mocha 'test/api/*.spec.js'",
+    "test:windows": "nyc mocha '.\\test\\api\\*.spec.js'"
   }
 }
