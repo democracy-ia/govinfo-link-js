@@ -26,4 +26,5 @@ test_script:
   - node --version
   - npm --version
   - cd %APPVEYOR_BUILD_FOLDER%
-  - npm run test:windows
+  # - npm run test:windows
+  - - C:\projects\govinfo-link-js\node_modules\.bin\nyc C:\projects\govinfo-link-js\node_modules\.bin\mocha C:\projects\govinfo-link-js\test\**\*.spec.js
