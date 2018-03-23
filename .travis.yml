@@ -20,12 +20,10 @@ git:
 
 before_script:
    - npm dedupe
-#   - npm prune
 
 script:
   - echo $TRAVIS_BUILD_DIR
   - echo $(pwd)
-  - npm run test:config
   - npm test
 
 after_script:
