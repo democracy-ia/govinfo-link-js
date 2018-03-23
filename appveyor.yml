@@ -1,22 +1,6 @@
-# install:
-#   - ps: Install-Product node '7'
-#   - npm install -g npm --silent --quiet
-#   - npm install --silent --quiet
-#
-# build: off
-#
-# test_script:
-#   - node --version
-#   - npm --version
-#   - git --version
-#   # Run tests sequentially to avoid io async issues
-#   - .\node_modules\.bin\nyc .\node_modules\.bin\mocha '%APPVEYOR_BUILD_FOLDER%\tests\lib\crc\*.spec.js'
-#   - .\node_modules\.bin\nyc .\node_modules\.bin\mocha '%APPVEYOR_BUILD_FOLDER%\tests\lib\crc\descriptors\*.spec.js'
-#
-# branches:
-#   only:
-#   - master
-
+version: 1.0.{build}
+build:
+  verbosity: minimal
 environment:
   matrix:
     - nodejs_version: '9'
