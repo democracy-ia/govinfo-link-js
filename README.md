@@ -180,19 +180,19 @@ All URIs are relative to _<https://www.govinfo.gov/link>_.
 
 ### Models
 
-1.  [![API reference][api-26-image] `CodeOfFederalRegulations`: Code of Federal Regulations](CodeOfFederalRegulations.md)
-1.  [![API reference][api-26-image] `CompilationOfPresidentialDocuments`: Compilation of Presidential Documents](CompilationOfPresidentialDocuments.md)
-1.  [![API reference][api-26-image] `CongressionalBills`: Congressional Bills](CongressionalBills.md)
-1.  [![API reference][api-26-image] `CongressionalCalendars`: Congressional Calendars](CongressionalCalendars.md)
-1.  [![API reference][api-26-image] `CongressionalCommitteePrints`: Congressional Committee Prints](CongressionalCommitteePrints.md)
-1.  [![API reference][api-26-image] `CongressionalDocuments`: Congressional Documents](CongressionalDocuments.md)
-1.  [![API reference][api-26-image] `CongressionalHearings`: Congressional Hearings](CongressionalHearings.md)
-1.  [![API reference][api-26-image] `CongressionalRecordDaily`: Congressional Record Daily](CongressionalRecordDaily.md)
-1.  [![API reference][api-26-image] `CongressionalReports`: Congressional Reports](CongressionalReports.md)
-1.  [![API reference][api-26-image] `FederalRegister`: Federal Register](FederalRegister.md)
-1.  [![API reference][api-26-image] `PublicAndPrivateLaws`: Public and Private Laws](PublicAndPrivateLaws.md)
-1.  [![API reference][api-26-image] `StatutesAtLarge`: Statutes at Large](StatutesAtLarge.md)
-1.  [![API reference][api-26-image] `UnitedStatesCode`: United States Code](UnitedStatesCode.md)
+1.  [![API reference][api-26-image] `CodeOfFederalRegulations`: Code of Federal Regulations](docs/CodeOfFederalRegulations.md)
+1.  [![API reference][api-26-image] `CompilationOfPresidentialDocuments`: Compilation of Presidential Documents](docs/CompilationOfPresidentialDocuments.md)
+1.  [![API reference][api-26-image] `CongressionalBills`: Congressional Bills](docs/CongressionalBills.md)
+1.  [![API reference][api-26-image] `CongressionalCalendars`: Congressional Calendars](docs/CongressionalCalendars.md)
+1.  [![API reference][api-26-image] `CongressionalCommitteePrints`: Congressional Committee Prints](docs/CongressionalCommitteePrints.md)
+1.  [![API reference][api-26-image] `CongressionalDocuments`: Congressional Documents](docs/CongressionalDocuments.md)
+1.  [![API reference][api-26-image] `CongressionalHearings`: Congressional Hearings](docs/CongressionalHearings.md)
+1.  [![API reference][api-26-image] `CongressionalRecordDaily`: Congressional Record Daily](docs/CongressionalRecordDaily.md)
+1.  [![API reference][api-26-image] `CongressionalReports`: Congressional Reports](docs/CongressionalReports.md)
+1.  [![API reference][api-26-image] `FederalRegister`: Federal Register](docs/FederalRegister.md)
+1.  [![API reference][api-26-image] `PublicAndPrivateLaws`: Public and Private Laws](docs/PublicAndPrivateLaws.md)
+1.  [![API reference][api-26-image] `StatutesAtLarge`: Statutes at Large](docs/StatutesAtLarge.md)
+1.  [![API reference][api-26-image] `UnitedStatesCode`: United States Code](docs/UnitedStatesCode.md)
 
 ### Endpoints
 
