@@ -2,7 +2,7 @@
   "name": "govinfo-link-js",
   "description":
     "Access U.S. Government Publishing Office's FDsys (Federal Digital System) content and metadata collections using the govinfo-link-js client of Node.js and Web browsers.",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "author": {
     "name": "United States Government Publishing Office",
     "url": "https://github.com/usgpo",
@@ -86,6 +86,7 @@
     "prettier": "1.11.1",
     "semantic-release": "^15.1.4",
     "sinon": "4.4.8",
+    "standard-version": "4.3.0",
     "travis-deploy-once": "^4.4.1"
   },
   "engines": {
@@ -156,6 +157,7 @@
     "prepare": "npm run lint && npm run security",
     "prepublishOnly": "npm run prepare",
     "pretest": "npm run lint",
+    "release": "standard-version",
     "security": "npm run security:nsp:scan",
     "security:nsp:download": "nsp gather --ignore-server-errors",
     "security:nsp:scan": "nsp check --ignore-server-errors",

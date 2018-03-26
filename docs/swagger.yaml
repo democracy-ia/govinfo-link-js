@@ -11,7 +11,7 @@ info:
     \ in parenthesis after each collection name, and the available queries are listed\
     \ below each collection. More information about each query is provided on the\
     \ individual collection page.</p>"
-  version: "0.5.0"
+  version: "1.0.0"
   title: "govinfo-link-js"
   contact: {}
   license:
