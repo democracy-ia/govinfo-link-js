@@ -146,7 +146,7 @@
   "scripts": {
     "docs": "npm run docs:toc",
     "docs:toc":
-      "md-magic --config '.github/config/markdown.config.js' --path '**/*.md' --ignore 'node_modules'",
+      "md-magic --config .github/config/markdown.config.js --path '**/*.md' --ignore 'node_modules'",
     "lint":
       "npm run lint:js && npm run lint:json && npm run lint:manifest && npm run lint:md",
     "lint:js":
