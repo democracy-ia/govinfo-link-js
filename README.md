@@ -131,7 +131,7 @@ module: {
 
 ## 2. Usage
 
-> [![light-bulb][icon-octicon-light-bulb] View _all_ `govinfo-link-js` API references (with usage examples)](docs/README.md).
+> [![light-bulb][icon-octicon-light-bulb] View _all_ `govinfo-link-js` API references (with usage examples)](docs#readme).
 
 ```javascript
 const { CodeOfFederalRegulations } = require('govinfo-link-js')
