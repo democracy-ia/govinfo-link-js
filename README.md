@@ -14,37 +14,39 @@
 [![Development Dependency Status][daviddm-dev-image]][daviddm-dev-url]<br>
 [![MacOS and Ubuntu build statuses][travis-image]][travis-url]
 [![Windows build status][appveyor-image]][appveyor-url]
-[![Coverage percentage][codacy-coverage-image]][codacy-url]
+[![Coverage percentage][coveralls-image]][coveralls-url]
 [![Codacy code quality][codacy-image]][codacy-url]
 
 <!-- standard-readme:short-description -->
 
 > Access U.S. Government Publishing Office's FDsys (Federal Digital System) content and metadata collections using the govinfo-link-js client of Node.js and Web browsers.
 
+<!-- standard-readme:table-of-contents -->
+
 ## Table of contents
 
 <!-- ⛔️ AUTO-GENERATED-CONTENT:START (TOC:excludeText=Table of contents) -->
-- [Install](#install)
-  * [For Node.js environments](#for-nodejs-environments)
-    + [Using npm](#using-npm)
-    + [Using git](#using-git)
-  * [For browser environments](#for-browser-environments)
-  * [Webpack configuration](#webpack-configuration)
-- [Usage](#usage)
-- [API](#api)
-  * [Models](#models)
-  * [Endpoints](#endpoints)
-- [Contribute](#contribute)
-- [License](#license)
+- [1. Install](#1-install)
+  * [1.1. For Node.js environments](#11-for-nodejs-environments)
+    + [1.1.1. Using npm](#111-using-npm)
+    + [1.1.2. Using git](#112-using-git)
+  * [1.2. For browsers](#12-for-browsers)
+  * [1.3. Webpack configuration](#13-webpack-configuration)
+- [2. Usage](#2-usage)
+- [3. API](#3-api)
+  * [3.1. Models](#31-models)
+  * [3.2. Endpoints](#32-endpoints)
+- [4. Contribute](#4-contribute)
+- [5. License](#5-license)
 <!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
 
-## Install
+## 1. Install
 
-### For Node.js environments
+### 1.1. For Node.js environments
 
 > You can download and install Node.js at the [Node.js site](https://nodejs.org/).
 
-#### Using npm
+#### 1.1.1. Using npm
 
 To publish the library as a [npm](https://www.npmjs.com/),
 please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.com/getting-started/publishing-npm-packages).
@@ -55,7 +57,7 @@ Then install it via:
 npm install govinfo-link-js --save
 ```
 
-#### Using git
+#### 1.1.2. Using git
 
 If the library is hosted at a git repository, e.g.
 <https://github.com/democracy-ia/govinfo-link-js>
@@ -95,7 +97,7 @@ You should now be able to `require('govinfo-link-js')` in javascript files from 
 
 ---
 
-### For browser environments
+### 1.2. For browsers
 
 The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
 the above steps with Node.js and installing browserify with `npm install -g browserify`,
@@ -108,7 +110,7 @@ browserify main.js > bundle.js
 
 Then include _bundle.js_ in the HTML pages.
 
-### Webpack configuration
+### 1.3. Webpack configuration
 
 Using Webpack you may encounter the following error: "Module not found: Error:
 Cannot resolve module", most certainly you should disable AMD loader. Add/merge
@@ -126,9 +128,9 @@ module: {
 }
 ```
 
-## Usage
+## 2. Usage
 
-Please follow the [installation](#installation) instruction and execute the following JS code:
+> [![light-bulb][icon-octicon-light-bulb] View all Models (with example usage)](docs/README.md).
 
 ```javascript
 const { CodeOfFederalRegulations } = require('govinfo-link-js')
@@ -172,13 +174,15 @@ api.cfrFetchUsingGET(titlenum, partnum, opts, (error, data) => {
 })
 ```
 
-## API
+## 3. API
 
-The link service is used to create embedded links to content and metadata on **govinfo** and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.
+The link service is used to create embedded links to content and metadata on
+**govinfo** and is currently enabled for the collections below. More
+information about each query, including examples, is provided on each collection page.
 
-All URIs are relative to _<https://www.govinfo.gov/link>_.
+> ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link>_.
 
-### Models
+### 3.1. Models
 
 1.  [![API reference][api-26-image] `CodeOfFederalRegulations`: Code of Federal Regulations](docs/CodeOfFederalRegulations.md)
 1.  [![API reference][api-26-image] `CompilationOfPresidentialDocuments`: Compilation of Presidential Documents](docs/CompilationOfPresidentialDocuments.md)
@@ -194,7 +198,7 @@ All URIs are relative to _<https://www.govinfo.gov/link>_.
 1.  [![API reference][api-26-image] `StatutesAtLarge`: Statutes at Large](docs/StatutesAtLarge.md)
 1.  [![API reference][api-26-image] `UnitedStatesCode`: United States Code](docs/UnitedStatesCode.md)
 
-### Endpoints
+### 3.2. Endpoints
 
 | Class                                                                                                   | Method                                                                                    | HTTP request                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -226,7 +230,7 @@ All URIs are relative to _<https://www.govinfo.gov/link>_.
 | [_govinfoLinkService\. StatutesAtLarge_](docs/StatutesAtLarge.md)                                       | [`statuteVolumeFetchUsingGET`](docs/StatutesAtLarge.md#statuteVolumeFetchUsingGET)        | **GET** /statute/{volume}/{page} <br><br>Parameters: volume, page number                                                         |
 | [_govinfoLinkService\. UnitedStatesCode_](docs/UnitedStatesCode.md)                                     | [`uscodeFetchUsingGET`](docs/UnitedStatesCode.md#uscodeFetchUsingGET)                     | **GET** /uscode/{title}/{section} <br><br>Parameters: title number, type, section, year OR most recent                           |
 
-## Contribute
+## 4. Contribute
 
 [![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] We welcome contributions with GitHub **issues** and **pull requests**.
 
@@ -265,9 +269,9 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 
     > **🙋 Never created a pull request?** No problem. [🆓 Take this free online training][makeapullrequest-url]. (It even covers most of the conventions in the [CONTRIBUTING guidelines][contributing-url]!)
 
-## License
+## 5. License
 
-`govinfo-link-js v0.5.0` © [Apache 2.0][license-url]
+[Apache 2.0][license-url]
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdemocracy-ia%2Fgovinfo-link-js.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdemocracy-ia%2Fgovinfo-link-js?ref=badge_large)
 
@@ -280,9 +284,9 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [logo-js-image]: https://avatars1.githubusercontent.com/u/34581173?s=200&v=4
 [issues-new-defect-image]: https://img.shields.io/badge/report-defect-lightgrey.svg?style=for-the-badge&label=report+a
-[issues-new-defect-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=fix%28affected-scope%29%3A+50-character-defect-summary&labels=Priority%3A+Medium%2CStatus%3A+Review+Needed%2CType%3A+Defect&template=defect-report.md
+[issues-new-defect-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=fix%28scope%29%3A+50-character-defect-summary&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+defect&template=defect-report.md
 [issues-url]: https://github.com/democracy-ia/govinfo-link-js/issues
-[issues-new-feat-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=feat%28affected-scope%29%3A+50-character-change-proposal-summary&labels=Priority%3A+Medium%2CStatus%3A+Review+Needed%2CType%3A+Feature&template=feature-request.md
+[issues-new-feat-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=feat%28scope%29%3A+50-character-change-proposal-summary&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+Feature&template=feature-request.md
 [issues-new-feat-image]: https://img.shields.io/badge/request-feature-blue.svg?style=for-the-badge&label=request+a
 [api-26-image]: .github/assets/img/icons8/icon-api-26.png
 
