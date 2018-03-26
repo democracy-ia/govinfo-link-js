@@ -1,109 +1,123 @@
-# govinfoLinkService.FederalRegister
+# Federal Register
 
-All URIs are relative to *https://www.govinfo.gov/link*
+> <img align="left" alt="quote" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/quote.svg"> Published by the Office of the Federal Register, National Archives and Records Administration (NARA), the Federal Register is the official daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents. [About the Federal Register ![link-external][icon-octicon-link-external]](https://www.gpo.gov/help/index.html#about_federal_register.htm).
+>
+> FDsys - Browse Federal Register . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collection.action?collectionCode=FR> ![link-external][icon-octicon-link-external]
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**frDocFetchUsingGET**](FederalRegister.md#frDocFetchUsingGET) | **GET** /fr/{frdocnum} | Query: Federal Register document number
-[**frVolumeFetchUsingGET**](FederalRegister.md#frVolumeFetchUsingGET) | **GET** /fr/{volume}/{page} | Query: volume, page number
+## `govinfo.FederalRegister`
 
+> ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
+
+| Method                                                                | HTTP request                | Description                             |
+| --------------------------------------------------------------------- | --------------------------- | --------------------------------------- |
+| [**frDocFetchUsingGET**](FederalRegister.md#frDocFetchUsingGET)       | **GET** /fr/{frdocnum}      | Query: Federal Register document number |
+| [**frVolumeFetchUsingGET**](FederalRegister.md#frVolumeFetchUsingGET) | **GET** /fr/{volume}/{page} | Query: volume, page number              |
 
 <a name="frDocFetchUsingGET"></a>
-# **frDocFetchUsingGET**
+
+## **`frDocFetchUsingGET`**
+
 > Object frDocFetchUsingGET(frdocnum, opts)
 
 Query: Federal Register document number
 
 ### Example
+
 ```javascript
-var govinfoLinkService = require('govinfo-link-service-client-js');
+const { FederalRegister } = require('govinfo-link-js')
 
-var apiInstance = new govinfoLinkService.FederalRegister();
+const api = new FederalRegister()
 
-var frdocnum = "frdocnum_example"; // String | Required - The is the FR doc number that is listed at the end of each Federal Register document. Sample value is 2010-32535.
+const frdocnum = 'frdocnum_example' // String | Required - The is the FR doc number that is listed at the end of each Federal Register document. Sample value is 2010-32535.
 
-var opts = { 
-  'linkType': "linkType_example" // String | This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
-};
+const opts = {
+  linkType: 'linkType_example' // String | This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
+}
 
-var callback = function(error, data, response) {
+const callback = (error, data, response) => {
   if (error) {
-    console.error(error);
+    console.error(error)
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log(`SUCCESS: ${JSON.stringify(response, null, 2)}`)
   }
-};
-apiInstance.frDocFetchUsingGET(frdocnum, opts, callback);
+}
+api.frDocFetchUsingGET(frdocnum, opts, callback)
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **frdocnum** | **String**| Required - The is the FR doc number that is listed at the end of each Federal Register document. Sample value is 2010-32535. | 
- **linkType** | **String**| This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related. | [optional] 
+| Name         | Type       | Description                                                                                                                  | Notes      |
+| ------------ | ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **frdocnum** | **String** | Required - The is the FR doc number that is listed at the end of each Federal Register document. Sample value is 2010-32535. |
+| **linkType** | **String** | This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related. | [optional] |
 
 ### Return type
 
-**Object**
+**`Object`**
 
 ### Authorization
 
-No authorization required
+No authorization required.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: */*
+* **Content-Type**: `application/json`
+* **Accept**: _/_
 
 <a name="frVolumeFetchUsingGET"></a>
-# **frVolumeFetchUsingGET**
+
+## **`frVolumeFetchUsingGETGET`**
+
 > Object frVolumeFetchUsingGET(volume, page, opts)
 
 Query: volume, page number
 
 ### Example
+
 ```javascript
-var govinfoLinkService = require('govinfo-link-service-client-js');
+const { FederalRegister } = require('govinfo-link-js')
 
-var apiInstance = new govinfoLinkService.FederalRegister();
+const api = new FederalRegister()
 
-var volume = 56; // Number | This is the numerical volume number. Sample value is 76.
+const volume = 56 // Number | This is the numerical volume number. Sample value is 76.
 
-var page = 56; // Number | This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575.
+const page = 56 // Number | This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575.
 
-var opts = { 
-  'linkType': "linkType_example" // String | This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
-};
+const opts = {
+  linkType: 'linkType_example' // String | This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
+}
 
-var callback = function(error, data, response) {
+const callback = (error, data, response) => {
   if (error) {
-    console.error(error);
+    console.error(error)
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log(`SUCCESS: ${JSON.stringify(response, null, 2)}`)
   }
-};
-apiInstance.frVolumeFetchUsingGET(volume, page, opts, callback);
+}
+api.frVolumeFetchUsingGET(volume, page, opts, callback)
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **volume** | **Number**| This is the numerical volume number. Sample value is 76. | 
- **page** | **Number**| This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575. | 
- **linkType** | **String**| This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related. | [optional] 
+| Name         | Type       | Description                                                                                                                                                                                                                                                                                                                              | Notes      |
+| ------------ | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **volume**   | **Number** | This is the numerical volume number. Sample value is 76.                                                                                                                                                                                                                                                                                 |
+| **page**     | **Number** | This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575. |
+| **linkType** | **String** | This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.                                                                                                                                                                                                             | [optional] |
 
 ### Return type
 
-**Object**
+**`Object`**
 
 ### Authorization
 
-No authorization required
+No authorization required.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: */*
+* **Content-Type**: `application/json`
+* **Accept**: _/_
 
+[icon-octicon-info]: https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/info.svg
+[icon-octicon-link-external]: https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/link-external.svg
+[icon-octicon-info]: https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/info.svg

@@ -12,7 +12,7 @@ info:
     \ below each collection. More information about each query is provided on the\
     \ individual collection page.</p>"
   version: "0.5.0"
-  title: "govinfo Link Service"
+  title: "govinfo-link-js"
   contact: {}
   license:
     name: "Apache 2.0"

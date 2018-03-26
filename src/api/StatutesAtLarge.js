@@ -1,5 +1,5 @@
 /**
- * govinfo Link Service
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -13,23 +13,25 @@
  *
  */
 
-(function(root, factory) {
+(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+
+    define(['ApiClient'], factory)
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+
+    module.exports = factory(require('../ApiClient'))
   } else {
     // Browser globals (root is window)
-    if (!root.govinfoLinkService) {
-      root.govinfoLinkService = {};
-    }
-    root.govinfoLinkService.StatutesAtLarge = factory(root.govinfoLinkService.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
 
+    if (!root.govinfoLinkService) {
+      root.govinfoLinkService = {
+      }
+    }
+    root.govinfoLinkService.StatutesAtLarge = factory(root.govinfoLinkService.ApiClient)
+  }
+}(this, (ApiClient) => {
   /**
    * StatutesAtLargeSTATUTE service.
    * @module api/StatutesAtLarge
@@ -38,14 +40,14 @@
 
   /**
    * Constructs a new StatutesAtLarge. 
+   * 
    * @alias module:api/StatutesAtLarge
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
    */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
-
+  const exports = function (apiClient) {
+    this.apiClient = apiClient || ApiClient.instance
 
     /**
      * Callback function to receive the result of the statuteTypeFetchUsingGET operation.
@@ -56,60 +58,64 @@
      */
 
     /**
-     * Query: congress, law type, law number
-     * @param {Number} congress This is the numerical Congress number. Sample value is 108.
-     * @param {module:model/String} lawtype This is the law type. Laws can either be public laws or private laws. Values are public, private.
-     * @param {Number} lawnum This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 481.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
-     * @param {module:api/StatutesAtLarge~statuteTypeFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * Query: Congress, law type, law number.
+     * 
+     * @param {number} congress - This is the numerical Congress number. Sample value is 108.
+     * @param {module:model/String} lawtype - This is the law type. Laws can either be public laws or private laws. Values are public, private.
+     * @param {number} lawnum - This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 481.
+     * @param {Object} opts - Optional parameters.
+     * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
+     * @param {module:api/StatutesAtLarge~statuteTypeFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
+     * data is of type: {@link Object}.
      */
-    this.statuteTypeFetchUsingGET = function(congress, lawtype, lawnum, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
+    this.statuteTypeFetchUsingGET = function (congress, lawtype, lawnum, opts, callback) {
+      opts = opts || {
+      }
+      const postBody = null
 
-      // verify the required parameter 'congress' is set
+      // Verify the required parameter 'congress' is set
+
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling statuteTypeFetchUsingGET");
+        throw new Error(`Missing the required parameter 'congress' when calling statuteTypeFetchUsingGET'`)
       }
 
-      // verify the required parameter 'lawtype' is set
+      // Verify the required parameter 'lawtype' is set
+
       if (lawtype === undefined || lawtype === null) {
-        throw new Error("Missing the required parameter 'lawtype' when calling statuteTypeFetchUsingGET");
+        throw new Error(`Missing the required parameter 'lawtype' when calling statuteTypeFetchUsingGET'`)
       }
 
-      // verify the required parameter 'lawnum' is set
+      // Verify the required parameter 'lawnum' is set
+
       if (lawnum === undefined || lawnum === null) {
-        throw new Error("Missing the required parameter 'lawnum' when calling statuteTypeFetchUsingGET");
+        throw new Error(`Missing the required parameter 'lawnum' when calling statuteTypeFetchUsingGET'`)
       }
 
+      const pathParams = {
+        congress,
+        lawtype,
+        lawnum
+      }
+      const queryParams = {
+        'link-type': opts.linkType
+      }
+      const collectionQueryParams = {
+      }
+      const headerParams = {
+      }
+      const formParams = {
+      }
 
-      var pathParams = {
-        'congress': congress,
-        'lawtype': lawtype,
-        'lawnum': lawnum
-      };
-      var queryParams = {
-        'link-type': opts['linkType'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = Object;
+      const authNames = []
+      const contentTypes = ['application/json']
+      const accepts = ['*/*']
+      const returnType = Object
 
       return this.apiClient.callApi(
         '/statute/{congress}/{lawtype}/{lawnum}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
-      );
+      )
     }
 
     /**
@@ -121,55 +127,58 @@
      */
 
     /**
-     * Query: volume, page number
-     * @param {Number} volume This is the numerical volume number. Sample value is 118.
-     * @param {Number} page This is the numerical page number. Statutes at Large pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 3910.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
-     * @param {module:api/StatutesAtLarge~statuteVolumeFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * Query: Volume, page number.
+     * 
+     * @param {number} volume - This is the numerical volume number. Sample value is 118.
+     * @param {number} page - This is the numerical page number. Statutes at Large pages are numbered consecutively within a volume. Note: When multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 3910.
+     * @param {Object} opts - Optional parameters.
+     * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
+     * @param {module:api/StatutesAtLarge~statuteVolumeFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
+     * data is of type: {@link Object}.
      */
-    this.statuteVolumeFetchUsingGET = function(volume, page, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
+    this.statuteVolumeFetchUsingGET = function (volume, page, opts, callback) {
+      opts = opts || {
+      }
+      const postBody = null
 
-      // verify the required parameter 'volume' is set
+      // Verify the required parameter 'volume' is set
+
       if (volume === undefined || volume === null) {
-        throw new Error("Missing the required parameter 'volume' when calling statuteVolumeFetchUsingGET");
+        throw new Error(`Missing the required parameter 'volume' when calling statuteVolumeFetchUsingGET'`)
       }
 
-      // verify the required parameter 'page' is set
+      // Verify the required parameter 'page' is set
+
       if (page === undefined || page === null) {
-        throw new Error("Missing the required parameter 'page' when calling statuteVolumeFetchUsingGET");
+        throw new Error(`Missing the required parameter 'page' when calling statuteVolumeFetchUsingGET'`)
       }
 
+      const pathParams = {
+        volume,
+        page
+      }
+      const queryParams = {
+        'link-type': opts.linkType
+      }
+      const collectionQueryParams = {
+      }
+      const headerParams = {
+      }
+      const formParams = {
+      }
 
-      var pathParams = {
-        'volume': volume,
-        'page': page
-      };
-      var queryParams = {
-        'link-type': opts['linkType'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = Object;
+      const authNames = []
+      const contentTypes = ['application/json']
+      const accepts = ['*/*']
+      const returnType = Object
 
       return this.apiClient.callApi(
         '/statute/{volume}/{page}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
-      );
+      )
     }
-  };
+  }
 
-  return exports;
-}));
+  return exports
+}))

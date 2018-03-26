@@ -1,9 +1,50 @@
+---
+# addons:
+#   sonarcloud:
+#     organization:   "$SONAR_ORGANIZATION"
+#     token:
+#       secure:       "$SONAR_TOKEN"
+#     github_token:
+#       secure:       "$GITHUB_ACCESS_TOKEN"
+#     branches:
+#       - master
+#       - /[build|chore|ci|docs|feat|fix|perf|refactor|revert|spike|style|test]\/.*/
+
+# jdk:
+# - oraclejdk8
+
 language: node_js
+
 node_js:
   - 9
   - 8
   - 7
-  - 6
-  - 6.1
-  - 5
-  - 5.11
+
+os:
+  - linux
+  - osx
+
+notifications:
+  webhooks: https://app.fossa.io/hooks/travisci
+
+git:
+  depth: 1
+
+before_script:
+   - npm dedupe
+
+script:
+  - npm test
+
+after_script:
+  - npm run posttest:ci:coverage:codacy
+  - npm run posttest:ci:coverage:coveralls
+
+jobs:
+  include:
+    - stage: release
+      deploy:
+        provider: npm
+        skip_cleanup: true
+        script:
+          - npx travis-deploy-once "npx semantic-release"

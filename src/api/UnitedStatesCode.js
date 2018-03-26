@@ -1,5 +1,5 @@
 /**
- * govinfo Link Service
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -13,23 +13,25 @@
  *
  */
 
-(function(root, factory) {
+(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
+
+    define(['ApiClient'], factory)
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
+
+    module.exports = factory(require('../ApiClient'))
   } else {
     // Browser globals (root is window)
-    if (!root.govinfoLinkService) {
-      root.govinfoLinkService = {};
-    }
-    root.govinfoLinkService.UnitedStatesCode = factory(root.govinfoLinkService.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
 
+    if (!root.govinfoLinkService) {
+      root.govinfoLinkService = {
+      }
+    }
+    root.govinfoLinkService.UnitedStatesCode = factory(root.govinfoLinkService.ApiClient)
+  }
+}(this, (ApiClient) => {
   /**
    * UnitedStatesCodeUSCODE service.
    * @module api/UnitedStatesCode
@@ -38,14 +40,14 @@
 
   /**
    * Constructs a new UnitedStatesCode. 
+   * 
    * @alias module:api/UnitedStatesCode
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
    * default to {@link module:ApiClient#instance} if unspecified.
    */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
-
+  const exports = function (apiClient) {
+    this.apiClient = apiClient || ApiClient.instance
 
     /**
      * Callback function to receive the result of the uscodeFetchUsingGET operation.
@@ -56,59 +58,62 @@
      */
 
     /**
-     * Query: title number, type, section, year OR most recent
-     * @param {Number} title This is the title number. Sample value is 5.
-     * @param {Number} section This is the section number. Sample value is 104.
-     * @param {Object} opts Optional parameters
+     * Query: Title number, type, section, year OR most recent.
+     * 
+     * @param {number} title This is the title number. Sample value is 5.
+     * @param {number} section This is the section number. Sample value is 104.
+     * @param {Object} opts Optional parameters.
      * @param {module:model/String} opts.type This is the U.S. Code section type. Values are usc, uscappendix. Default value is usc.
-     * @param {String} opts.year This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the U.S. Code section is returned. Default is most recent. Sample value is 2010.
+     * @param {string} opts.year This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the U.S. Code section is returned. Default is most recent. Sample value is 2010.
      * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
-     * @param {module:api/UnitedStatesCode~uscodeFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * @param {module:api/UnitedStatesCode~uscodeFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
+     * data is of type: {@link Object}.
      */
-    this.uscodeFetchUsingGET = function(title, section, opts, callback) {
-      opts = opts || {};
-      var postBody = null;
+    this.uscodeFetchUsingGET = function (title, section, opts, callback) {
+      opts = opts || {
+      }
+      const postBody = null
 
-      // verify the required parameter 'title' is set
+      // Verify the required parameter 'title' is set
+
       if (title === undefined || title === null) {
-        throw new Error("Missing the required parameter 'title' when calling uscodeFetchUsingGET");
+        throw new Error(`Missing the required parameter 'title' when calling uscodeFetchUsingGET'`)
       }
 
-      // verify the required parameter 'section' is set
+      // Verify the required parameter 'section' is set
+
       if (section === undefined || section === null) {
-        throw new Error("Missing the required parameter 'section' when calling uscodeFetchUsingGET");
+        throw new Error(`Missing the required parameter 'section' when calling uscodeFetchUsingGET'`)
       }
 
+      const pathParams = {
+        title,
+        section
+      }
+      const queryParams = {
+        'type': opts.type,
+        'year': opts.year,
+        'link-type': opts.linkType
+      }
+      const collectionQueryParams = {
+      }
+      const headerParams = {
+      }
+      const formParams = {
+      }
 
-      var pathParams = {
-        'title': title,
-        'section': section
-      };
-      var queryParams = {
-        'type': opts['type'],
-        'year': opts['year'],
-        'link-type': opts['linkType'],
-      };
-      var collectionQueryParams = {
-      };
-      var headerParams = {
-      };
-      var formParams = {
-      };
-
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = Object;
+      const authNames = []
+      const contentTypes = ['application/json']
+      const accepts = ['*/*']
+      const returnType = Object
 
       return this.apiClient.callApi(
         '/uscode/{title}/{section}', 'GET',
         pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
-      );
+      )
     }
-  };
+  }
 
-  return exports;
-}));
+  return exports
+}))
