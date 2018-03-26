@@ -1,6 +1,6 @@
-# <img align="top" alt="git-pull-request" height="50" width="50" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/git-pull-request.svg">Submit a pull request (PR)
+# <img align="top" alt="git-pull-request" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/git-pull-request.svg">Submit a pull request (PR)
 
-## Description of change
+## Description of change(s)
 
 _Please describe your changes here._
 
@@ -13,7 +13,7 @@ Closes #{ISSUE_NUMBER}
 * [ ] The acceptance criteria for all associated issues have been completed, tested, and validated.
 * [ ] All badges below show successful statuses.
 
-  > [![Apache License][license-image]][license-url] > [![FOSSA Status][fossa-image]][fossa-url] > [![NPM version][npm-image]][npm-url]<br> > [![NSP Status][nsp-image]][nsp-url] > [![Dependency Status][daviddm-image]][daviddm-url] > [![Development Dependency Status][daviddm-dev-image]][daviddm-dev-url]<br> > [![MacOS and Ubuntu build statuses][travis-image]][travis-url] > [![Windows build status][appveyor-image]][appveyor-url] > [![Coverage percentage][coveralls-image]][coveralls-url] > [![Codacy code quality][codacy-image]][codacy-url]
+  > [![Apache License][license-image]][license-url] [![FOSSA Status][fossa-image]][fossa-url] [![NPM version][npm-image]][npm-url]<br>[![NSP Status][nsp-image]][nsp-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Development Dependency Status][daviddm-dev-image]][daviddm-dev-url]<br> [![MacOS and Ubuntu build statuses][travis-image]][travis-url] [![Windows build status][appveyor-image]][appveyor-url] [![Coverage percentage][coveralls-image]][coveralls-url] [![Codacy code quality][codacy-image]][codacy-url]
 
 ## <img align="top" alt="checklist" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/checklist.svg"> PR check-list
 
