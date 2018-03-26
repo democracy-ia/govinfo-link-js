@@ -2,7 +2,7 @@
 
 <!-- standard-readme:banner -->
 
-[![democracy-ia mascot][logo-js-image]][readme-url]
+[![democracy-ia mascot][logo-image]][readme-url]
 
 <!-- standard-readme:badges -->
 
@@ -131,7 +131,7 @@ module: {
 
 ## 2. Usage
 
-> [![light-bulb][icon-octicon-light-bulb] View _all_ Models (with usage examples)](docs/README.md).
+> [![light-bulb][icon-octicon-light-bulb] View _all_ `govinfo-link-js` API references (with usage examples)](docs/README.md).
 
 ```javascript
 const { CodeOfFederalRegulations } = require('govinfo-link-js')
@@ -287,7 +287,7 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 [issues-new-feat-image]: https://img.shields.io/badge/request-feature-blue.svg?style=for-the-badge&label=request+a
 [issues-new-feat-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=feat%28scope%29%3A+50-character-change-proposal-summary&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+Feature&template=feature-request.md
 [issues-url]: https://github.com/democracy-ia/govinfo-link-js/issues
-[logo-js-image]: https://avatars1.githubusercontent.com/u/34581173?s=200&v=4
+[logo-image]: https://avatars1.githubusercontent.com/u/34581173?s=200&v=4
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [makeapullrequest-url]: http://makeapullrequest.com
 [readme-url]: https://github.com/democracy-ia/govinfo-link-js/#readme
