@@ -2,9 +2,9 @@
 
 > <img align="left" alt="quote" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/quote.svg"> Congressional reports originate from congressional committees and deal with proposed legislation and issues under investigation. There are two types of reports:
 >
-> 1.  House and Senate Reports: Reports of congressional committees concerning proposed legislation and/or contain findings on matters under investigation.
+> 1.  **House and Senate Reports**: Reports of congressional committees concerning proposed legislation and/or contain findings on matters under investigation.
 >
-> 1.  Senate Executive Reports: Reports of the Committee on Foreign Relations relating to treaties between the United States and foreign nations which have been submitted to the U.S. Senate for ratification, or are reports of various Senate committees regarding nomination of individuals.
+> 1.  **Senate Executive Reports**: Reports of the Committee on Foreign Relations relating to treaties between the United States and foreign nations which have been submitted to the U.S. Senate for ratification, or are reports of various Senate committees regarding nomination of individuals.
 >
 > FDsys - Browse CRPT . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collection.action?collectionCode=CRPT> ![link-external][icon-octicon-link-external]
 

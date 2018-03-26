@@ -9,15 +9,15 @@
 Click here for summaries of the eight types of bills.</summary>
 <p>
 
-1.  **House bills (H.R.) and Senate bills (S.)** require the approval of both chambers (ie House and Senate) and the signature of the President to become law.
+* **(1) House bills (H.R.) and (2) Senate bills (S.)** require the approval of both chambers (ie House and Senate) and the signature of the President to become law.
 
-1.  **House Joint Resolutions (H.J. Res.) and Senate Joint Resolutions (S.J. Res.)** require the approval of both chambers and the signature of the President. Joint resolutions generally are used for limited matters, such as a single appropriation for a specific purpose and to propose amendments to the Constitution.
+* **(3) House Joint Resolutions (H.J. Res.) and (4) Senate Joint Resolutions (S.J. Res.)** require the approval of both chambers and the signature of the President. Joint resolutions generally are used for limited matters, such as a single appropriation for a specific purpose and to propose amendments to the Constitution.
 
-1.  **House Concurrent Resolutions (H. Con. Res.) and Senate Concurrent Resolutions (S. Con. Res.)** require the approval of both chambers but do not require the signature of the President and do not have the force of law. Concurrent resolutions generally are used to make or amend rules that apply to both chambers.
+* **(5) House Concurrent Resolutions (H. Con. Res.) and (6) Senate Concurrent Resolutions (S. Con. Res.)** require the approval of both chambers but do not require the signature of the President and do not have the force of law. Concurrent resolutions generally are used to make or amend rules that apply to both chambers.
 
-1.  **House Simple Resolutions (H. Res.) and Senate Simple Resolutions (S. Res.)** address matters entirely within the prerogative of one chamber or the other. They do not require the approval of the other chamber or the signature of the President, and they do not have the force of law.
+* **(7) House Simple Resolutions (H. Res.) and (8) Senate Simple Resolutions (S. Res.)** address matters entirely within the prerogative of one chamber or the other. They do not require the approval of the other chamber or the signature of the President, and they do not have the force of law.
 
-1.  There are numerous different bill versions that track a bill through the legislative process from introduction through passage by both chambers (enrolled version). All final published bill versions are available from GPO. [About the Congressional Bills ![link-external][icon-octicon-link-external]](https://www.gpo.gov/help/index.html#about_congressional_bills.htm).
+* There are numerous different bill versions that track a bill through the legislative process from introduction through passage by both chambers (enrolled version). All final published bill versions are available from GPO. [About the Congressional Bills ![link-external][icon-octicon-link-external]](https://www.gpo.gov/help/index.html#about_congressional_bills.htm).
 
 </p></details>
 

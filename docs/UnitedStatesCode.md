@@ -1,6 +1,6 @@
-# `United States Code
+# United States Code
 
-> The United States Code is the codification by subject matter of the general and permanent laws of the United States. It is divided by broad subjects into 53 titles and published by the Office of the Law Revision Counsel of the U.S. House of Representatives. The U.S. Code was first published in 1926. The next main edition was published in 1934, and subsequent main editions have been published every six years since 1934. In between editions, annual cumulative supplements are published in order to present the most current information.
+> <img align="left" alt="quote" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/quote.svg"> The United States Code is the codification by subject matter of the general and permanent laws of the United States. It is divided by broad subjects into 53 titles and published by the Office of the Law Revision Counsel of the U.S. House of Representatives. The U.S. Code was first published in 1926. The next main edition was published in 1934, and subsequent main editions have been published every six years since 1934. In between editions, annual cumulative supplements are published in order to present the most current information.
 >
 > FDsys - Browse USCODE . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collectionUScode.action?collectionCode=USCODE> ![link-external][icon-octicon-link-external]
 
@@ -44,6 +44,7 @@ const callback = (error, data, response) => {
     console.log(`SUCCESS: ${JSON.stringify(response, null, 2)}`)
   }
 }
+
 api.uscodeFetchUsingGET(title, section, opts, callback)
 ```
 
@@ -69,3 +70,6 @@ No authorization required.
 
 * **Content-Type**: `application/json`
 * **Accept**: _/_
+
+[icon-octicon-link-external]: https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/link-external.svg
+[icon-octicon-info]: https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/info.svg

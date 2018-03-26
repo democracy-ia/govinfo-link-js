@@ -1,6 +1,6 @@
 # Federal Register
 
-> <img align="left" alt="quote" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/quote.svg"> Published by the Office of the Federal Register, National Archives and Records Administration (NARA), the Federal Register is the official daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents. [About the Federal Register](https://www.gpo.gov/help/index.html#about_federal_register.htm).
+> <img align="left" alt="quote" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/quote.svg"> Published by the Office of the Federal Register, National Archives and Records Administration (NARA), the Federal Register is the official daily publication for rules, proposed rules, and notices of Federal agencies and organizations, as well as executive orders and other presidential documents. [About the Federal Register ![link-external][icon-octicon-link-external]](https://www.gpo.gov/help/index.html#about_federal_register.htm).
 >
 > FDsys - Browse Federal Register . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collection.action?collectionCode=FR> ![link-external][icon-octicon-link-external]
 

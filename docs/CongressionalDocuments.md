@@ -1,6 +1,6 @@
 # Congressional Documents
 
-> The Congressional Documents collection consists of House Documents, Senate Documents, and Senate Treaty Documents. House and Senate documents contain various kinds of materials ordered to be printed by both chambers of Congress. Documents can include reports of executive departments and agencies, as well as committee prints, that were ordered to be printed as documents. Senate Treaty Documents contain the text of a treaty as it is submitted to the U. S. Senate for ratification by the President of the United States. About Congressional Documents.
+> <img align="left" alt="quote" height="30" width="30" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/quote.svg"> The Congressional Documents collection consists of House Documents, Senate Documents, and Senate Treaty Documents. House and Senate documents contain various kinds of materials ordered to be printed by both chambers of Congress. Documents can include reports of executive departments and agencies, as well as committee prints, that were ordered to be printed as documents. Senate Treaty Documents contain the text of a treaty as it is submitted to the U. S. Senate for ratification by the President of the United States. [About Congressional Documents ![link-external][icon-octicon-link-external]](https://www.gpo.gov/help/index.html#about_congressional_documents.htm).
 >
 > FDsys - Browse CDOC . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collection.action?collectionCode=CDOC> ![link-external][icon-octicon-link-external]
 
