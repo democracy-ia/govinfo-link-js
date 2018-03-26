@@ -1,8 +1,8 @@
-# govinfo-link-js
+# [`govinfo-link-js` ![Node.js and Web browser API][api-26-image]][readme-url]
 
 <!-- standard-readme:banner -->
 
-![democracy-ia goat][logo-js-image]
+[![democracy-ia mascot][logo-js-image]][readme-url]
 
 <!-- standard-readme:badges -->
 
@@ -19,7 +19,7 @@
 
 <!-- standard-readme:short-description -->
 
-> Access U.S. Government Publishing Office's FDsys (Federal Digital System) content and metadata collections using the govinfo-link-js client of Node.js and Web browsers.
+> [![Node.js and Web browser API][api-26-image]][readme-url] Access U.S. Government Publishing Office's FDsys (Federal Digital System) content and metadata collections using the `govinfo-link-js` client for Node.js and Web browsers.
 
 <!-- standard-readme:table-of-contents -->
 
@@ -44,12 +44,13 @@
 
 ### 1.1. For Node.js environments
 
-> You can download and install Node.js at the [Node.js site](https://nodejs.org/).
+> ![light-bulb][icon-octicon-light-bulb] Download and install [Node.js ![link-external][icon-octicon-link-external]](https://nodejs.org/) (and its package manager, **npm**),
+> if you don't have them, already.
 
 #### 1.1.1. Using npm
 
-To publish the library as a [npm](https://www.npmjs.com/),
-please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+To publish the library as a [npm ![link-external][icon-octicon-link-external]](https://www.npmjs.com/),
+please follow the procedure in "[Publishing npm packages ![link-external][icon-octicon-link-external]](https://docs.npmjs.com/getting-started/publishing-npm-packages)."
 
 Then install it via:
 
@@ -99,7 +100,7 @@ You should now be able to `require('govinfo-link-js')` in javascript files from 
 
 ### 1.2. For browsers
 
-The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
+The library also works in the browser environment via npm and [browserify ![link-external][icon-octicon-link-external]](http://browserify.org/). After following
 the above steps with Node.js and installing browserify with `npm install -g browserify`,
 perform the following (assuming _main.js_ is your entry file, that's to say your javascript file where you actually
 use this library):
@@ -130,7 +131,7 @@ module: {
 
 ## 2. Usage
 
-> [![light-bulb][icon-octicon-light-bulb] View all Models (with example usage)](docs/README.md).
+> [![light-bulb][icon-octicon-light-bulb] View _all_ Models (with usage examples)](docs/README.md).
 
 ```javascript
 const { CodeOfFederalRegulations } = require('govinfo-link-js')
@@ -263,11 +264,11 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 
     > It's more fun when everybody's friendly and respectful.
 
-1.  **[Make a pull request][makeapullrequest-url]** when you're ready for other to review your changes (or you get stuck somewhere).
+1.  **[Make a pull request ![link-external][icon-octicon-link-external]][makeapullrequest-url]** when you're ready for other to review your changes (or you get stuck somewhere).
 
     _PR novices:_
 
-    > **🙋 Never created a pull request?** No problem. [🆓 Take this free online training][makeapullrequest-url]. (It even covers most of the conventions in the [CONTRIBUTING guidelines][contributing-url]!)
+    > **🙋 Never created a pull request?** No problem. [🆓 Take this free online training ![link-external][icon-octicon-link-external]][makeapullrequest-url]. (It even covers most of the conventions in the [CONTRIBUTING guidelines][contributing-url]!)
 
 ## 5. License
 
@@ -289,6 +290,7 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 [logo-js-image]: https://avatars1.githubusercontent.com/u/34581173?s=200&v=4
 [makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [makeapullrequest-url]: http://makeapullrequest.com
+[readme-url]: https://github.com/democracy-ia/govinfo-link-js/#readme
 
 <!-- ⛔️ CI Services ⛔️  -->
 
