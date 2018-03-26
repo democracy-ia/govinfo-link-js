@@ -180,8 +180,6 @@ The link service is used to create embedded links to content and metadata on
 **govinfo** and is currently enabled for the collections below. More
 information about each query, including examples, is provided on each collection page.
 
-> ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link>_.
-
 ### 3.1. Models
 
 1.  [![API reference][api-26-image] `CodeOfFederalRegulations`: Code of Federal Regulations](docs/CodeOfFederalRegulations.md)
@@ -199,6 +197,8 @@ information about each query, including examples, is provided on each collection
 1.  [![API reference][api-26-image] `UnitedStatesCode`: United States Code](docs/UnitedStatesCode.md)
 
 ### 3.2. Endpoints
+
+> ![info][icon-octicon-info] All HTTP request URIs are relative to _<https://www.govinfo.gov/link>_.
 
 | Class                                                                                                   | Method                                                                                    | HTTP request                                                                                                                     |
 | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
