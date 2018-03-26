@@ -21,7 +21,7 @@ Click here for important information about document availability.</summary>
 
 ---
 
-## `govinfoLinkService.CongressionalHearings`
+## `govinfo.CongressionalHearings`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 

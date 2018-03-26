@@ -1,6 +1,6 @@
 # Congressional Calendars
 
-## `govinfoLinkService.CongressionalCalendars`
+## `govinfo.CongressionalCalendars`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 

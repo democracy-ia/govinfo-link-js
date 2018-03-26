@@ -4,7 +4,7 @@
 >
 > FDsys - Browse CREC . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collection.action?collectionCode=CREC> ![link-external][icon-octicon-link-external]
 
-## `govinfoLinkService.CongressionalRecordDaily`
+## `govinfo.CongressionalRecordDaily`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 

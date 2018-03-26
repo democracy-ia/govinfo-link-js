@@ -4,7 +4,7 @@
 >
 > FDsys - Browse Code of Federal Regulations (Annual Edition) . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collectionCfr.action?collectionCode=CFR> ![link-external][icon-octicon-link-external]
 
-## `govinfoLinkService.CodeOfFederalRegulations`
+## `govinfo.CodeOfFederalRegulations`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 
@@ -25,7 +25,7 @@ Query: title number, part number, section number, year OR most recent
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-js')
+const { CodeOfFederalRegulations } = require('govinfo-link-js')
 
 const api = new CodeOfFederalRegulations()
 

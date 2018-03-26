@@ -4,7 +4,7 @@
 >
 > FDsys - Browse USCODE . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collectionUScode.action?collectionCode=USCODE> ![link-external][icon-octicon-link-external]
 
-## `govinfoLinkService.UnitedStatesCode`
+## `govinfo.UnitedStatesCode`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 

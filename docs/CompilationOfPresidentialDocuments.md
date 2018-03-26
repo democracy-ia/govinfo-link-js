@@ -4,7 +4,7 @@
 >
 > FDsys - Browse Compilation of Presidential Documents . (2018). Gpo.gov. Retrieved 22 March 2018, from <https://www.gpo.gov/fdsys/browse/collection.action?collectionCode=CPD> ![link-external][icon-octicon-link-external]
 
-## `govinfoLinkService.CompilationOfPresidentialDocuments`
+## `govinfo.CompilationOfPresidentialDocuments`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 
@@ -28,7 +28,7 @@ Query: dcpd type OR dcpd number
 ### Example
 
 ```javascript
-const govinfoLinkService = require('govinfo-link-js')
+const { CompilationOfPresidentialDocuments } = require('govinfo-link-js')
 
 const api = new CompilationOfPresidentialDocuments()
 

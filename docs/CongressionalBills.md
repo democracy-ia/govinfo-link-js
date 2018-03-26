@@ -23,7 +23,7 @@ Click here for summaries of the eight types of bills.</summary>
 
 ---
 
-## `govinfoLinkService.CongressionalBills`
+## `govinfo.CongressionalBills`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 

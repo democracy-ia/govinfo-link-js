@@ -1,6 +1,6 @@
 # Statutes at Large
 
-## `govinfoLinkService.StatutesAtLarge`
+## `govinfo.StatutesAtLarge`
 
 > ![info][icon-octicon-info] All URIs are relative to _<https://www.govinfo.gov/link> ![link-external][icon-octicon-link-external]_.
 
