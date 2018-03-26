@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -63,7 +63,7 @@
      * @param {module:model/String} chamber This is the chamber of Congress. Values are house, senate.
      * @param {string} section This is the name of the calendar section. Recommend encoding special characters and spaces (%20). Common sample values include Unanimous Consent Agreements, Cover and Special Orders, Subjects on the Table, Union Calendar, Bills in Conference, Special Legislative Days.
      * @param {Object} opts Optional parameters
-     * @param {string} opts.publishdate If date is not provided, the most recent version of the calendar is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.
+     * @param {string} opts.publishdate - If date is not provided, the most recent version of the calendar is returned. Values are date formated as yyyy-mm-dd or mostrecent. Default is most recent.
      * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
      * @param {module:api/CongressionalCalendars~ccalFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -76,13 +76,13 @@
       // Verify the required parameter 'chamber' is set
 
       if (chamber === undefined || chamber === null) {
-        throw new Error("Missing the required parameter 'chamber' when calling ccalFetchUsingGET")
+        throw new Error(`Missing the required parameter 'chamber' when calling ccalFetchUsingGET'`)
       }
 
       // Verify the required parameter 'section' is set
 
       if (section === undefined || section === null) {
-        throw new Error("Missing the required parameter 'section' when calling ccalFetchUsingGET")
+        throw new Error(`Missing the required parameter 'section' when calling ccalFetchUsingGET'`)
       }
 
       const pathParams = {

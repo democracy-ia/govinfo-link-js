@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -58,13 +58,13 @@
      */
 
     /**
-     * Query: bill number, bill type, congress, bill version OR most recent
-     * @param {String} congress This is the numerical Congress number. Sample value is 112.
+     * Query: Bill number, bill type, congress, bill version OR most recent.
+     * @param {string} congress - This is the numerical Congress number. Sample value is 112.
      * @param {module:model/String} billtype - Values are hr, s, hjres, sjres, hconres, sconres, hres, sres.
-     * @param {Number} billnum This is the numerical bill number. Sample value is 1027.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.billversion If bill version is not provided, the most recent version of a bill is returned. Values are as, ash, ath, ats, cdh, cds, cph, cps, eah, eas, eh, enr, eph, es, fah, fph, fps, hdh, hds, ih, iph, ips, is, lth, lts, nat, oph, ops, pap, pav, pch, pcs, pp, pwah, rah, ras, rch, rcs, rdh, rds, re, reah, renr, res, rfh, rfs, rft, rh, rhuc, rih, ris, rs, rth, rts, s_p, sas, sc, mostrecent.
-     * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, related.
+     * @param {Number} billnum - This is the numerical bill number. Sample value is 1027.
+     * @param {Object} opts - Optional parameters
+     * @param {module:model/String} opts.billversion - If bill version is not provided, the most recent version of a bill is returned. Values are as, ash, ath, ats, cdh, cds, cph, cps, eah, eas, eh, enr, eph, es, fah, fph, fps, hdh, hds, ih, iph, ips, is, lth, lts, nat, oph, ops, pap, pav, pch, pcs, pp, pwah, rah, ras, rch, rcs, rdh, rds, re, reah, renr, res, rfh, rfs, rft, rh, rhuc, rih, ris, rs, rth, rts, s_p, sas, sc, mostrecent.
+     * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, related.
      * @param {module:api/CongressionalBills~billsFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -76,19 +76,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling billsFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling billsFetchUsingGET'`)
       }
 
       // Verify the required parameter 'billtype' is set
 
       if (billtype === undefined || billtype === null) {
-        throw new Error("Missing the required parameter 'billtype' when calling billsFetchUsingGET")
+        throw new Error(`Missing the required parameter 'billtype' when calling billsFetchUsingGET'`)
       }
 
       // Verify the required parameter 'billnum' is set
 
       if (billnum === undefined || billnum === null) {
-        throw new Error("Missing the required parameter 'billnum' when calling billsFetchUsingGET")
+        throw new Error(`Missing the required parameter 'billnum' when calling billsFetchUsingGET'`)
       }
 
       const pathParams = {

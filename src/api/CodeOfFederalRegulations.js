@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -61,11 +61,11 @@
      * Query: title number, part number, section number, year OR most recent
      * 
      * @param {Number} titlenum Title number. Sample value is 3.
-     * @param {string} partnum Part number. Sample value is 100
+     * @param {string} partnum - Part number. Sample value is 100
      * @param {Object} opts Optional parameters
-     * @param {String} opts.sectionnum This is the section number. Sample value is 1. If section number is not provided the entire part will be returned.
-     * @param {String} opts.year This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the CFR section or part is returned. Default is most recent. Sample value is 2011.
-     * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, context, related.
+     * @param {string} opts.sectionnum This is the section number. Sample value is 1. If section number is not provided the entire part will be returned.
+     * @param {string} opts.year - This is the four digit numerical year OR mostrecent. If year is not provided the most recent version of the CFR section or part is returned. Default is most recent. Sample value is 2011.
+     * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are xml, mods, premis, details, context, related.
      * @param {module:api/CodeOfFederalRegulations~cfrFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -77,13 +77,13 @@
       // Verify the required parameter 'titlenum' is set
 
       if (titlenum === undefined || titlenum === null) {
-        throw new Error("Missing the required parameter 'titlenum' when calling cfrFetchUsingGET")
+        throw new Error(`Missing the required parameter 'titlenum' when calling cfrFetchUsingGET'`)
       }
 
       // Verify the required parameter 'partnum' is set
 
       if (partnum === undefined || partnum === null) {
-        throw new Error("Missing the required parameter 'partnum' when calling cfrFetchUsingGET")
+        throw new Error(`Missing the required parameter 'partnum' when calling cfrFetchUsingGET'`)
       }
 
       const pathParams = {

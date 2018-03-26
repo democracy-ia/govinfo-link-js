@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -60,12 +60,12 @@
     /**
      * Query: Congress, chamber, house print number, committee.
      * @param {number} congress - This is the numerical Congress number. Sample value is 109.
-     * @param {number} printnum This is the numerical House committee print number. House prints are not numbered consecutively across committees within a Congress. For example, 109-2 could exist for both the Ways and Means Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 2.
-     * @param {String} committee - This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is Ways and Means.
-     * @param {Object} opts - Optional parameters
+     * @param {number} printnum - This is the numerical House committee print number. House prints are not numbered consecutively across committees within a Congress. For example, 109-2 could exist for both the Ways and Means Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 2.
+     * @param {string} committee - This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is Ways and Means.
+     * @param {Object} opts - Optional parameters.
      * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
-     * @param {module:api/CongressionalCommitteePrints~cprtHouseFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * @param {module:api/CongressionalCommitteePrints~cprtHouseFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
+     * data is of type: {@link Object}.
      */
     this.cprtHouseFetchUsingGET = function (congress, printnum, committee, opts, callback) {
       opts = opts || {
@@ -75,19 +75,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling cprtHouseFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling cprtHouseFetchUsingGET'`)
       }
 
       // Verify the required parameter 'printnum' is set
 
       if (printnum === undefined || printnum === null) {
-        throw new Error("Missing the required parameter 'printnum' when calling cprtHouseFetchUsingGET")
+        throw new Error(`Missing the required parameter 'printnum' when calling cprtHouseFetchUsingGET'`)
       }
 
       // Verify the required parameter 'committee' is set
 
       if (committee === undefined || committee === null) {
-        throw new Error("Missing the required parameter 'committee' when calling cprtHouseFetchUsingGET")
+        throw new Error(`Missing the required parameter 'committee' when calling cprtHouseFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -143,13 +143,13 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling cprtJacketFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling cprtJacketFetchUsingGET'`)
       }
 
       // Verify the required parameter 'jacketid' is set
 
       if (jacketid === undefined || jacketid === null) {
-        throw new Error("Missing the required parameter 'jacketid' when calling cprtJacketFetchUsingGET")
+        throw new Error(`Missing the required parameter 'jacketid' when calling cprtJacketFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -204,13 +204,13 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling cprtSenateFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling cprtSenateFetchUsingGET'`)
       }
 
       // Verify the required parameter 'printnum' is set
 
       if (printnum === undefined || printnum === null) {
-        throw new Error("Missing the required parameter 'printnum' when calling cprtSenateFetchUsingGET")
+        throw new Error(`Missing the required parameter 'printnum' when calling cprtSenateFetchUsingGET'`)
       }
 
       const pathParams = {

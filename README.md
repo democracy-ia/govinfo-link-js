@@ -1,8 +1,10 @@
-![democracy-ia goat][logo-js-image]
-
 # govinfo-link-js
 
-> Access U.S. Government Publishing Office's FDsys (Federal Digital System) content and metadata collections using the govinfo-link-js client of Node.js and Web browsers.
+<!-- standard-readme:banner -->
+
+![democracy-ia goat][logo-js-image]
+
+<!-- standard-readme:badges -->
 
 [![Apache License][license-image]][license-url]
 [![FOSSA Status][fossa-image]][fossa-url]
@@ -15,37 +17,34 @@
 [![Coverage percentage][codacy-coverage-image]][codacy-url]
 [![Codacy code quality][codacy-image]][codacy-url]
 
-## Overview
+<!-- standard-readme:short-description -->
 
-The **govinfo** Link Service provides services for developers and webmasters to access content and metadata on **govinfo**. Current and planned services include a link service, list service, and search service. Please contact [askGPO](https://www.gpo.gov/askgpo/) for additional information about current or planned services.
+> Access U.S. Government Publishing Office's FDsys (Federal Digital System) content and metadata collections using the govinfo-link-js client of Node.js and Web browsers.
 
 ## Table of contents
 
 <!-- ⛔️ AUTO-GENERATED-CONTENT:START (TOC:excludeText=Table of contents) -->
-- [Overview](#overview)
-- [Installation](#installation)
-  * [For Node.js](#for-nodejs)
-    + [npm](#npm)
-      - [Local development](#local-development)
-    + [git](#git)
-  * [For browser](#for-browser)
-  * [Webpack Configuration](#webpack-configuration)
-- [Getting Started](#getting-started)
-- [API Endpoints](#api-endpoints)
-- [Documentation](#documentation)
+- [Install](#install)
+  * [For Node.js environments](#for-nodejs-environments)
+    + [Using npm](#using-npm)
+    + [Using git](#using-git)
+  * [For browser environments](#for-browser-environments)
+  * [Webpack configuration](#webpack-configuration)
+- [Usage](#usage)
+- [API](#api)
   * [Models](#models)
-  * [Open API (Swagger) specifications](#open-api-swagger-specifications)
-  * [Authorization](#authorization)
+  * [Endpoints](#endpoints)
+- [Contribute](#contribute)
 - [License](#license)
 <!-- ⛔️ AUTO-GENERATED-CONTENT:END -->
 
-## Installation
+## Install
 
-### For Node.js
+### For Node.js environments
 
 > You can download and install Node.js at the [Node.js site](https://nodejs.org/).
 
-#### npm
+#### Using npm
 
 To publish the library as a [npm](https://www.npmjs.com/),
 please follow the procedure in ["Publishing npm packages"](https://docs.npmjs.com/getting-started/publishing-npm-packages).
@@ -56,7 +55,20 @@ Then install it via:
 npm install govinfo-link-js --save
 ```
 
-##### Local development
+#### Using git
+
+If the library is hosted at a git repository, e.g.
+<https://github.com/democracy-ia/govinfo-link-js>
+then install it via:
+
+```shell
+npm install democracy-ia/govinfo-link-js --save
+```
+
+---
+
+<details>
+  <summary><strong><img align="top" alt="code" height="20" width="20" src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/code.svg"> Designers and developers</strong>: additional installation instructions</summary><p>
 
 To use the library locally without publishing to a remote npm registry, first install the dependencies by changing
 into the directory containing `package.json` (and this README). Let's call this `JAVASCRIPT_CLIENT_DIR`. Then run:
@@ -79,17 +91,11 @@ npm link /path/to/<JAVASCRIPT_CLIENT_DIR>
 
 You should now be able to `require('govinfo-link-js')` in javascript files from the directory you ran the last command above from.
 
-#### git
+</p></details>
 
-If the library is hosted at a git repository, e.g.
-<https://github.com/democracy-ia/govinfo-link-js>
-then install it via:
+---
 
-```shell
-npm install democracy-ia/govinfo-link-js --save
-```
-
-### For browser
+### For browser environments
 
 The library also works in the browser environment via npm and [browserify](http://browserify.org/). After following
 the above steps with Node.js and installing browserify with `npm install -g browserify`,
@@ -102,7 +108,7 @@ browserify main.js > bundle.js
 
 Then include _bundle.js_ in the HTML pages.
 
-### Webpack Configuration
+### Webpack configuration
 
 Using Webpack you may encounter the following error: "Module not found: Error:
 Cannot resolve module", most certainly you should disable AMD loader. Add/merge
@@ -120,7 +126,7 @@ module: {
 }
 ```
 
-## Getting Started
+## Usage
 
 Please follow the [installation](#installation) instruction and execute the following JS code:
 
@@ -129,126 +135,162 @@ const { CodeOfFederalRegulations } = require('govinfo-link-js')
 
 const api = new CodeOfFederalRegulations()
 
-// {Number} Title number. Sample value is 3.
-const titlenum = 56
+// {Number} Title number
+const titlenum = 3
 
-// {String} Part number. Sample value is 100
-const partnum = 'partnum_example'
+// {String} Part number.
+const partnum = '100'
 
 const opts = {
-  // {String} sectionnum - This is the section number. Sample value is 1. If section number
-  //   is not provided the entire part will be returned.
+  /**
+   * @prop {String} sectionnum - This is the section number. Sample value is 1.
+   *    If section number is not provided the entire part will be returned.
+   */
   sectionnum: null,
 
-  // {String} year - This is the four digit numerical year OR mostrecent. If year is not provided
-  //   the most recent version of the CFR section or part is returned. Default is most recent.
-  //   Sample value is 2011.
+  /**
+   * @prop {String} year - This is the four digit numerical year OR mostrecent.
+   *    If year is not provided, the most recent version of the CFR section
+   *    or part is returned. Default is most recent.
+   */
   year: '2011',
 
-  // {String} linkType - This is the format of the returned document. Default is pdf.
-  //   Other values are xml, mods, premis, details, context, related.
+  /**
+   * @prop {string=pdf} [linkType] - This is the format of the returned
+   *    document. Default is pdf. Other values are xml, mods, premis,
+   *    details, context, related.
+   */
   linkType: 'xml'
 }
 
-const callback = (error, data, response) => {
+api.cfrFetchUsingGET(titlenum, partnum, opts, (error, data) => {
   if (error) {
     console.error(error)
   } else {
-    console.log('API called successfully. Returned data: ' + data)
+    console.log(`✅  Returned data: ${api.toJson(data)}`)
   }
-}
-api.cfrFetchUsingGET(titlenum, partnum, opts, callback)
+})
 ```
 
-## API Endpoints
+## API
 
 The link service is used to create embedded links to content and metadata on **govinfo** and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.
 
-All URIs are relative to _https://www.govinfo.gov/link_
-
-| Class                                                    | Method                                                                                      | HTTP request                                              | Description                                                           |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------- | --------------------------------------------------------------------- |
-| _govinfoLinkService. CodeOfFederalRegulations_           | [**cfrFetchUsingGET**](docs/CodeOfFederalRegulations.md#cfrFetchUsingGET)                   | **GET** /cfr/{titlenum}/{partnum}                         | Query: title number, part number, section number, year OR most recent |
-| _govinfoLinkService. CompilationOfPresidentialDocuments_ | [**cpdDcpdFetchUsingGET**](docs/CompilationOfPresidentialDocuments.md#cpdDcpdFetchUsingGET) | **GET** /cpd/{year}                                       | Query: dcpd type OR dcpd number                                       |
-| _govinfoLinkService. CompilationOfPresidentialDocuments_ | [**cpdFetchUsingGET**](docs/CompilationOfPresidentialDocuments.md#cpdFetchUsingGET)         | **GET** /cpd/{doctype}/{docnum}                           | Query: document type, document number                                 |
-| _govinfoLinkService. CongressionalBills_                 | [**billsFetchUsingGET**](docs/CongressionalBills.md#billsFetchUsingGET)                     | **GET** /bills/{congress}/{billtype}/{billnum}            | Query: bill number, bill type, congress, bill version OR most recent  |
-| _govinfoLinkService. CongressionalCalendars_             | [**ccalFetchUsingGET**](docs/CongressionalCalendars.md#ccalFetchUsingGET)                   | **GET** /ccal/{chamber}/{section}                         | Query: chamber, section, publish date OR most recent                  |
-| _govinfoLinkService. CongressionalCommitteePrints_       | [**cprtHouseFetchUsingGET**](docs/CongressionalCommitteePrints.md#cprtHouseFetchUsingGET)   | **GET** /cprt/{congress}/house/{printnum}/{committee}     | Query: congress, chamber, house print number, committee               |
-| _govinfoLinkService. CongressionalCommitteePrints_       | [**cprtJacketFetchUsingGET**](docs/CongressionalCommitteePrints.md#cprtJacketFetchUsingGET) | **GET** /cprt/{congress}/{jacketid}                       | Query: congress, jacket number                                        |
-| _govinfoLinkService. CongressionalCommitteePrints_       | [**cprtSenateFetchUsingGET**](docs/CongressionalCommitteePrints.md#cprtSenateFetchUsingGET) | **GET** /cprt/{congress}/senate/{printnum}                | Query: congress, chamber, senate print number                         |
-| _govinfoLinkService. CongressionalDocuments_             | [**cdocFetchUsingGET**](docs/CongressionalDocuments.md#cdocFetchUsingGET)                   | **GET** /cdoc/{congress}/{doctype}/{docnum}               | Query: congress, document type, document number                       |
-| _govinfoLinkService. CongressionalDocuments_             | [**cdocJacketFetchUsingGET**](docs/CongressionalDocuments.md#cdocJacketFetchUsingGET)       | **GET** /cdoc/{congress}/{jacketid}                       | Query: congress, jacket number                                        |
-| _govinfoLinkService. CongressionalHearings_              | [**chrgHouseFetchUsingGET**](docs/CongressionalHearings.md#chrgHouseFetchUsingGET)          | **GET** /chrg/{congress}/house/{committee}/{serialnumber} | Query: congress, chamber, committee, house serial number              |
-| _govinfoLinkService. CongressionalHearings_              | [**chrgJacketFetchUsingGET**](docs/CongressionalHearings.md#chrgJacketFetchUsingGET)        | **GET** /chrg/{congress}/{jacketid}                       | Query: congress, jacket number                                        |
-| _govinfoLinkService. CongressionalHearings_              | [**chrgSenateFetchUsingGET**](docs/CongressionalHearings.md#chrgSenateFetchUsingGET)        | **GET** /chrg/{congress}/senate/{hearingnumber}           | Query: congress, chamber, senate hearing number                       |
-| _govinfoLinkService. CongressionalRecordDaily_           | [**crecSectionFetchUsingGET**](docs/CongressionalRecordDaily.md#crecSectionFetchUsingGET)   | **GET** /crec/section/{section}                           | Query: section, publish date OR most recent                           |
-| _govinfoLinkService. CongressionalRecordDaily_           | [**crecTypeFetchUsingGET**](docs/CongressionalRecordDaily.md#crecTypeFetchUsingGET)         | **GET** /crec/cas/{congress}/{billtype}/{billnum}         | Query: congress, bill number, bill type                               |
-| _govinfoLinkService. CongressionalRecordDaily_           | [**crecTypeFetchUsingGET1**](docs/CongressionalRecordDaily.md#crecTypeFetchUsingGET1)       | **GET** /crec/type/{type}                                 | Query: document type, publish date OR most recent                     |
-| _govinfoLinkService. CongressionalRecordDaily_           | [**crecVolumeFetchUsingGET**](docs/CongressionalRecordDaily.md#crecVolumeFetchUsingGET)     | **GET** /crec/{volume}/{pageprefix}/{page}                | Query: volume, page prefix, page number                               |
-| _govinfoLinkService. CongressionalReports_               | [**crptBillFetchUsingGET**](docs/CongressionalReports.md#crptBillFetchUsingGET)             | **GET** /crpt/{congress}/{associatedbillnum}              | Query: associated bill, congress                                      |
-| _govinfoLinkService. CongressionalReports_               | [**crptReportFetchUsingGET**](docs/CongressionalReports.md#crptReportFetchUsingGET)         | **GET** /crpt/{congress}/{doctype}/{reportnum}            | Query: congress, report type, report number                           |
-| _govinfoLinkService. FederalRegister_                    | [**frDocFetchUsingGET**](docs/FederalRegister.md#frDocFetchUsingGET)                        | **GET** /fr/{frdocnum}                                    | Query: Federal Register document number                               |
-| _govinfoLinkService. FederalRegister_                    | [**frVolumeFetchUsingGET**](docs/FederalRegister.md#frVolumeFetchUsingGET)                  | **GET** /fr/{volume}/{page}                               | Query: volume, page number                                            |
-| _govinfoLinkService. PublicAndPrivateLaws_               | [**plawBillFetchUsingGET**](docs/PublicAndPrivateLaws.md#plawBillFetchUsingGET)             | **GET** /plaw/{congress}/{associatedbillnum}              | Query: associated bill number, congress                               |
-| _govinfoLinkService. PublicAndPrivateLaws_               | [**plawStatuteFetchUsingGET**](docs/PublicAndPrivateLaws.md#plawStatuteFetchUsingGET)       | **GET** /plaw/{statutecitation}                           | Query: Statutes at Large citation                                     |
-| _govinfoLinkService. PublicAndPrivateLaws_               | [**plawTypeFetchUsingGET**](docs/PublicAndPrivateLaws.md#plawTypeFetchUsingGET)             | **GET** /plaw/{congress}/{lawtype}/{lawnum}               | Query: congress, law type, law number                                 |
-| _govinfoLinkService. StatutesAtLarge_                    | [**statuteTypeFetchUsingGET**](docs/StatutesAtLarge.md#statuteTypeFetchUsingGET)            | **GET** /statute/{congress}/{lawtype}/{lawnum}            | Query: congress, law type, law number                                 |
-| _govinfoLinkService. StatutesAtLarge_                    | [**statuteVolumeFetchUsingGET**](docs/StatutesAtLarge.md#statuteVolumeFetchUsingGET)        | **GET** /statute/{volume}/{page}                          | Query: volume, page number                                            |
-| _govinfoLinkService. UnitedStatesCode_                   | [**uscodeFetchUsingGET**](docs/UnitedStatesCode.md#uscodeFetchUsingGET)                     | **GET** /uscode/{title}/{section}                         | Query: title number, type, section, year OR most recent               |
-
-## Documentation
+All URIs are relative to _<https://www.govinfo.gov/link>_.
 
 ### Models
 
-1.  [`CodeOfFederalRegulations`: Code of Federal Regulations](./docs/CodeOfFederalRegulations.md)
-1.  [`CompilationOfPresidentialDocuments`: Compilation of Presidential Documents](./docs/CompilationOfPresidentialDocuments.md)
-1.  [`CongressionalBills`: Congressional Bills](./docs/CongressionalBills.md)
-1.  [`CongressionalCalendars`: Congressional Calendars](./docs/CongressionalCalendars.md)
-1.  [`CongressionalCommitteePrints`: Congressional Committee Prints](./docs/CongressionalCommitteePrints.md)
-1.  [`CongressionalDocuments`: Congressional Documents](./docs/CongressionalDocuments.md)
-1.  [`CongressionalHearings`: Congressional Hearings](./docs/CongressionalHearings.md)
-1.  [`CongressionalRecordDaily`: Congressional Record Daily](./docs/CongressionalRecordDaily.md)
-1.  [`CongressionalReports`: Congressional Reports](./docs/CongressionalReports.md)
-1.  [`FederalRegister`: Federal Register](./docs/FederalRegister.md)
-1.  [`PublicAndPrivateLaws`: Public and Private Laws](./docs/PublicAndPrivateLaws.md)
-1.  [`StatutesAtLarge`: Statutes at Large](./docs/StatutesAtLarge.md)
-1.  [`UnitedStatesCode`: United States Code](./docs/UnitedStatesCode.md)
+1.  [![API reference][api-26-image] `CodeOfFederalRegulations`: Code of Federal Regulations](CodeOfFederalRegulations.md)
+1.  [![API reference][api-26-image] `CompilationOfPresidentialDocuments`: Compilation of Presidential Documents](CompilationOfPresidentialDocuments.md)
+1.  [![API reference][api-26-image] `CongressionalBills`: Congressional Bills](CongressionalBills.md)
+1.  [![API reference][api-26-image] `CongressionalCalendars`: Congressional Calendars](CongressionalCalendars.md)
+1.  [![API reference][api-26-image] `CongressionalCommitteePrints`: Congressional Committee Prints](CongressionalCommitteePrints.md)
+1.  [![API reference][api-26-image] `CongressionalDocuments`: Congressional Documents](CongressionalDocuments.md)
+1.  [![API reference][api-26-image] `CongressionalHearings`: Congressional Hearings](CongressionalHearings.md)
+1.  [![API reference][api-26-image] `CongressionalRecordDaily`: Congressional Record Daily](CongressionalRecordDaily.md)
+1.  [![API reference][api-26-image] `CongressionalReports`: Congressional Reports](CongressionalReports.md)
+1.  [![API reference][api-26-image] `FederalRegister`: Federal Register](FederalRegister.md)
+1.  [![API reference][api-26-image] `PublicAndPrivateLaws`: Public and Private Laws](PublicAndPrivateLaws.md)
+1.  [![API reference][api-26-image] `StatutesAtLarge`: Statutes at Large](StatutesAtLarge.md)
+1.  [![API reference][api-26-image] `UnitedStatesCode`: United States Code](UnitedStatesCode.md)
 
-### Open API (Swagger) specifications
+### Endpoints
 
-1.  [swagger.json](./docs/swagger.json)
-1.  [swagger.yaml](./docs/swagger.yaml)
+| Class                                                                                                   | Method                                                                                    | HTTP request                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [_govinfoLinkService\. CodeOfFederalRegulations_](docs/CodeOfFederalRegulations.md)                     | [`cfrFetchUsingGET`](docs/CodeOfFederalRegulations.md#cfrFetchUsingGET)                   | **GET** /cfr/{titlenum}/{partnum} <br><br>Parameters: title number, part number, section number, year OR most recent             |
+| [_govinfoLinkService\. CompilationOfPresidentialDocuments_](docs/CompilationOfPresidentialDocuments.md) | [`cpdDcpdFetchUsingGET`](docs/CompilationOfPresidentialDocuments.md#cpdDcpdFetchUsingGET) | **GET** /cpd/{year} <br><br>Parameters: dcpd type OR dcpd number                                                                 |
+| [_govinfoLinkService\. CompilationOfPresidentialDocuments_](docs/CompilationOfPresidentialDocuments.md) | [`cpdFetchUsingGET`](docs/CompilationOfPresidentialDocuments.md#cpdFetchUsingGET)         | **GET** /cpd/{doctype}/{docnum} <br><br>Parameters: document type, document number                                               |
+| [_govinfoLinkService\. CongressionalBills_](docs/CongressionalBills.md)                                 | [`billsFetchUsingGET`](docs/CongressionalBills.md#billsFetchUsingGET)                     | **GET** /bills/{congress}/{billtype}/{billnum} <br><br>Parameters: bill number, bill type, congress, bill version OR most recent |
+| [_govinfoLinkService\. CongressionalCalendars_](docs/CongressionalCalendars.md)                         | [`ccalFetchUsingGET`](docs/CongressionalCalendars.md#ccalFetchUsingGET)                   | **GET** /ccal/{chamber}/{section} <br><br>Parameters: chamber, section, publish date OR most recent                              |
+| [_govinfoLinkService\. CongressionalCommitteePrints_](docs/CongressionalCommitteePrints.md)             | [`cprtHouseFetchUsingGET`](docs/CongressionalCommitteePrints.md#cprtHouseFetchUsingGET)   | **GET** /cprt/{congress}/house/{printnum}/{committee} <br><br>Parameters: congress, chamber, house print number, committee       |
+| [_govinfoLinkService\. CongressionalCommitteePrints_](docs/CongressionalCommitteePrints.md)             | [`cprtJacketFetchUsingGET`](docs/CongressionalCommitteePrints.md#cprtJacketFetchUsingGET) | **GET** /cprt/{congress}/{jacketid} <br><br>Parameters: congress, jacket number                                                  |
+| [_govinfoLinkService\. CongressionalCommitteePrints_](docs/CongressionalCommitteePrints.md)             | [`cprtSenateFetchUsingGET`](docs/CongressionalCommitteePrints.md#cprtSenateFetchUsingGET) | **GET** /cprt/{congress}/senate/{printnum} <br><br>Parameters: congress, chamber, senate print number                            |
+| [_govinfoLinkService\. CongressionalDocuments_](docs/CongressionalDocuments.md)                         | [`cdocFetchUsingGET`](docs/CongressionalDocuments.md#cdocFetchUsingGET)                   | **GET** /cdoc/{congress}/{doctype}/{docnum} <br><br>Parameters: congress, document type, document number                         |
+| [_govinfoLinkService\. CongressionalDocuments_](docs/CongressionalDocuments.md)                         | [`cdocJacketFetchUsingGET`](docs/CongressionalDocuments.md#cdocJacketFetchUsingGET)       | **GET** /cdoc/{congress}/{jacketid} <br><br>Parameters: congress, jacket number                                                  |
+| [_govinfoLinkService\. CongressionalHearings_](docs/CongressionalHearings.md)                           | [`chrgHouseFetchUsingGET`](docs/CongressionalHearings.md#chrgHouseFetchUsingGET)          | **GET** /chrg/{congress}/house/{committee}/{serialnumber} <br><br>Parameters: congress, chamber, committee, house serial number  |
+| [_govinfoLinkService\. CongressionalHearings_](docs/CongressionalHearings.md)                           | [`chrgJacketFetchUsingGET`](docs/CongressionalHearings.md#chrgJacketFetchUsingGET)        | **GET** /chrg/{congress}/{jacketid} <br><br>Parameters: congress, jacket number                                                  |
+| [_govinfoLinkService\. CongressionalHearings_](docs/CongressionalHearings.md)                           | [`chrgSenateFetchUsingGET`](docs/CongressionalHearings.md#chrgSenateFetchUsingGET)        | **GET** /chrg/{congress}/senate/{hearingnumber} <br><br>Parameters: congress, chamber, senate hearing number                     |
+| [_govinfoLinkService\. CongressionalRecordDaily_](docs/CongressionalRecordDaily.md)                     | [`crecSectionFetchUsingGET`](docs/CongressionalRecordDaily.md#crecSectionFetchUsingGET)   | **GET** /crec/section/{section} <br><br>Parameters: section, publish date OR most recent                                         |
+| [_govinfoLinkService\. CongressionalRecordDaily_](docs/CongressionalRecordDaily.md)                     | [`crecTypeFetchUsingGET`](docs/CongressionalRecordDaily.md#crecTypeFetchUsingGET)         | **GET** /crec/cas/{congress}/{billtype}/{billnum} <br><br>Parameters: congress, bill number, bill type                           |
+| [_govinfoLinkService\. CongressionalRecordDaily_](docs/CongressionalRecordDaily.md)                     | [`crecTypeFetchUsingGET1`](docs/CongressionalRecordDaily.md#crecTypeFetchUsingGET1)       | **GET** /crec/type/{type} <br><br>Parameters: document type, publish date OR most recent                                         |
+| [_govinfoLinkService\. CongressionalRecordDaily_](docs/CongressionalRecordDaily.md)                     | [`crecVolumeFetchUsingGET`](docs/CongressionalRecordDaily.md#crecVolumeFetchUsingGET)     | **GET** /crec/{volume}/{pageprefix}/{page} <br><br>Parameters: volume, page prefix, page number                                  |
+| [_govinfoLinkService\. CongressionalReports_](docs/CongressionalReports.md)                             | [`crptBillFetchUsingGET`](docs/CongressionalReports.md#crptBillFetchUsingGET)             | **GET** /crpt/{congress}/{associatedbillnum} <br><br>Parameters: associated bill, congress                                       |
+| [_govinfoLinkService\. CongressionalReports_](docs/CongressionalReports.md)                             | [`crptReportFetchUsingGET`](docs/CongressionalReports.md#crptReportFetchUsingGET)         | **GET** /crpt/{congress}/{doctype}/{reportnum} <br><br>Parameters: congress, report type, report number                          |
+| [_govinfoLinkService\. FederalRegister_](docs/FederalRegister.md)                                       | [`frDocFetchUsingGET`](docs/FederalRegister.md#frDocFetchUsingGET)                        | **GET** /fr/{frdocnum} <br><br>Parameters: Federal Register document number                                                      |
+| [_govinfoLinkService\. FederalRegister_](docs/FederalRegister.md)                                       | [`frVolumeFetchUsingGET`](docs/FederalRegister.md#frVolumeFetchUsingGET)                  | **GET** /fr/{volume}/{page} <br><br>Parameters: volume, page number                                                              |
+| [_govinfoLinkService\. PublicAndPrivateLaws_](docs/PublicAndPrivateLaws.md)                             | [`plawBillFetchUsingGET`](docs/PublicAndPrivateLaws.md#plawBillFetchUsingGET)             | **GET** /plaw/{congress}/{associatedbillnum} <br><br>Parameters: associated bill number, congress                                |
+| [_govinfoLinkService\. PublicAndPrivateLaws_](docs/PublicAndPrivateLaws.md)                             | [`plawStatuteFetchUsingGET`](docs/PublicAndPrivateLaws.md#plawStatuteFetchUsingGET)       | **GET** /plaw/{statutecitation} <br><br>Parameters: Statutes at Large citation                                                   |
+| [_govinfoLinkService\. PublicAndPrivateLaws_](docs/PublicAndPrivateLaws.md)                             | [`plawTypeFetchUsingGET`](docs/PublicAndPrivateLaws.md#plawTypeFetchUsingGET)             | **GET** /plaw/{congress}/{lawtype}/{lawnum} <br><br>Parameters: congress, law type, law number                                   |
+| [_govinfoLinkService\. StatutesAtLarge_](docs/StatutesAtLarge.md)                                       | [`statuteTypeFetchUsingGET`](docs/StatutesAtLarge.md#statuteTypeFetchUsingGET)            | **GET** /statute/{congress}/{lawtype}/{lawnum} <br><br>Parameters: congress, law type, law number                                |
+| [_govinfoLinkService\. StatutesAtLarge_](docs/StatutesAtLarge.md)                                       | [`statuteVolumeFetchUsingGET`](docs/StatutesAtLarge.md#statuteVolumeFetchUsingGET)        | **GET** /statute/{volume}/{page} <br><br>Parameters: volume, page number                                                         |
+| [_govinfoLinkService\. UnitedStatesCode_](docs/UnitedStatesCode.md)                                     | [`uscodeFetchUsingGET`](docs/UnitedStatesCode.md#uscodeFetchUsingGET)                     | **GET** /uscode/{title}/{section} <br><br>Parameters: title number, type, section, year OR most recent                           |
 
-### Authorization
+## Contribute
 
-None of the endpoints requires authorization.
+[![PRs Welcome][makeapullrequest-image]][makeapullrequest-url] We welcome contributions with GitHub **issues** and **pull requests**.
 
 ---
 
-This SDK is automatically generated by the [Swagger Codegen](https://github.com/swagger-api/swagger-codegen) project:
+[![Request a feature][issues-new-feat-image]][issues-new-feat-url]
+[![Report a defect][issues-new-defect-image]][issues-new-defect-url]
 
-* API version: 0.5.0
-* Package version: 0.5.0
-* Build package: `io.swagger.codegen.languages.JavascriptClientCodegen`
+[![Read the CONTRIBUTING guidelines][contributing-image]][contributing-url]
 
 ---
+
+Contributions in the form of GitHub pull requests are welcome. Before embarking on a significant change, please adhere to the following guidelines:
+
+1.  **[Create an issue][issues-url]**&mdash;e.g., a [defect ("bug") report][issues-new-defect-url] or a [feature request][issues-new-feat-url]&mdash;to propose changes.
+
+    _Exceptions:_
+
+    > If you're working on documentation and fixing something simple like a typo or an easy bug, go ahead and make a pull request.
+
+1.  **[Follow the CONTRIBUTING guidelines][contributing-url].**
+
+    _Why:_
+
+    > Standards and guidelines make communication easier. If you're willing and able to program&mdash;or want to learn how&mdash; following the guidelines will increase the likelihood of adding your changes to the software product.
+
+1.  **[Read the Code of Conduct][conduct-url].**
+
+    _Why:_
+
+    > It's more fun when everybody's friendly and respectful.
+
+1.  **[Make a pull request][makeapullrequest-url]** when you're ready for other to review your changes (or you get stuck somewhere).
+
+    _PR novices:_
+
+    > **🙋 Never created a pull request?** No problem. [🆓 Take this free online training][makeapullrequest-url]. (It even covers most of the conventions in the [CONTRIBUTING guidelines][contributing-url]!)
 
 ## License
 
-[Apache 2.0][license-url]
+`govinfo-link-js v0.5.0` © [Apache 2.0][license-url]
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdemocracy-ia%2Fgovinfo-link-js.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdemocracy-ia%2Fgovinfo-link-js?ref=badge_large)
 
 <!-- ⛔️ Images ⛔️ -->
 
+[conduct-url]: CODE_OF_CONDUCT.md
+[contributing-image]: https://img.shields.io/badge/read-CONTRIBUTING%20Guidelines-yellow.svg?style=for-the-badge&label=read+the
+[contributing-url]: CONTRIBUTING.md
+[makeapullrequest-url]: http://makeapullrequest.com
+[makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
 [logo-js-image]: https://avatars1.githubusercontent.com/u/34581173?s=200&v=4
+[issues-new-defect-image]: https://img.shields.io/badge/report-defect-lightgrey.svg?style=for-the-badge&label=report+a
+[issues-new-defect-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=fix%28affected-scope%29%3A+50-character-defect-summary&labels=Priority%3A+Medium%2CStatus%3A+Review+Needed%2CType%3A+Defect&template=defect-report.md
+[issues-url]: https://github.com/democracy-ia/govinfo-link-js/issues
+[issues-new-feat-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=feat%28affected-scope%29%3A+50-character-change-proposal-summary&labels=Priority%3A+Medium%2CStatus%3A+Review+Needed%2CType%3A+Feature&template=feature-request.md
+[issues-new-feat-image]: https://img.shields.io/badge/request-feature-blue.svg?style=for-the-badge&label=request+a
 [api-26-image]: .github/assets/img/icons8/icon-api-26.png
 
 <!-- ⛔️ CI Services ⛔️  -->
 
 [notice-url]: https://app.fossa.io/reports/07123904-7d26-40a6-b6af-c74e82a53789
-[appveyor-image]: https://img.shields.io/appveyor/ci/gregswindle/govinfo-link-js.svg?style=flat-square&logo=appveyor&label=windows%20build
-[appveyor-url]: https://ci.appveyor.com/project/gregswindle/govinfo-link-js
+[appveyor-image]: https://img.shields.io/appveyor/ci/democracy-ia/govinfo-link-js.svg?style=flat-square&logo=appveyor&label=windows%20build
+[appveyor-url]: https://ci.appveyor.com/project/democracy-ia/govinfo-link-js
 [codacy-image]: https://img.shields.io/codacy/grade/b3ac6aaaa3cf41d0897959c1e5d732a3.svg?style=flat-square
 [codacy-coverage-image]: https://img.shields.io/codacy/coverage/b3ac6aaaa3cf41d0897959c1e5d732a3.svg?style=flat-square
 [codacy-url]: https://www.codacy.com/app/greg_7/govinfo-link-js?utm_source=github.com&utm_medium=referral&utm_content=democracy-ia/govinfo-link-js&utm_campaign=Badge_Grade

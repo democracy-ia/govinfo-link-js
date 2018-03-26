@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -59,11 +59,12 @@
 
     /**
      * Query: Federal Register document number.
+     * 
      * @param {string} frdocnum - Required - The is the FR doc number that is listed at the end of each Federal Register document. Sample value is 2010-32535.
-     * @param {Object} opts - Optional parameters
+     * @param {Object} opts - Optional parameters.
      * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
-     * @param {module:api/FederalRegister~frDocFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * @param {module:api/FederalRegister~frDocFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
+     * data is of type: {@link Object}.
      */
     this.frDocFetchUsingGET = function (frdocnum, opts, callback) {
       opts = opts || {
@@ -73,7 +74,7 @@
       // Verify the required parameter 'frdocnum' is set
 
       if (frdocnum === undefined || frdocnum === null) {
-        throw new Error("Missing the required parameter 'frdocnum' when calling frDocFetchUsingGET")
+        throw new Error(`Missing the required parameter 'frdocnum' when calling frDocFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -113,8 +114,8 @@
      * Query: Volume, page number.
      * 
      * @param {number} volume - This is the numerical volume number. Sample value is 76.
-     * @param {number} page - This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: when multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575.
-     * @param {Object} opts Optional parameters
+     * @param {number} page - This is the numerical page number. Federal Register pages are numbered consecutively within a volume. Note: When multiple granules are contained on a page, content and metadata for the last granule on the page will be returned. Recommend selecting PDF link-type to return content for all granules on a page. Sample value is 575.
+     * @param {Object} opts - Optional parameters
      * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
      * @param {module:api/FederalRegister~frVolumeFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
@@ -127,13 +128,13 @@
       // Verify the required parameter 'volume' is set
 
       if (volume === undefined || volume === null) {
-        throw new Error("Missing the required parameter 'volume' when calling frVolumeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'volume' when calling frVolumeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'page' is set
 
       if (page === undefined || page === null) {
-        throw new Error("Missing the required parameter 'page' when calling frVolumeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'page' when calling frVolumeFetchUsingGET'`)
       }
 
       const pathParams = {

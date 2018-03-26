@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -75,13 +75,13 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling plawBillFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling plawBillFetchUsingGET'`)
       }
 
       // Verify the required parameter 'associatedbillnum' is set
 
       if (associatedbillnum === undefined || associatedbillnum === null) {
-        throw new Error("Missing the required parameter 'associatedbillnum' when calling plawBillFetchUsingGET")
+        throw new Error(`Missing the required parameter 'associatedbillnum' when calling plawBillFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -135,7 +135,7 @@
       // Verify the required parameter 'statutecitation' is set
 
       if (statutecitation === undefined || statutecitation === null) {
-        throw new Error("Missing the required parameter 'statutecitation' when calling plawStatuteFetchUsingGET")
+        throw new Error(`Missing the required parameter 'statutecitation' when calling plawStatuteFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -190,19 +190,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling plawTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling plawTypeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'lawtype' is set
 
       if (lawtype === undefined || lawtype === null) {
-        throw new Error("Missing the required parameter 'lawtype' when calling plawTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'lawtype' when calling plawTypeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'lawnum' is set
 
       if (lawnum === undefined || lawnum === null) {
-        throw new Error("Missing the required parameter 'lawnum' when calling plawTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'lawnum' when calling plawTypeFetchUsingGET'`)
       }
 
       const pathParams = {

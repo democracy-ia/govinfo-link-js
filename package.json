@@ -42,7 +42,7 @@
     "jsonexport": "2.0.11",
     "lodash": "4.17.5",
     "superagent": "3.8.2",
-    "xml2js": "0.4.19"
+    "xml-js": "1.6.2"
   },
   "devDependencies": {
     "@semantic-release/changelog": "2.0.1",
@@ -50,6 +50,7 @@
     "@semantic-release/npm": "3.2.2",
     "ajv": "6.2.1",
     "ajv-keywords": "3.1.0",
+    "chai": "4.1.2",
     "codacy-coverage": "2.1.0",
     "commitplease": "3.2.0",
     "coveralls": "3.0.0",
@@ -87,13 +88,7 @@
   "engines": {
     "node": ">=6"
   },
-  "eslintIgnore": [
-    "node_modules/**",
-    "src/api/**",
-    "src/ApiClient.js",
-    "src/index.js",
-    "test/**"
-  ],
+  "eslintIgnore": ["node_modules/**", "src/**/**", "test/**"],
   "files": ["src", "docs"],
   "homepage": "https://github.com/democracy-ia/govinfo-link-js#readme",
   "keywords": [
@@ -121,7 +116,7 @@
     "statements": 100,
     "functions": 100,
     "branches": 100,
-    "exclude": ["src/api/**", "src/ApiClient.js", "src/index.js", "test/**"],
+    "exclude": ["src/api/**", "src/ApiClient.js", "src/govinfo.js", "test/**"],
     "include": [],
     "reporter": ["lcov", "text"],
     "report-dir": "./test/coverage"
@@ -152,15 +147,19 @@
     "docs": "npm run docs:toc",
     "docs:toc":
       "md-magic --config '.github/config/markdown.config.js' --path '**/*.md' --ignore 'node_modules'",
-    "lint": "npm run lint:json && npm run lint:manifest && npm run lint:md",
-    "lint:js": "eslint --config .github/config/.eslintrc.yml --ext .js . --fix",
+    "lint":
+      "npm run lint:js && npm run lint:json && npm run lint:manifest && npm run lint:md",
+    "lint:js":
+      "eslint --config '.github/config/.eslintrc.yml' --ext .js . --fix",
     "lint:json":
       "prettier ./**/*.json --ignore-path '.github/config/.prettierignore' --write",
     "lint:manifest": "fixpack",
-    "lint:md": "prettier ./**/*.md -prose-wrap always --write",
+    "lint:md": "prettier **/*.md *.md -prose-wrap always --write",
     "posttest": "npm run security",
     "posttest:ci:coverage:codacy":
       "cat ./test/coverage/lcov.info | codacy-coverage",
+    "posttest:ci:coverage:coveralls":
+      "cat ./test/coverage/lcov.info | coveralls",
     "precommit": "lint-staged",
     "prepare": "npm run lint && npm run security",
     "prepublishOnly": "npm run prepare",
@@ -169,7 +168,6 @@
     "security:nsp:download": "nsp gather --ignore-server-errors",
     "security:nsp:scan": "nsp check --ignore-server-errors",
     "semantic-release": "semantic-release",
-    "test": "nyc mocha 'test/api/*.spec.js'",
-    "test:windows": "nyc mocha '.\\test\\api\\*.spec.js'"
+    "test": "nyc mocha 'test/**/*.spec.js'"
   }
 }

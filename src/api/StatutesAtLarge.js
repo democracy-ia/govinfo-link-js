@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -60,11 +60,11 @@
     /**
      * Query: Congress, law type, law number.
      * 
-     * @param {number} congress This is the numerical Congress number. Sample value is 108.
+     * @param {number} congress - This is the numerical Congress number. Sample value is 108.
      * @param {module:model/String} lawtype - This is the law type. Laws can either be public laws or private laws. Values are public, private.
-     * @param {number} lawnum This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 481.
-     * @param {Object} opts Optional parameters.
-     * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
+     * @param {number} lawnum - This is the numerical law number. Laws are numbered consecutively within each law type within a Congress. Sample value is 481.
+     * @param {Object} opts - Optional parameters.
+     * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
      * @param {module:api/StatutesAtLarge~statuteTypeFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
      * data is of type: {@link Object}.
      */
@@ -76,19 +76,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling statuteTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling statuteTypeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'lawtype' is set
 
       if (lawtype === undefined || lawtype === null) {
-        throw new Error("Missing the required parameter 'lawtype' when calling statuteTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'lawtype' when calling statuteTypeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'lawnum' is set
 
       if (lawnum === undefined || lawnum === null) {
-        throw new Error("Missing the required parameter 'lawnum' when calling statuteTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'lawnum' when calling statuteTypeFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -144,13 +144,13 @@
       // Verify the required parameter 'volume' is set
 
       if (volume === undefined || volume === null) {
-        throw new Error("Missing the required parameter 'volume' when calling statuteVolumeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'volume' when calling statuteVolumeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'page' is set
 
       if (page === undefined || page === null) {
-        throw new Error("Missing the required parameter 'page' when calling statuteVolumeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'page' when calling statuteVolumeFetchUsingGET'`)
       }
 
       const pathParams = {

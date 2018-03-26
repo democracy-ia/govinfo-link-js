@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -75,7 +75,7 @@
       // Verify the required parameter 'section' is set
 
       if (section === undefined || section === null) {
-        throw new Error("Missing the required parameter 'section' when calling crecSectionFetchUsingGET")
+        throw new Error(`Missing the required parameter 'section' when calling crecSectionFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -116,7 +116,7 @@
      * Query: Congress, bill number, bill type.
      * 
      * @param {string} congress - This is the numerical Congress number. Sample value is 115.
-     * @param {module:model/String} billtype Values are hr, s, hjres, sjres, hconres, sconres, hres, sres.
+     * @param {module:model/String} billtype - Values are hr, s, hjres, sjres, hconres, sconres, hres, sres.
      * @param {number} billnum - This is the numerical bill number. Sample value is 997.
      * @param {Object} opts - Optional parameters.
      * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is html. Other values are pdf, details, context, related.
@@ -131,19 +131,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling crecTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling crecTypeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'billtype' is set
 
       if (billtype === undefined || billtype === null) {
-        throw new Error("Missing the required parameter 'billtype' when calling crecTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'billtype' when calling crecTypeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'billnum' is set
 
       if (billnum === undefined || billnum === null) {
-        throw new Error("Missing the required parameter 'billnum' when calling crecTypeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'billnum' when calling crecTypeFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -199,7 +199,7 @@
       // Verify the required parameter 'type' is set
 
       if (type === undefined || type === null) {
-        throw new Error("Missing the required parameter 'type' when calling crecTypeFetchUsingGET1")
+        throw new Error(`Missing the required parameter 'type' when calling crecTypeFetchUsingGET1'`)
       }
 
       const pathParams = {
@@ -255,19 +255,19 @@
       // Verify the required parameter 'volume' is set
 
       if (volume === undefined || volume === null) {
-        throw new Error("Missing the required parameter 'volume' when calling crecVolumeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'volume' when calling crecVolumeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'pageprefix' is set
 
       if (pageprefix === undefined || pageprefix === null) {
-        throw new Error("Missing the required parameter 'pageprefix' when calling crecVolumeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'pageprefix' when calling crecVolumeFetchUsingGET'`)
       }
 
       // Verify the required parameter 'page' is set
 
       if (page === undefined || page === null) {
-        throw new Error("Missing the required parameter 'page' when calling crecVolumeFetchUsingGET")
+        throw new Error(`Missing the required parameter 'page' when calling crecVolumeFetchUsingGET'`)
       }
 
       const pathParams = {

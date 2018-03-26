@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -59,9 +59,10 @@
 
     /**
      * Query: Congress, chamber, committee, house serial number.
+     * 
      * @param {number} congress - This is the numerical Congress number. Sample value is 109.
-     * @param {string} committee This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is energy.
-     * @param {Number} serialnumber - This is the numerical house committee serial number. House hearings are not numbered consecutively across committees within a Congress. For example, 109-138 could exist for both the Energy Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 138.
+     * @param {string} committee - This is the name of the House committee. Recommend encoding special characters and spaces (%20). Sample value is energy.
+     * @param {number} serialnumber - This is the numerical house committee serial number. House hearings are not numbered consecutively across committees within a Congress. For example, 109-138 could exist for both the Energy Committee and the Rules and Administration Committee within the 109th Congress. Sample value is 138.
      * @param {Object} opts - Optional parameters
      * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
      * @param {module:api/CongressionalHearings~chrgHouseFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
@@ -75,19 +76,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling chrgHouseFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling chrgHouseFetchUsingGET'`)
       }
 
       // Verify the required parameter 'committee' is set
 
       if (committee === undefined || committee === null) {
-        throw new Error("Missing the required parameter 'committee' when calling chrgHouseFetchUsingGET")
+        throw new Error(`Missing the required parameter 'committee' when calling chrgHouseFetchUsingGET'`)
       }
 
       // Verify the required parameter 'serialnumber' is set
 
       if (serialnumber === undefined || serialnumber === null) {
-        throw new Error("Missing the required parameter 'serialnumber' when calling chrgHouseFetchUsingGET")
+        throw new Error(`Missing the required parameter 'serialnumber' when calling chrgHouseFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -143,13 +144,13 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling chrgJacketFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling chrgJacketFetchUsingGET'`)
       }
 
       // Verify the required parameter 'jacketid' is set
 
       if (jacketid === undefined || jacketid === null) {
-        throw new Error("Missing the required parameter 'jacketid' when calling chrgJacketFetchUsingGET")
+        throw new Error(`Missing the required parameter 'jacketid' when calling chrgJacketFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -204,13 +205,13 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling chrgSenateFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling chrgSenateFetchUsingGET'`)
       }
 
       // Verify the required parameter 'hearingnumber' is set
 
       if (hearingnumber === undefined || hearingnumber === null) {
-        throw new Error("Missing the required parameter 'hearingnumber' when calling chrgSenateFetchUsingGET")
+        throw new Error(`Missing the required parameter 'hearingnumber' when calling chrgSenateFetchUsingGET'`)
       }
 
       const pathParams = {

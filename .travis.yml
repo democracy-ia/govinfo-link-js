@@ -26,6 +26,7 @@ script:
 
 after_script:
   - npm run posttest:ci:coverage:codacy
+  - npm run posttest:ci:coverage:coveralls
 
 deploy:
   provider: script

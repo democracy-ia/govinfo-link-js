@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -40,6 +40,7 @@
 
   /**
    * Constructs a new CongressionalReports. 
+   * 
    * @alias module:api/CongressionalReports
    * @class
    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
@@ -57,13 +58,14 @@
      */
 
     /**
-     * Query: associated bill, congress
+     * Query: Associated bill, congress.
+     * 
      * @param {number} congress - This is the numerical Congress number. Sample value is 112.
-     * @param {string} associatedbillnum - Congressional reports often accompany a specific bill. Note: some associated bill numbers may produce multiple results. This will occur when two different reports are issues to accompany a single bill within a single Congress. In this case, the desired report may not be returned. When enabled, the API List Service will return a reference to both reports. Sample value is h.r.2297.
-     * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
-     * @param {module:api/CongressionalReports~crptBillFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * @param {string} associatedbillnum - Congressional reports often accompany a specific bill. Note: Some associated bill numbers may produce multiple results. This will occur when two different reports are issues to accompany a single bill within a single Congress. In this case, the desired report may not be returned. When enabled, the API List Service will return a reference to both reports. Sample value is h.r.2297.
+     * @param {Object} opts - Optional parameters.
+     * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
+     * @param {module:api/CongressionalReports~crptBillFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
+     * data is of type: {@link Object}.
      */
     this.crptBillFetchUsingGET = function (congress, associatedbillnum, opts, callback) {
       opts = opts || {
@@ -73,13 +75,13 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling crptBillFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling crptBillFetchUsingGET'`)
       }
 
       // Verify the required parameter 'associatedbillnum' is set
 
       if (associatedbillnum === undefined || associatedbillnum === null) {
-        throw new Error("Missing the required parameter 'associatedbillnum' when calling crptBillFetchUsingGET")
+        throw new Error(`Missing the required parameter 'associatedbillnum' when calling crptBillFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -123,7 +125,7 @@
      * @param {module:model/String} doctype This is the congressional report type. Congressional reports can either be house reports, senate reports, or senate executive reports. Values are hrpt, srpt, erpt.
      * @param {number} reportnum This is the numerical report number. Congressional reports are numbered consecutively within a Congress for each report type. Sample value is 154.
      * @param {Object} opts Optional parameters
-     * @param {module:model/String} opts.linkType This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
+     * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context, related.
      * @param {module:api/CongressionalReports~crptReportFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Object}
      */
@@ -135,19 +137,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling crptReportFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling crptReportFetchUsingGET'`)
       }
 
       // Verify the required parameter 'doctype' is set
 
       if (doctype === undefined || doctype === null) {
-        throw new Error("Missing the required parameter 'doctype' when calling crptReportFetchUsingGET")
+        throw new Error(`Missing the required parameter 'doctype' when calling crptReportFetchUsingGET'`)
       }
 
       // Verify the required parameter 'reportnum' is set
 
       if (reportnum === undefined || reportnum === null) {
-        throw new Error("Missing the required parameter 'reportnum' when calling crptReportFetchUsingGET")
+        throw new Error(`Missing the required parameter 'reportnum' when calling crptReportFetchUsingGET'`)
       }
 
       const pathParams = {

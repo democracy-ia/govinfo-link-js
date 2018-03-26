@@ -1,5 +1,5 @@
 /**
- * govinfo-link-js
+ * Govinfo-link-js
  * <p>The <strong>govinfo</strong> Link Service provides services for developers and webmasters to access content and metadata on <strong>govinfo</strong>. Current and planned services include a link service, list service, and search service. Please contact <a href=\"https://www.gpo.gov/askgpo/\">askGPO</a> for additional information about current or planned services.</p> <p>The link service is used to create embedded links to content and metadata on <strong>govinfo</strong> and is currently enabled for the collections below. The collection code is listed in parenthesis after each collection name, and the available queries are listed below each collection. More information about each query is provided on the individual collection page.</p>
  *
  * OpenAPI spec version: 0.5.0
@@ -60,13 +60,13 @@
     /**
      * Query: Congress, document type, document number.
      * 
-     * @param {number} congress This is the numberical Congress number. Sample value is 112.
+     * @param {number} congress - This is the numberical Congress number. Sample value is 112.
      * @param {module:model/String} doctype - This is the congressional document type. Congressional documents can either be house documents, senate documents, or treaty documents. Values are hdoc, sdoc, tdoc.
      * @param {number} docnum - This is the numerical document number. Congressional documents are numbered consecutively within a Congress for each document type. Sample value is 15. Note: Congressional documents that have been processed through the GPO collection are currently not available through the FDsys API.
-     * @param {Object} opts - Optional parameters
+     * @param {Object} opts - Optional parameters.
      * @param {module:model/String} opts.linkType - This is the format of the returned document. Default is pdf. Other values are html, mods, premis, details, context.
-     * @param {module:api/CongressionalDocuments~cdocFetchUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Object}
+     * @param {module:api/CongressionalDocuments~cdocFetchUsingGETCallback} callback The callback function, accepting three arguments: Error, data, response
+     * data is of type: {@link Object}.
      */
     this.cdocFetchUsingGET = function (congress, doctype, docnum, opts, callback) {
       opts = opts || {
@@ -76,19 +76,19 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling cdocFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling cdocFetchUsingGET'`)
       }
 
       // Verify the required parameter 'doctype' is set
 
       if (doctype === undefined || doctype === null) {
-        throw new Error("Missing the required parameter 'doctype' when calling cdocFetchUsingGET")
+        throw new Error(`Missing the required parameter 'doctype' when calling cdocFetchUsingGET'`)
       }
 
       // Verify the required parameter 'docnum' is set
 
       if (docnum === undefined || docnum === null) {
-        throw new Error("Missing the required parameter 'docnum' when calling cdocFetchUsingGET")
+        throw new Error(`Missing the required parameter 'docnum' when calling cdocFetchUsingGET'`)
       }
 
       const pathParams = {
@@ -144,13 +144,13 @@
       // Verify the required parameter 'congress' is set
 
       if (congress === undefined || congress === null) {
-        throw new Error("Missing the required parameter 'congress' when calling cdocJacketFetchUsingGET")
+        throw new Error(`Missing the required parameter 'congress' when calling cdocJacketFetchUsingGET'`)
       }
 
       // Verify the required parameter 'jacketid' is set
 
       if (jacketid === undefined || jacketid === null) {
-        throw new Error("Missing the required parameter 'jacketid' when calling cdocJacketFetchUsingGET")
+        throw new Error(`Missing the required parameter 'jacketid' when calling cdocJacketFetchUsingGET'`)
       }
 
       const pathParams = {

@@ -24,7 +24,7 @@
 <!-- ⛔️ AUTO-GENERATED-CONTENT:START (TOC:excludeText=Table of contents) -->
 - [1. Issues](#1-issues)
   * [1.1. Create Issues for feature requests and defects.](#11-create-issues-for-feature-requests-and-defects)
-  * [1.2. Format titles with **`type(scope): subject`**.](#12-format-titles-with-typescope-subject)
+  * [1.2. Format titles with (): .](#12-format-titles-with--)
   * [1.3. Fill out the issue template.](#13-fill-out-the-issue-template)
   * [1.4. Label the issue (optional).](#14-label-the-issue-optional)
   * [1.5. Monitor your issue for questions.](#15-monitor-your-issue-for-questions)
@@ -59,7 +59,7 @@
   * [3.1. Use the Standard JS Style.](#31-use-the-standard-js-style)
   * [3.2. Use ESLint to analyze source code.](#32-use-eslint-to-analyze-source-code)
 - [4. **Unit testing**](#4-unit-testing)
-  * [4.1. Write Mocha tests.](#41-write-mocha-tests)
+  * [4.1. Write Mocha specifications (BDD tests).](#41-write-mocha-specifications-bdd-tests)
   * [4.2. Reach 100% code coverage.](#42-reach-100%25-code-coverage)
 - [5. **Directory structure**](#5-directory-structure)
 - [6. **Logging**](#6-logging)
@@ -116,23 +116,117 @@
 
   * [![Report a defect][issues-new-defect-image]][issues-new-defect-url]
 
-  * [Review all open issues][issues-url]
+* ### 1.2. Format titles with <code><type>(<scope>): <subject></code>.
 
-* ### 1.2. Format titles with **`type(scope): subject`**.
+  `govinfo-link-js` follows the Conventional Commit Message specification, where:
+
+                                                            <dl>
+
+                                                          <dt>type</dt>
+
+                                                        <dd><code>type</code> signifies the "kind of" change.</dd>
+
+                                                      <dt>scope</dt>
+
+                                                    <dd><code>scope</code> covers the things being changed.</dd>
+
+                                                  <dt>subject</dt>
+
+                                                <dd><code>subject</code> a succint summary/description (like a good e-mail subject).</dd>
+
+                                            </dl>
 
   _Why:_
 
-  > ⌦`type` categorizes product changes. Valid types are:
-  >
-  > * `build`: Changes that affect the build system or external dependencies.
-  > * `ci`: Changes related to continuous integration, delivery, and deployment tasks.
-  > * `docs`: Documentation changes.
-  > * `feat`: A new feature.
-  > * `fix`: Defect (bug) repair.
-  > * `perf`: Performance enhancements.
-  > * `refactor`: Source code design improvements that don't affect product behavior.
-  > * `style`: Changes involving graphics, typography, etc., as well as source code beautification.
-  > * `test`: Tests added to increase code coverage, or corrected due to errors.
+  This convention creates `structred content` that humans _and_ machines can
+  easily parse.
+
+  _Valid `<types>`:_
+
+                                                            <blockquote>
+
+                                                        <dl>
+
+                                                      <dt>
+                                                      <a name="feat"></a>feat</dt>
+
+                                                    <dd>A new feature</dd>
+
+                                                  <!-- definition -->
+
+                                                  <dt>
+                                                  <a name="fix"></a>fix</dt>
+
+                                                <dd>A bug fix
+
+                                              </dd>
+
+                                            <!-- definition -->
+
+                                            <dt>
+                                            <a name="docs"></a>docs</dt>
+
+                                          <dd>Documentation only changes</dd>
+
+                                        <!-- definition -->
+
+                                        <dt>
+                                        <a name="style"></a>style</dt>
+
+                                      <dd>Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)</dd>
+
+                                    <!-- definition -->
+
+                                    <dt>
+                                    <a name="refactor"></a>refactor</dt>
+
+                                  <dd>A code change that neither fixes a bug nor adds a feature</dd>
+
+                                <!-- definition -->
+
+                                <dt>
+                                <a name="perf"></a>perf</dt>
+
+                              <dd>A code change that improves performance</dd>
+
+                            <!-- definition -->
+
+                            <dt>
+                            <a name="test"></a>test</dt>
+
+                          <dd>Adding missing tests or correcting existing tests</dd>
+
+                        <!-- definition -->
+
+                        <dt>
+                        <a name="build"></a>build</dt>
+
+                      <dd>Changes that affect the build system or external dependencies (example scopes: `gulp`, `broccoli`, `npm`)</dd>
+
+                    <!-- definition -->
+
+                    <dt>
+                    <a name="ci"></a>ci</dt>
+
+                  <dd>Changes to our CI configuration files and scripts (example scopes: `travis`, `circle`, `browser-stack`, `sauce-labs`)</dd>
+
+                <!-- definition -->
+
+                <dt>
+                <a name="chore"></a>chore</dt>
+
+              <dd>Other changes that don't modify src or test files</dd>
+
+            <!-- definition -->
+
+            <dt>
+            <a name="revert"></a>revert</dt>
+
+          <dd>Reverts a previous commit</dd>
+
+      </dl>
+
+  </blockquote>
 
 * ### 1.3. Fill out the issue template.
 
@@ -146,311 +240,9 @@
 
   > ⌦ We use [`git-labelmaker`][gh-git-labelmaker-url] to categorize Issues (and Pull Requests) consistently. There are four label categories:
   >
-  > * `Type`: the "kind" of product change.
-  > * `Status`: the state of a change.
-  > * `Priority`: the importance and value of a change.
-  > * `Points`: the size/complexity of a change.
-
-  ---
-
-<details>
- <summary><img src="https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/svg/question.svg" alt="Help" align="middle" height="48" width="48"> Toggle view of the Label definitions table.</summary>
-
-                                                                                                                                                                                                                                                                                                        <table class="table table-striped table-bordered">
-
-                                                                                                                                                                                                                                                                                                      <thead>
-
-                                                                                                                                                                                                                                                                                                    <tr>
-
-                                                                                                                                                                                                                                                                                                  <th>Label 🏷</th>
-
-                                                                                                                                                                                                                                                                                                <th>Definition</th>
-
-                                                                                                                                                                                                                                                                                              </tr>
-
-                                                                                                                                                                                                                                                                                            </thead>
-
-                                                                                                                                                                                                                                                                                          <tbody>
-
-                                                                                                                                                                                                                                                                                        <tr>
-
-                                                                                                                                                                                                                                                                                      <td><code>Type: Feature</code></td>
-
-                                                                                                                                                                                                                                                                                    <td><dfn>A distinguished or expected characteristic of a product that either differentiates the product from competitors, or whose absence would be diminish the product’s value.</dfn><br><br><strong>Note</strong> that <code>Type: Feature</code> and <code>Type: Defect</code> are mutually exclusive: an Issue cannot be both a feature and a defect.</td>
-
-                                                                                                                                                                                                                                                                                  </tr>
-
-                                                                                                                                                                                                                                                                                <tr>
-
-                                                                                                                                                                                                                                                                              <td><code>Type: Defect</code></td>
-
-                                                                                                                                                                                                                                                                            <td><dfn>A flaw, fault, or abnormality that deviates from or prevents the product’s expected behavior.</dfn><br><br><strong>Note</strong> that <code>Type: Feature</code> and <code>Type: Defect</code> are mutually exclusive: an Issue cannot be both a feature and a defect.</td>
-
-                                                                                                                                                                                                                                                                          </tr>
-
-                                                                                                                                                                                                                                                                        <tr>
-
-                                                                                                                                                                                                                                                                      <td><code>CLA: Signed</code></td>
-
-                                                                                                                                                                                                                                                                    <td><dfn>The person who submitted a product change has signed your Contributor License Agreement.</dfn><br><br>Remove this label if your product owner does not require a CLA.</td>
-
-                                                                                                                                                                                                                                                                  </tr>
-
-                                                                                                                                                                                                                                                                <tr>
-
-                                                                                                                                                                                                                                                              <td><code>CLA: Unsigned</code></td>
-
-                                                                                                                                                                                                                                                            <td><dfn>The person who submitted a product change has **<em>not</em>**signed your Contributor License Agreement.</dfn><br><br>Remove this label if your product owner does not require a CLA.</td>
-
-                                                                                                                                                                                                                                                          </tr>
-
-                                                                                                                                                                                                                                                        <tr>
-
-                                                                                                                                                                                                                                                      <td><code>Priority: Critical</code></td>
-
-                                                                                                                                                                                                                                                    <td><code>Type: Feature</code>: <dfn>The proposed enhancement is essential to the success of your product.</dfn><br><br><code>Type: Defect</code>: <dfn>Your product no longer functions due to internal, <code>FATAL</code> errors, and must be addressed immediately in order to maintain consumer loyalty.</dfn></td>
-
-                                                                                                                                                                                                                                                  </tr>
-
-                                                                                                                                                                                                                                                <tr>
-
-                                                                                                                                                                                                                                              <td><code>Priority: High</code></td>
-
-                                                                                                                                                                                                                                            <td><code>Type: Feature</code>: <dfn>The proposed enhancement is central to product’s value proposition, and should be implemented as soon as possible.</dfn><br><br><code>Type: Defect</code>: <dfn>The product functions overall, but with an issue that risks consumer abandonment.</dfn></td>
-
-                                                                                                                                                                                                                                          </tr>
-
-                                                                                                                                                                                                                                        <tr>
-
-                                                                                                                                                                                                                                      <td><code>Priority: Medium</code></td>
-
-                                                                                                                                                                                                                                    <td><code>Type: Feature</code> or <code>Type: Defect</code>:  <dfn>The proposed change should be implemented as long as no <code>Priority: Critical</code> or <code>Priority: High</code> issues exists.</dfn></td>
-
-                                                                                                                                                                                                                                  </tr>
-
-                                                                                                                                                                                                                                <tr>
-
-                                                                                                                                                                                                                              <td><code>Priority: Low</code></td>
-
-                                                                                                                                                                                                                            <td><code>Type: Feature</code>: <dfn>A proposal that minimally affects the product’s value.</dfn><br><br><code>Type: Defect</code>: <dfn>Represents “cosmetic” problems like misspelled words or misaligned text that do not affect branding and marketing strategy.</dfn></td>
-
-                                                                                                                                                                                                                          </tr>
-
-                                                                                                                                                                                                                        <tr>
-
-                                                                                                                                                                                                                      <td><code>Status: Abandoned</code></td>
-
-                                                                                                                                                                                                                    <td><code>Type: Feature</code> or <code>Type: Defect</code>: <dfn>The team and community have neglected, forgotten, discarded, or ignored resolving a Issue.</dfn></td>
-
-                                                                                                                                                                                                                  </tr>
-
-                                                                                                                                                                                                                <tr>
-
-                                                                                                                                                                                                              <td><code>Status: Accepted</code></td>
-
-                                                                                                                                                                                                            <td><code>Type: Feature</code> or <code>Type: Defect</code>: <dfn>The product owner or maintainers agreed to a product change proposal.</dfn></td>
-
-                                                                                                                                                                                                          </tr>
-
-                                                                                                                                                                                                        <tr>
-
-                                                                                                                                                                                                      <td><code>Status: Available</code></td>
-
-                                                                                                                                                                                                    <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The change proposal is ready for team and community members to work on.</dfn></td>
-
-                                                                                                                                                                                                  </tr>
-
-                                                                                                                                                                                                <tr>
-
-                                                                                                                                                                                              <td><code>Status: Blocked</code></td>
-
-                                                                                                                                                                                            <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The proposed change cannot be addressed until another issue has been resolved.</dfn><br><br><strong>Note</strong> that the Issue blocking the proposed change SHOULD be referenced in the <code>Blocked</code> Issue’s description field.</td>
-
-                                                                                                                                                                                          </tr>
-
-                                                                                                                                                                                        <tr>
-
-                                                                                                                                                                                      <td><code>Status: Completed</code></td>
-
-                                                                                                                                                                                    <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The issue has been resolved and all acceptance criteria validated.</dfn></td>
-
-                                                                                                                                                                                  </tr>
-
-                                                                                                                                                                                <tr>
-
-                                                                                                                                                                              <td><code>Status: In Progress</code></td>
-
-                                                                                                                                                                            <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The team or community is actively working on the Issue’s resolution.</dfn></td>
-
-                                                                                                                                                                          </tr>
-
-                                                                                                                                                                        <tr>
-
-                                                                                                                                                                      <td><code>Status: On Hold</code></td>
-
-                                                                                                                                                                    <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The Product Owner has (temporarily) postponed Issue resolution.</dfn><br><br><strong>Note</strong> that the <em>reason</em> for postponement should be stated in the Issue’s description field.</td>
-
-                                                                                                                                                                  </tr>
-
-                                                                                                                                                                <tr>
-
-                                                                                                                                                              <td><code>Status: Pending</code></td>
-
-                                                                                                                                                            <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>product change or resolution is either awaiting the Product Owner’s decision.</dfn> Ideally, the Product Owner should declare why they’re undecided somewhere in the Issue thread.</td>
-
-                                                                                                                                                          </tr>
-
-                                                                                                                                                        <tr>
-
-                                                                                                                                                      <td><code>Status: Rejected</code></td>
-
-                                                                                                                                                    <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The Product Owner has declined a change proposal.</dfn><br><br><strong>Note</strong> that the Product Owner should politely explain why they dismissed the change request.</td>
-
-                                                                                                                                                  </tr>
-
-                                                                                                                                                <tr>
-
-                                                                                                                                              <td><code>Status: Review Needed</code></td>
-
-                                                                                                                                            <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The person working on an Issue has requested help or discussion.</dfn> When applied to a Pull Request, <code>Status: Review Needed</code> <dfn>signifies that the PR is ready for evaluation (and potentially, approval).</dfn></td>
-
-                                                                                                                                          </tr>
-
-                                                                                                                                        <tr>
-
-                                                                                                                                      <td><code>Status: Revision Needed</code></td>
-
-                                                                                                                                    <td><code>Type: Feature</code> and <code>Type: Defect</code>: <dfn>The Issue is not ready for evaluation because of incomplete or insufficient information.</dfn></td>
-
-                                                                                                                                  </tr>
-
-                                                                                                                                <tr>
-
-                                                                                                                              <td><code>Type: Breaking Change</code></td>
-
-                                                                                                                            <td><dfn>The change introduces backward incompatibility with previous product versions.</dfn><br><br><strong><code>Type: Breaking Change</code> MUST be recorded with a</strong> <ol><br><li>Git commit message,<br><li>An increment (+1) in the product’s Semantic Version’s MAJOR version,<br><li><code>CHANGELOG</code> entry, and<br><li>Updated API documentation.</ol></td>
-
-                                                                                                                          </tr>
-
-                                                                                                                        <tr>
-
-                                                                                                                      <td><code>Type: Build</code></td>
-
-                                                                                                                    <td><dfn>Changes to the process that convert source code into a stand-alone form that can be run on a computer or to the form itself.</dfn></td>
-
-                                                                                                                  </tr>
-
-                                                                                                                <tr>
-
-                                                                                                              <td><code>Type: Chore</code></td>
-
-                                                                                                            <td><dfn>Miscellaneous non-functional changes such as typographical fixes or source code repository initialization</dfn>, e.g., <code>chore(scm): scaffold product directory structure</code></td>
-
-                                                                                                          </tr>
-
-                                                                                                        <tr>
-
-                                                                                                      <td><code>Type: CI</code></td>
-
-                                                                                                    <td><dfn>Continuous Integration (CI) changes, i.e., automated build, test, an quality assurance tasks.</dfn></td>
-
-                                                                                                  </tr>
-
-                                                                                                <tr>
-
-                                                                                              <td><code>Type: Docs</code></td>
-
-                                                                                            <td><dfn>The introduction of or revisions to natural language documents or source code comments.</dfn></td>
-
-                                                                                          </tr>
-
-                                                                                        <tr>
-
-                                                                                      <td><code>Type: Duplicate</code></td>
-
-                                                                                    <td><dfn>An Issue that shares the same characteristics as a previously reported issue.</dfn> <br><br><strong>Note</strong> that  product maintainers should reference the original Issue and close the <code>Type: Duplicate</code> Issue.</td>
-
-                                                                                  </tr>
-
-                                                                                <tr>
-
-                                                                              <td><code>Type: Feedback</code></td>
-
-                                                                            <td><dfn>A response to a <code>Type: Question</code> or voluntary information used as a basis for improvement.</td>
-
-                                                                          </tr>
-
-                                                                        <tr>
-
-                                                                      <td><code>Type: Fix</code></td>
-
-                                                                    <td><dfn>A change intended to repair a <code>Type: Defect</code> Issue.</td>
-
-                                                                  </tr>
-
-                                                                <tr>
-
-                                                              <td><code>Type: Performance</code></td>
-
-                                                            <td><dfn>A change intended to reduce product latency.</td>
-
-                                                          </tr>
-
-                                                        <tr>
-
-                                                      <td><code>Type: Question</code></td>
-
-                                                    <td><dfn>A request for information.</td>
-
-                                                  </tr>
-
-                                                <tr>
-
-                                              <td><code>Type: Refactor</code></td>
-
-                                            <td><dfn>Source code design improvements that do not affect product behavior.</td>
-
-                                          </tr>
-
-                                        <tr>
-
-                                      <td><code>Type: Revert</code></td>
-
-                                    <td><dfn>Changes that return the product’s source code to previous Git commit hash.</td>
-
-                                  </tr>
-
-                                <tr>
-
-                              <td><code>Type: Spike</code></td>
-
-                            <td><dfn>A technical or design <em>experiment</em> that investigates a possible solution.</dfn> <br><br><strong>Note</strong> that spike solutions are, by definition, <em>throwaway</em> solutions that should <strong>NEVER</strong> be added to a product release.</td>
-
-                          </tr>
-
-                        <tr>
-
-                      <td><code>Type: Style</code></td>
-
-                    <td><dfn>Issues that address code standard <em>or</em> brand compliance.</td>
-
-                  </tr>
-
-                <tr>
-
-              <td><code>Type: Test</code></td>
-
-            <td><dfn>Issues that prove intended behavior or substantiate “definitions of done.”</dfn> <br><br><code>Type: Test</code> can also refer to changes that result in broader code coverage.</td>
-
-          </tr>
-
-        </tbody>
-
-      </table>
-
-  </details>
-
----
+  > * `type`: the "kind" of product change.
+  > * `status`: the state of a change.
+  > * `priority`: the importance and value of a change.
 
 * ### 1.5. Monitor your issue for questions.
 
@@ -492,66 +284,6 @@
   > Pattern: `type/issueId-subject`<br>
   > Icon legend: ![Bitbucket branch prefix][icon-bitbucket-20-image] Bitbucket
   > ![GitHub branch prefix][icon-github-20-image] GitHub
-  >
-  > <dt>
-
-                                                                                                                  <dt><code>bugfix/</code></dt>
-
-                                                                                                              <dd><img src="./docs/img/icons8/icon-bitbucket-20.png" alt="Applies to Bitbucket branches"> Defect (bug) repair issues.</dd>
-
-                                                                                                          <dt><code>build/</code></dt>
-
-                                                                                                      <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Issues related to product builds.</dd>
-
-                                                                                                  <dt><code>ci/</code></dt>
-
-                                                                                              <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Issues related to continuous integration, delivery, and deployment tasks.</dd>
-
-                                                                                          <dt><code>docs/</code></dt>
-
-                                                                                      <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Issues related to documentation.</dd>
-
-                                                                                  <dt><code>feat/</code></dt>
-
-                                                                              <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> New feature or enhancement requests.</dd>
-
-                                                                          <dt><code>feature/</code></dt>
-
-                                                                      <dd><img src="./docs/img/icons8/icon-bitbucket-20.png" alt="Applies to Bitbucket branches"> New feature or enhancement requests.</dd>
-
-                                                                  <dt><code>fix/</code></dt>
-
-                                                              <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Defect (bug) repair issues.</dd>
-
-                                                          <dt></dt>
-
-                                                      <dd><img src="./docs/img/icons8/icon-bitbucket-20.png" alt="Applies to Bitbucket branches"> `hotfix/`</dd>
-
-                                                  <dt><code>perf/</code></dt>
-
-                                              <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Performance improvement issues.</dd>
-
-                                          <dt><code>refactor/</code></dt>
-
-                                      <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Source code design **improvements that do not affect product behavior**.</dd>
-
-                                  <dt><code>revert/</code></dt>
-
-                              <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Tasks that revert to a previous commit hash.</dd>
-
-                          <dt><code>spike/</code></dt>
-
-                      <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Issues related in solution investigation.</dd>
-
-                  <dt><code>style/</code></dt>
-
-              <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Issues related to style guideline compliance, especially `ESLint` errors and warnings.</dd>
-
-          <dt><code>test/</code></dt>
-
-      <dd><img src="./docs/img/icons8/icon-github-filled-20.png" alt="Applies to GitHub branches"> Test coverage tasks.</dd>
-
-  </dl>
 
 * #### 2.1.3. Branch out from `master`.
 
@@ -614,7 +346,7 @@
 
   We use the [feature-branch-workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#feature-branch-workflow). We _recommend_ [interactive rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing#the-golden-rule-of-rebasing), too, but that's not required.
 
-- #### 2.2.1. Initialize a Git repository in the product directory (_for new repositories only_).
+* #### 2.2.1. Initialize a Git repository in the product directory (_for new repositories only_).
 
   For subsequent features and changes, this step should be ignored.
 
@@ -623,7 +355,7 @@
   git init
   ```
 
-- #### 2.2.2. Checkout a new `feat`ure or `fix` branch.
+* #### 2.2.2. Checkout a new `feat`ure or `fix` branch.
 
   ```sh
   # For a new feature branch:
@@ -633,7 +365,7 @@
   git checkout -b fix/<issueId>-scope-of-change
   ```
 
-- #### 2.2.3. Make Changes.
+* #### 2.2.3. Make Changes.
 
   ```sh
   git add
@@ -644,7 +376,7 @@
 
   > ⌦ `git commit -a` will start an editor which lets you separate the subject from the body. Read more about it in _section 1.3_.
 
-- #### 2.2.4. Follow the Conventional Commits Specification for commit messages.
+* #### 2.2.4. Follow the Conventional Commits Specification for commit messages.
 
   This project enforces [AngularJS Git Commit Guidelines][git-commit-guidelines-url] (which is now an extension of the [Conventional Commits Specfication][conventional-commits-url]) with [`commitplease`][commitplease-url] pre-commit hooks.
 
@@ -786,7 +518,7 @@
     <footer>
     ```
 
-- #### 2.2.5. Sync with remote to get changes you’ve missed.
+* #### 2.2.5. Sync with remote to get changes you’ve missed.
 
   ```sh
   git checkout master
@@ -797,7 +529,7 @@
 
   > ⌦ This will give you a chance to deal with conflicts on your machine while rebasing(later) rather than creating a Pull Request that contains conflicts.
 
-- #### 2.2.6. Update your topic branch with the latest changes from `master` by interactive rebase.
+* #### 2.2.6. Update your topic branch with the latest changes from `master` by interactive rebase.
 
   ```sh
   git checkout <branchname>
@@ -810,7 +542,7 @@
   >
   > [Learn more about autosquashing Git commits][autosquashing-git-commits-url].
 
-- #### 2.2.7. Resolve conflicts (if any occur), and continue rebase.
+* #### 2.2.7. Resolve conflicts (if any occur), and continue rebase.
 
   ```sh
   git add <file1> <file2> ...
@@ -819,7 +551,7 @@
 
   [Learn more about resolving conflicts][git-resolve-conflicts-url].
 
-- #### 2.2.8. Push your branch with the `-f` flag (if necessary).
+* #### 2.2.8. Push your branch with the `-f` flag (if necessary).
 
   Rebase changes history, so you might need to force changes into the `remote` branch with the `-f` flag. If someone else is working on your branch, use the less destructive `--force-with-lease`.
 
@@ -833,11 +565,11 @@
   >
   > [Learn more about `--force-with-lease`][force-with-lease-url].
 
-- #### 2.2.9. Submit a Pull Request.
+* #### 2.2.9. Submit a Pull Request.
 
-- #### 2.2.10. Once accepted, the Pull request will be merged, closed, and deleted by an administrator.
+* #### 2.2.10. Once accepted, the Pull request will be merged, closed, and deleted by an administrator.
 
-- #### 2.2.11. Remove your local topic branch if you're done.
+* #### 2.2.11. Remove your local topic branch if you're done.
 
   ```sh
   git branch -d <branchname>
@@ -885,8 +617,9 @@
 ## 4. **Unit testing**
 
 [![Mocha JavaScript Testing][mocha-logo-image]][mocha-url]
+[![Chai BDD/TDD][chai-logo-image]][chai-url]
 
-* ### 4.1. Write Mocha tests.
+* ### 4.1. Write Mocha specifications (BDD tests).
 
   _Why:_
 
@@ -1128,7 +861,7 @@
 
   > ⌦ Lack of consistency and simplicity can massively increase integration and maintenance costs. Which is why `API design` is included in this document.
 
-- We mostly follow resource-oriented design. It has three main factors: resources, collection, and URLs.
+* We mostly follow resource-oriented design. It has three main factors: resources, collection, and URLs.
 
   * A resource has data, gets nested, and there are methods that operate against it.
   * A group of resources is called a collection.
@@ -1138,30 +871,30 @@
 
   > ⌦ This is a very well-known design to developers (your main API consumers). Apart from readability and ease of use, it allows us to write generic libraries and connectors without even knowing what the API is about.
 
-- Use kebab-case for URLs.
-- Use camelCase for parameters in the query string or resource fields.
-- Use plural kebab-case for resource names in URLs.
+* Use kebab-case for URLs.
+* Use camelCase for parameters in the query string or resource fields.
+* Use plural kebab-case for resource names in URLs.
 
-- Always use a plural nouns for naming a url pointing to a collection: `/users`.
+* Always use a plural nouns for naming a url pointing to a collection: `/users`.
 
   _Why:_
 
   > ⌦ Basically, it reads better and keeps URLs consistent. [read more...](https://apigee.com/about/blog/technology/restful-api-design-plural-nouns-and-concrete-names)
 
-- In the source code convert plurals to variables and properties with a List suffix.
+* In the source code convert plurals to variables and properties with a List suffix.
 
   _Why_:
 
   > ⌦ Plural is nice in the URL but in the source code, it’s just too subtle and error-prone.
 
-- Always use a singular concept that starts with a collection and ends to an identifier:
+* Always use a singular concept that starts with a collection and ends to an identifier:
 
   ```
   /students/245743
   /airports/kjfk
   ```
 
-- Avoid URLs like this:
+* Avoid URLs like this:
 
   ```
   GET /blogs/:blogId/posts/:postId/summary
@@ -1171,13 +904,13 @@
 
   > ⌦ This is not pointing to a resource but to a property instead. You can pass the property as a parameter to trim your response.
 
-- Keep verbs out of your resource URLs.
+* Keep verbs out of your resource URLs.
 
   _Why:_
 
   > ⌦ Because if you use a verb for each resource operation you soon will have a huge list of URLs and no consistent pattern which makes it difficult for developers to learn. Plus we use verbs for something else.
 
-- Use verbs for non-resources. In this case, your API doesn't return any resources. Instead, you execute an operation and return the result. These **are not** CRUD (create, retrieve, update, and delete) operations:
+* Use verbs for non-resources. In this case, your API doesn't return any resources. Instead, you execute an operation and return the result. These **are not** CRUD (create, retrieve, update, and delete) operations:
 
   ```
   /translate?text=Hallo
@@ -1187,25 +920,25 @@
 
   > ⌦ Because for CRUD we use HTTP methods on `resource` or `collection` URLs. The verbs we were talking about are actually `Controllers`. You usually don't develop many of these. [read more...](https://byrondover.github.io/post/restful-api-guidelines/#controller)
 
-- The request body or response type is JSON then please follow `camelCase` for `JSON` property names to maintain the consistency.
+* The request body or response type is JSON then please follow `camelCase` for `JSON` property names to maintain the consistency.
 
   _Why:_
 
   > ⌦ This is a JavaScript project guideline, Where Programming language for generating JSON as well as Programming language for parsing JSON are assumed to be JavaScript.
 
-- Even though a resource is a singular concept that is similar to an object instance or database record, you should not use your `table_name` for a resource name and `column_name` resource property.
+* Even though a resource is a singular concept that is similar to an object instance or database record, you should not use your `table_name` for a resource name and `column_name` resource property.
 
   _Why:_
 
   > ⌦ Because your intention is to expose Resources, not your database schema details.
 
-- Again, only use nouns in your URL when naming your resources and don’t try to explain their functionality.
+* Again, only use nouns in your URL when naming your resources and don’t try to explain their functionality.
 
   _Why:_
 
   > ⌦ Only use nouns in your resource URLs, avoid endpoints like `/addNewUser` or `/updateUser` . Also avoid sending resource operations as a parameter.
 
-- Explain the CRUD functionalities using HTTP methods:
+* Explain the CRUD functionalities using HTTP methods:
 
   _How:_
 
@@ -1228,13 +961,13 @@
   _How:_
 
   > `GET /schools/2/students` , should get the list of all students from school 2.
-
+  >
   > `GET /schools/2/students/31` , should get the details of student 31, which belongs to school 2.
-
+  >
   > `DELETE /schools/2/students/31` , should delete student 31, which belongs to school 2.
-
+  >
   > `PUT /schools/2/students/31` , should update info of student 31, Use PUT on resource-URL only, not collection.
-
+  >
   > `POST /schools` , should create a new school and return the details of the new school created. Use POST on collection-URLs.
 
 * Use a simple ordinal number for a version with a `v` prefix (v1, v2). Move it all the way to the left in the URL so that it has the highest scope:
@@ -1293,37 +1026,40 @@
 * Use only these 8 status codes to send with you response to describe whether **everything worked**,
   The **client app did something wrong** or The **API did something wrong**.
 
-      _Which ones:_
-      > `200 OK` response represents success for `GET`, `PUT` or `POST` requests.
-      >
-      > `201 Created` for when new instance is created. Creating a new instance, using `POST` method returns `201` status code.
-      >
-      > `304 Not Modified` response is to minimize information transfer when the recipient already has cached representations.
-      >
-      > `400 Bad Request` for when the request was not processed, as the server could not understand what the client is asking for.
-      >
-      > `401 Unauthorized` for when the request lacks valid credentials and it should re-request with the required credentials.
-      >
-      > `403 Forbidden` means the server understood the request but refuses to authorize it.
-      >
-      > `404 Not Found` indicates that the requested resource was not found.
-      >
-      > `500 Internal Server Error` indicates that the request is valid, but the server could not fulfill it due to some unexpected condition.
+  _Which ones:_
 
-      _Why:_
+  > `200 OK` response represents success for `GET`, `PUT` or `POST` requests.
+  >
+  > `201 Created` for when new instance is created. Creating a new instance, using `POST` method returns `201` status code.
+  >
+  > `304 Not Modified` response is to minimize information transfer when the recipient already has cached representations.
+  >
+  > `400 Bad Request` for when the request was not processed, as the server could not understand what the client is asking for.
+  >
+  > `401 Unauthorized` for when the request lacks valid credentials and it should re-request with the required credentials.
+  >
+  > `403 Forbidden` means the server understood the request but refuses to authorize it.
+  >
+  > `404 Not Found` indicates that the requested resource was not found.
+  >
+  > `500 Internal Server Error` indicates that the request is valid, but the server could not fulfill it due to some unexpected condition.
 
-      > ⌦ Most API providers use a small subset HTTP status codes. For example, the Google GData API uses only 10 status codes, Netflix uses 9, and Digg, only 8. Of course, these responses contain a body with additional information.There are over 70 HTTP status codes. However, most developers don't have all 70 memorized. So if you choose status codes that are not very common you will force application developers away from building their apps and over to wikipedia to figure out what you're trying to tell them. [read more...](https://apigee.com/about/blog/technology/restful-api-design-what-about-errors)
+  _Why:_
 
-- Provide total numbers of resources in your response.
-- Accept `limit` and `offset` parameters.
+  > ⌦ Most API providers use a small subset HTTP status codes. For example, the Google GData API uses only 10 status codes, Netflix uses 9, and Digg, only 8. Of course, these responses contain a body with additional information.There are over 70 HTTP status codes. However, most developers don't have all 70 memorized. So if you choose status codes that are not very common you will force application developers away from building their apps and over to wikipedia to figure out what you're trying to tell them. [read more...](https://apigee.com/about/blog/technology/restful-api-design-what-about-errors)
 
-- The amount of data the resource exposes should also be taken into account. The API consumer doesn't always need the full representation of a resource.Use a fields query parameter that takes a comma separated list of fields to include:
-  ```
+* Provide total numbers of resources in your response.
+* Accept `limit` and `offset` parameters.
+
+* The amount of data the resource exposes should also be taken into account. The API consumer doesn't always need the full representation of a resource.Use a fields query parameter that takes a comma separated list of fields to include:
+
+  ```http
   GET /student?fields=id,name,age,class
   ```
-- Pagination, filtering, and sorting don’t need to be supported from start for all resources. Document those resources that offer filtering and sorting.
 
-- ### 8.2 **API security**
+* Pagination, filtering, and sorting don’t need to be supported from start for all resources. Document those resources that offer filtering and sorting.
+
+* ### 8.2 **API security**
 
   These are some basic security best practices:
 
@@ -1363,7 +1099,7 @@
 
     > ⌦ For instance, accepting the `application/x-www-form-urlencoded` mime type allows the attacker to create a form and trigger a simple POST request. The server should never assume the Content-Type. A lack of Content-Type header or an unexpected Content-Type header should result in the server rejecting the content with a `4XX` response.
 
-- ### 8.3 **API documentation**
+* ### 8.3 **API documentation**
 
   * Fill the `API Endpoints` section in your README for programming interfaces.
   * Describe API authentication methods with a code sample.
@@ -1373,7 +1109,7 @@
 
   * URL Params If URL Params exist, specify them in accordance with name mentioned in URL section:
 
-    ```
+    ```text
     Required: id=[integer]
     Optional: photo_id=[alphanumeric]
     ```
@@ -1382,7 +1118,7 @@
 
   * **Success Responses.** What should be the status code and is there any return data? This is useful when people need to know what their callbacks should expect:
 
-    ```
+    ```text
     Code: 200
     Content: { id : 12 }
     ```
@@ -1391,7 +1127,7 @@
 
     * **HTTP status code**
 
-      ```
+      ```http
       404 Not Found
       ```
 
@@ -1409,7 +1145,8 @@
       ```
 
     * **Response headers**
-      ```
+
+      ```http
       accept-ranges: bytes
       access-control-allow-headers: Authorization
       access-control-allow-methods: GET, HEAD, OPTIONS
@@ -1439,16 +1176,16 @@ Make sure you use resources that you have the rights to use. If you use librarie
 [all-contributors-cli-url]: https://github.com/kentcdodds/all-contributors
 [autosquashing-git-commits-url]: https://robots.thoughtbot.com/autosquashing-git-commits
 [changelog-url]: ./CHANGELOG.md
+[chai-logo-image]: ./.github/assets/img/logo-chaijs.png
+[chai-url]: http://www.chaijs.com/
 [cite-interview-torvalds-url]: https://techcrunch.com/2012/04/19/an-interview-with-millenium-technology-prize-finalist-linus-torvalds/
 [cla-url]: https://www.clahub.com/agreements/democracy-ia/govinfo-link-js
 [code-of-conduct-url]: ./CODE_OF_CONDUCT.md
 [commitplease-url]: https://www.npmjs.com/package/commitplease
-[commonality-palette-image]: ./.github/assets/img/palette.svg
 [contributing-url]: ./CONTRIBUTING.md
 [contribution-lifecycle-issues-image]: ./.github/assets/img/icons8/contribution-lifecycle-create-issue.png
 [contribution-lifecycle-pr-image]: ./.github/assets/img/icons8/contribution-lifecycle-pr.png
 [conventional-commits-url]: https://conventionalcommits.org
-[coolors-palette-url]: https://coolors.co/cfdbd5-e8eddf-f5cb5c-242423-333533
 [eslint-logo-image]: ./.github/assets/img/logo-eslint.png
 [eslint-rules-table-url]: .github/eslint-rules-table.md
 [eslint-url]: https://eslint.org
@@ -1466,11 +1203,10 @@ Make sure you use resources that you have the rights to use. If you use librarie
 [icon-issue-image]: ./.github/assets/img/icons8/icon-issues.png
 [icon-pr-image]: ./.github/assets/img/icons8/icon-pr.png
 [icon-rest-api-image]: ./.github/assets/img/icons8/icon-rest-api.png
-[issues-new-defect-image]: https://img.shields.io/badge/report---defect---lightgrey.svg?style=for-the-badge&label=report+a
-[issues-new-defect-url]: /democracy-ia/govinfo-link-js.git/issues/new?title=defect%28scope%29%3A+summary-of-change&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+defect&body=%2A%2A%F0%9F%92%A1+TIP%3A%2A%2A+Select+the+%E2%86%96%EF%B8%8E%E2%8E%BE+Preview+%E2%8F%8B+Tab+above+help+read+these+instructions.%0D%0A%0D%0A%23%23+1.+Issue+type%0D%0A%3E%E2%8C%A6+Type+the+letter+%22x%22+in+the+%22checkbox%22+the+best+describe+this+issue.%0D%0A%0D%0A-+%5Bx%5D+**Feature%3A**+I%27m+requesting+a+product+enhancement.%0D%0A%0D%0A%23%23+2.+User+story+summary%0D%0A%3E%E2%8C%A6+Describe+what+you+want+to+accomplish%2C+in+what+role%2Fcapacity%2C+and+why+it%27s+important+to+you.%0D%0A%0D%0A%3E+**EXAMPLE%3A**%0D%0A%3E+As+a+Applicant%2C%0D%0A%3E+I+want+to+submit+my+resume%0D%0A%3E+In+order+to+be+considered+for+a+job+opening.%0D%0A%0D%0AAs+a+%7Brole%7D%2C%0D%0AI+must%2Fneed%2Fwant%2Fshould+%7Bdo+something%7D%0D%0AIn+order+to+%7Bachieve+value%7D.%0D%0A%0D%0A%23%23+3.+Acceptance+criteria%0D%0A%3E%E2%8C%A6+Replace+the+examples+below+with+your+own+imperative%2C+%22true%2Ffalse%22+statements+for+the+**behavior+you+expect**+to+see%2C+or+the+behavior+that+**would**+be+true+if+there+were+no+errors+%28for+defects%29.%0D%0A%0D%0A-+%5B+%5D+1.+Job+Applicants+receive+a+confirmation+email+after+they+submit+their+resumes.%0D%0A-+%5B+%5D+2.+An+Applicant%27s+resume+information+isn%27t+lost+when+errors+occur.%0D%0A-+%5B+%5D+3.+%7Bcriterion-three%7D%0D%0A-+%5B+%5D+4.+%7Bcriterion-four%7D%0D%0A%0D%0A%3C%21--+%E2%9B%94%EF%B8%8F++Do+not+remove+anything+below+this+comment.+%E2%9B%94%EF%B8%8F++--%3E%0D%0A%5Bicon-info-image%5D%3A+..%2Fdocs%2Fimg%2Ficons8%2Ficon-info-50.png%0D%0A
-[issues-new-defect-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=defect%28scope%29%3A+summary-of-problem&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+defect&body=%2A%2A%F0%9F%92%A1+TIP%3A%2A%2A+Select+the+%E2%86%96%EF%B8%8E%E2%8E%BE+Preview+%E2%8F%8B+Tab+above+help+read+these+instructions.%0D%0A%0D%0A%23%23+1.+Issue+type%0D%0A%3E%E2%8C%A6+Type+the+letter+%22x%22+in+the+%22checkbox%22+the+best+describe+this+issue.%0D%0A%0D%0A-+%5Bx%5D+**Feature%3A**+I%27m+requesting+a+product+enhancement.%0D%0A%0D%0A%23%23+2.+User+story+summary%0D%0A%3E%E2%8C%A6+Describe+what+you+want+to+accomplish%2C+in+what+role%2Fcapacity%2C+and+why+it%27s+important+to+you.%0D%0A%0D%0A%3E+**EXAMPLE%3A**%0D%0A%3E+As+a+Applicant%2C%0D%0A%3E+I+want+to+submit+my+resume%0D%0A%3E+In+order+to+be+considered+for+a+job+opening.%0D%0A%0D%0AAs+a+%7Brole%7D%2C%0D%0AI+must%2Fneed%2Fwant%2Fshould+%7Bdo+something%7D%0D%0AIn+order+to+%7Bachieve+value%7D.%0D%0A%0D%0A%23%23+3.+Acceptance+criteria%0D%0A%3E%E2%8C%A6+Replace+the+examples+below+with+your+own+imperative%2C+%22true%2Ffalse%22+statements+for+the+**behavior+you+expect**+to+see%2C+or+the+behavior+that+**would**+be+true+if+there+were+no+errors+%28for+defects%29.%0D%0A%0D%0A-+%5B+%5D+1.+Job+Applicants+receive+a+confirmation+email+after+they+submit+their+resumes.%0D%0A-+%5B+%5D+2.+An+Applicant%27s+resume+information+isn%27t+lost+when+errors+occur.%0D%0A-+%5B+%5D+3.+%7Bcriterion-three%7D%0D%0A-+%5B+%5D+4.+%7Bcriterion-four%7D%0D%0A%0D%0A%3C%21--+%E2%9B%94%EF%B8%8F++Do+not+remove+anything+below+this+comment.+%E2%9B%94%EF%B8%8F++--%3E%0D%0A%5Bicon-info-image%5D%3A+..%2Fdocs%2Fimg%2Ficons8%2Ficon-info-50.png%0D%0A
-[issues-new-feat-image]: https://img.shields.io/badge/request---feature---blue.svg?style=for-the-badge&label=request+a
-[issues-new-feat-url]: /democracy-ia/govinfo-link-js.git/issues/new?title=feat%28scope%29%3A+summary-of-change&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+feature&template=defect-report.md
+[issues-new-defect-image]: https://img.shields.io/badge/report-defect-lightgrey.svg?style=for-the-badge&label=report+a
+[issues-new-defect-url]: /democracy-ia/govinfo-link-js.git/issues/new?title=defect%28scope%29%3A+summary-of-change&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+defect&template=defect-report.md
+[issues-new-feat-image]: https://img.shields.io/badge/-feature-blue.svg?style=for-the-badge&label=request+a
+[issues-new-feat-url]: /democracy-ia/govinfo-link-js.git/issues/new?title=feat%28scope%29%3A+summary-of-change&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+feature&template=feature-request.md
 [issues-new-feat-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=feat%28scope%29%3A+summary-of-change&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+feature&template=feature-request.md
 [issues-url]: /democracy-ia/govinfo-link-js/issues
 [issues-url]: https://github.com/democracy-ia/govinfo-link-js/issues
