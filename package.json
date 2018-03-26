@@ -2,10 +2,11 @@
   "name": "govinfo-link-js",
   "description":
     "Access U.S. Government Publishing Office's FDsys (Federal Digital System) content and metadata collections using the govinfo-link-js client of Node.js and Web browsers.",
-  "version": "0.5.0",
+  "version": "0.0.0-development",
   "author": {
     "name": "United States Government Publishing Office",
-    "url": "https://github.com/usgpo"
+    "url": "https://github.com/usgpo",
+    "email": "collab.democracy-ia@gmail.com"
   },
   "browser": {
     "fs": false
@@ -48,6 +49,7 @@
     "@semantic-release/changelog": "2.0.1",
     "@semantic-release/git": "4.0.1",
     "@semantic-release/npm": "3.2.2",
+    "@semantic-release/release-notes-generator": "6.0.8",
     "ajv": "6.4.0",
     "ajv-keywords": "3.1.0",
     "chai": "4.1.2",
@@ -82,8 +84,9 @@
     "nsp": "^3.2.1",
     "nyc": "11.6.0",
     "prettier": "1.11.1",
-    "semantic-release": "15.1.4",
-    "sinon": "4.4.8"
+    "semantic-release": "^15.1.4",
+    "sinon": "4.4.8",
+    "travis-deploy-once": "^4.4.1"
   },
   "engines": {
     "node": ">=6"
@@ -126,22 +129,12 @@
     "singleQuote": true
   },
   "release": {
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      "@semantic-release/github"
-    ],
-    "publish": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git",
-      "@semantic-release/github"
-    ]
+    "verifyConditions": ["@semantic-release/npm", "@semantic-release/github"],
+    "publish": ["@semantic-release/npm", "@semantic-release/github"]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/democracy-ia/govinfo-link-js.git"
+    "url": "https://github.com/democracy-ia/govinfo-link-js.git"
   },
   "scripts": {
     "docs": "npm run docs:toc",
@@ -167,6 +160,7 @@
     "security:nsp:download": "nsp gather --ignore-server-errors",
     "security:nsp:scan": "nsp check --ignore-server-errors",
     "semantic-release": "semantic-release",
-    "test": "nyc mocha 'test/**/*.spec.js'"
+    "test": "nyc mocha 'test/**/*.spec.js'",
+    "travis-deploy-once": "travis-deploy-once"
   }
 }
