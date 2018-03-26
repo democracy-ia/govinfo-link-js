@@ -149,10 +149,9 @@
       "md-magic --config .github/config/markdown.config.js --path '**/*.md' --ignore 'node_modules'",
     "lint":
       "npm run lint:js && npm run lint:json && npm run lint:manifest && npm run lint:md",
-    "lint:js":
-      "eslint --config '.github/config/.eslintrc.yml' --ext .js . --fix",
+    "lint:js": "eslint --config .github/config/.eslintrc.yml --ext .js . --fix",
     "lint:json":
-      "prettier ./**/*.json --ignore-path '.github/config/.prettierignore' --write",
+      "prettier ./**/*.json --ignore-path .github/config/.prettierignore --write",
     "lint:manifest": "fixpack",
     "lint:md": "prettier **/*.md *.md -prose-wrap always --write",
     "posttest": "npm run security",
