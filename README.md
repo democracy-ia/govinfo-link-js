@@ -277,26 +277,25 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 
 <!-- ⛔️ Images ⛔️ -->
 
+[api-26-image]: .github/assets/img/icons8/icon-api-26.png
 [conduct-url]: CODE_OF_CONDUCT.md
 [contributing-image]: https://img.shields.io/badge/read-CONTRIBUTING%20Guidelines-yellow.svg?style=for-the-badge&label=read+the
 [contributing-url]: CONTRIBUTING.md
-[makeapullrequest-url]: http://makeapullrequest.com
-[makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
-[logo-js-image]: https://avatars1.githubusercontent.com/u/34581173?s=200&v=4
 [issues-new-defect-image]: https://img.shields.io/badge/report-defect-lightgrey.svg?style=for-the-badge&label=report+a
 [issues-new-defect-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=fix%28scope%29%3A+50-character-defect-summary&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+defect&template=defect-report.md
-[issues-url]: https://github.com/democracy-ia/govinfo-link-js/issues
-[issues-new-feat-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=feat%28scope%29%3A+50-character-change-proposal-summary&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+Feature&template=feature-request.md
 [issues-new-feat-image]: https://img.shields.io/badge/request-feature-blue.svg?style=for-the-badge&label=request+a
-[api-26-image]: .github/assets/img/icons8/icon-api-26.png
+[issues-new-feat-url]: https://github.com/democracy-ia/govinfo-link-js/issues/new?title=feat%28scope%29%3A+50-character-change-proposal-summary&labels=priority%3A+medium%2Cstatus%3A+review+needed%2Ctype%3A+Feature&template=feature-request.md
+[issues-url]: https://github.com/democracy-ia/govinfo-link-js/issues
+[logo-js-image]: https://avatars1.githubusercontent.com/u/34581173?s=200&v=4
+[makeapullrequest-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[makeapullrequest-url]: http://makeapullrequest.com
 
 <!-- ⛔️ CI Services ⛔️  -->
 
-[notice-url]: https://app.fossa.io/reports/07123904-7d26-40a6-b6af-c74e82a53789
 [appveyor-image]: https://img.shields.io/appveyor/ci/democracy-ia/govinfo-link-js.svg?style=flat-square&logo=appveyor&label=windows%20build
 [appveyor-url]: https://ci.appveyor.com/project/democracy-ia/govinfo-link-js
-[codacy-image]: https://img.shields.io/codacy/grade/b3ac6aaaa3cf41d0897959c1e5d732a3.svg?style=flat-square
 [codacy-coverage-image]: https://img.shields.io/codacy/coverage/b3ac6aaaa3cf41d0897959c1e5d732a3.svg?style=flat-square
+[codacy-image]: https://img.shields.io/codacy/grade/b3ac6aaaa3cf41d0897959c1e5d732a3.svg?style=flat-square
 [codacy-url]: https://www.codacy.com/app/greg_7/govinfo-link-js?utm_source=github.com&utm_medium=referral&utm_content=democracy-ia/govinfo-link-js&utm_campaign=Badge_Grade
 [coveralls-image]: https://img.shields.io/coveralls/github/democracy-ia/govinfo-link-js/master.svg
 [coveralls-url]: https://coveralls.io/r/democracy-ia/govinfo-link-js
@@ -308,6 +307,7 @@ Contributions in the form of GitHub pull requests are welcome. Before embarking 
 [fossa-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Fdemocracy-ia%2Fgovinfo-link-js?ref=badge_shield
 [license-image]: https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat-square
 [license-url]: http://www.apache.org/licenses/LICENSE-2.0
+[notice-url]: https://app.fossa.io/reports/07123904-7d26-40a6-b6af-c74e82a53789
 [npm-image]: https://badge.fury.io/js/govinfo-link-js.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/govinfo-link-js
 [npms-image]: https://badges.npms.io/govinfo-link-js.svg?style=flat-square
