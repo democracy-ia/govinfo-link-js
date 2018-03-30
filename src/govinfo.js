@@ -36,7 +36,70 @@
   } else if (typeof module === 'object' && module.exports) {
     // CommonJS-like environments that support module.exports, like Node.
 
-    module.exports = factory(require('./ApiClient'), require('./api/CodeOfFederalRegulations'), require('./api/CompilationOfPresidentialDocuments'), require('./api/CongressionalBills'), require('./api/CongressionalCalendars'), require('./api/CongressionalCommitteePrints'), require('./api/CongressionalDocuments'), require('./api/CongressionalHearings'), require('./api/CongressionalRecordDaily'), require('./api/CongressionalReports'), require('./api/FederalRegister'), require('./api/PublicAndPrivateLaws'), require('./api/StatutesAtLarge'), require('./api/UnitedStatesCode'))
+    const ApiClient = require('./ApiClient')
+    const CodeOfFederalRegulations = require('./api/CodeOfFederalRegulations')
+    const CompilationOfPresidentialDocuments = require('./api/CompilationOfPresidentialDocuments')
+    const CongressionalBills = require('./api/CongressionalBills')
+    const CongressionalCalendars = require('./api/CongressionalCalendars')
+    const CongressionalCommitteePrints = require('./api/CongressionalCommitteePrints')
+    const CongressionalDocuments = require('./api/CongressionalDocuments')
+    const CongressionalHearings = require('./api/CongressionalHearings')
+    const CongressionalRecordDaily = require('./api/CongressionalRecordDaily')
+    const CongressionalReports = require('./api/CongressionalReports')
+    const FederalRegister = require('./api/FederalRegister')
+    const PublicAndPrivateLaws = require('./api/PublicAndPrivateLaws')
+    const StatutesAtLarge = require('./api/StatutesAtLarge')
+    const UnitedStatesCode = require('./api/UnitedStatesCode')
+    // const { promisify } = require('util')
+    const pify = require('pify')
+
+    // 5.0.
+    ApiClient.prototype.callApi = pify(ApiClient.prototype.callApi)
+    // 5.1.
+    CodeOfFederalRegulations.prototype = pify(CodeOfFederalRegulations)
+    // 5.2.
+    CodeOfFederalRegulations.prototype = pify(CodeOfFederalRegulations)
+    // 5.3.
+    CompilationOfPresidentialDocuments.prototype = pify(CompilationOfPresidentialDocuments)
+    
+    CongressionalBills.prototype = pify(CongressionalBills)
+    
+    CongressionalCalendars.prototype =  pify(CongressionalCalendars)
+    
+    CongressionalCommitteePrints.prototype =  pify(CongressionalCommitteePrints)
+    
+    CongressionalDocuments.prototype =  pify(CongressionalDocuments)
+    
+    CongressionalHearings.prototype =  pify(CongressionalHearings)
+    
+    CongressionalRecordDaily.prototype =  pify(CongressionalRecordDaily)
+    
+    CongressionalReports.prototype =  pify(CongressionalReports)
+    
+    FederalRegister.prototype =  pify(FederalRegister)
+    
+    PublicAndPrivateLaws.prototype =  pify(PublicAndPrivateLaws)
+    
+    StatutesAtLarge.prototype =  pify(StatutesAtLarge)
+    
+    UnitedStatesCode.prototype =  pify(UnitedStatesCode)
+
+    module.exports = factory(
+      ApiClient,
+      CodeOfFederalRegulations,
+      CompilationOfPresidentialDocuments,
+      CongressionalBills,
+      CongressionalCalendars,
+      CongressionalCommitteePrints,
+      CongressionalDocuments,
+      CongressionalHearings,
+      CongressionalRecordDaily,
+      CongressionalReports,
+      FederalRegister,
+      PublicAndPrivateLaws,
+      StatutesAtLarge,
+      UnitedStatesCode
+    )
   }
 }((ApiClient, CodeOfFederalRegulations, CompilationOfPresidentialDocuments, CongressionalBills, CongressionalCalendars, CongressionalCommitteePrints, CongressionalDocuments, CongressionalHearings, CongressionalRecordDaily, CongressionalReports, FederalRegister, PublicAndPrivateLaws, StatutesAtLarge, UnitedStatesCode) => {
   /**

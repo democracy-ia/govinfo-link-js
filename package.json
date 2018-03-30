@@ -40,8 +40,8 @@
     "bunyan-format": "0.2.1",
     "dotenv": "5.0.1",
     "insight": "0.10.1",
-    "jsonexport": "2.0.11",
     "lodash": "4.17.5",
+    "pify": "3.0.0",
     "superagent": "3.8.2",
     "xml-js": "1.6.2"
   },
